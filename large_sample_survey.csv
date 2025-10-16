@@ -1,0 +1,1001 @@
+Employee_ID,Name,Age,Department,Location,Job_Level,Tenure,Overall_Satisfaction,Work_Life_Balance,Benefits_Rating,Would_Recommend,Remote_Preference,Survey_Date,Feedback
+EMP0001,Paul Adams,40,Finance,Detroit,Senior,< 1 year,Neutral,Excellent,Poor,Not Sure,Fully Office,2024-01-18,Office space needs improvement
+EMP0002,Sharon Davis,62,Operations,Houston,Junior,2-5 years,Very Satisfied,Fair,Below Average,Definitely,Hybrid (2 days office),2024-02-24,Good work-life balance
+EMP0003,David Flores,22,Product,Los Angeles,Senior,2-5 years,Very Dissatisfied,Fair,Below Average,Definitely Not,Hybrid (2 days office),2024-01-26,Office space needs improvement
+EMP0004,William King,59,Finance,San Antonio,Senior,5-10 years,Dissatisfied,Poor,Below Average,Probably Not,Fully Remote,2024-01-27,Office space needs improvement
+EMP0005,Gary Ramirez,48,HR,Portland,Lead,2-5 years,Very Satisfied,Fair,Excellent,Probably,Mostly Office,2024-02-21,Modern tools and technology
+EMP0006,Ryan Adams,39,HR,Philadelphia,Junior,2-5 years,Satisfied,Poor,Excellent,Probably Not,Hybrid (2 days office),2024-03-17,Modern tools and technology
+EMP0007,Daniel Roberts,46,Operations,Detroit,Director,2-5 years,Satisfied,Fair,Good,Definitely,Hybrid (3 days office),2024-02-17,Clear career progression path
+EMP0008,Anthony Harris,48,Finance,Philadelphia,Senior,< 1 year,Neutral,Fair,Poor,Probably,Hybrid (2 days office),2024-01-06,Unclear performance evaluation process
+EMP0009,Lisa Thompson,43,Customer Support,Atlanta,Mid-Level,2-5 years,Very Dissatisfied,Good,Good,Probably Not,Hybrid (3 days office),2024-03-25,Would like more training opportunities
+EMP0010,Jennifer Thomas,47,Marketing,San Diego,Mid-Level,10+ years,Very Dissatisfied,Fair,Good,Definitely Not,Fully Remote,2024-03-25,Benefits package could be better
+EMP0011,Mary Green,60,Sales,Austin,Mid-Level,10+ years,Satisfied,Fair,Good,Definitely,Fully Remote,2024-01-07,Clear career progression path
+EMP0012,Jessica Hall,32,IT,San Antonio,Manager,10+ years,Neutral,Fair,Average,Probably,Hybrid (3 days office),2024-02-04,Benefits package could be better
+EMP0013,Amanda Lee,40,Marketing,San Jose,Junior,2-5 years,Dissatisfied,Fair,Excellent,Probably Not,Fully Remote,2024-03-15,Benefits package could be better
+EMP0014,James Hill,62,Marketing,Chicago,Senior,10+ years,Dissatisfied,Fair,Average,Probably,Fully Remote,2024-01-20,Salary not competitive with market
+EMP0015,Barbara Carter,58,Finance,Phoenix,Senior,2-5 years,Satisfied,Good,Below Average,Probably,Fully Office,2024-02-01,Great team collaboration and culture
+EMP0016,Cynthia Walker,31,Sales,Seattle,Junior,5-10 years,Very Satisfied,Good,Below Average,Not Sure,Hybrid (2 days office),2024-03-28,Professional development opportunities
+EMP0017,Stephanie Miller,23,Customer Support,New York,Lead,1-2 years,Satisfied,Excellent,Poor,Probably,Fully Remote,2024-02-19,Inclusive and diverse workplace
+EMP0018,Ronald Campbell,38,Finance,Seattle,Mid-Level,5-10 years,Neutral,Excellent,Below Average,Definitely,Fully Office,2024-01-12,Unclear performance evaluation process
+EMP0019,Steven Hall,27,Product,Los Angeles,Lead,< 1 year,Neutral,Excellent,Below Average,Not Sure,Mostly Office,2024-03-07,Limited remote work options
+EMP0020,Ashley Wright,53,Engineering,Los Angeles,Director,5-10 years,Neutral,Good,Good,Probably Not,Mostly Office,2024-01-03,Could improve communication between teams
+EMP0021,Kimberly Lewis,61,IT,Philadelphia,Lead,2-5 years,Very Dissatisfied,Fair,Average,Definitely Not,Mostly Office,2024-03-25,Salary not competitive with market
+EMP0022,Daniel Williams,39,Product,San Jose,Junior,10+ years,Dissatisfied,Good,Poor,Definitely Not,Hybrid (3 days office),2024-03-13,Salary not competitive with market
+EMP0023,Jeffrey Thomas,53,Marketing,Dallas,Junior,10+ years,Neutral,Good,Good,Not Sure,Mostly Office,2024-02-13,Workload can be overwhelming at times
+EMP0024,Mark Lopez,34,Engineering,Austin,Manager,5-10 years,Satisfied,Fair,Poor,Definitely,Fully Office,2024-02-08,Good work-life balance
+EMP0025,Eric Harris,31,IT,Boston,Manager,10+ years,Satisfied,Good,Good,Definitely,Hybrid (2 days office),2024-01-13,Flexible working hours
+EMP0026,Jessica Martinez,60,Operations,Portland,Lead,1-2 years,Satisfied,Good,Good,Probably,Fully Remote,2024-01-19,Strong leadership and clear direction
+EMP0027,Christopher Williams,38,Operations,Houston,Lead,1-2 years,Very Dissatisfied,Good,Average,Probably Not,Fully Office,2024-01-06,More transparency from leadership needed
+EMP0028,Susan Williams,40,Operations,Los Angeles,Manager,1-2 years,Neutral,Fair,Average,Not Sure,Mostly Office,2024-03-27,Unclear performance evaluation process
+EMP0029,Stephanie Garcia,60,Finance,San Jose,Mid-Level,5-10 years,Satisfied,Poor,Excellent,Not Sure,Hybrid (3 days office),2024-03-15,Good work-life balance
+EMP0030,Emily Young,48,Sales,Denver,Junior,< 1 year,Dissatisfied,Excellent,Average,Definitely Not,Hybrid (3 days office),2024-03-06,Could improve communication between teams
+EMP0031,Barbara Rodriguez,49,Legal,Miami,Lead,5-10 years,Neutral,Poor,Below Average,Definitely Not,Fully Remote,2024-02-07,Salary not competitive with market
+EMP0032,John Wright,32,Product,Phoenix,Director,1-2 years,Satisfied,Excellent,Excellent,Probably,Fully Remote,2024-03-28,Great team collaboration and culture
+EMP0033,Sharon Martinez,30,HR,Philadelphia,Manager,1-2 years,Dissatisfied,Good,Below Average,Definitely Not,Mostly Office,2024-01-05,Could improve communication between teams
+EMP0034,John Adams,37,Operations,Philadelphia,Lead,2-5 years,Dissatisfied,Fair,Good,Probably Not,Mostly Office,2024-03-22,Unclear performance evaluation process
+EMP0035,Gary Green,45,Operations,Austin,Mid-Level,1-2 years,Very Satisfied,Fair,Poor,Definitely,Fully Office,2024-03-15,Great team collaboration and culture
+EMP0036,Mary Sanchez,49,Legal,San Jose,Lead,2-5 years,Very Satisfied,Fair,Below Average,Definitely,Hybrid (2 days office),2024-01-25,Inclusive and diverse workplace
+EMP0037,Donna Turner,56,Legal,Phoenix,Manager,5-10 years,Neutral,Good,Average,Definitely,Hybrid (2 days office),2024-02-26,Unclear performance evaluation process
+EMP0038,Kathleen Anderson,33,Marketing,Austin,Manager,5-10 years,Neutral,Good,Below Average,Not Sure,Fully Office,2024-01-13,Benefits package could be better
+EMP0039,Jane Young,65,HR,Denver,Director,< 1 year,Satisfied,Excellent,Average,Definitely,Fully Remote,2024-01-03,Inclusive and diverse workplace
+EMP0040,Jane Allen,44,Sales,Austin,Mid-Level,< 1 year,Satisfied,Fair,Below Average,Definitely,Fully Office,2024-03-25,Modern tools and technology
+EMP0041,Jane Davis,28,Marketing,Houston,Senior,5-10 years,Satisfied,Poor,Good,Probably,Hybrid (3 days office),2024-02-08,Good work-life balance
+EMP0042,Donna Walker,57,IT,Los Angeles,Junior,1-2 years,Dissatisfied,Fair,Excellent,Definitely Not,Mostly Office,2024-02-28,Salary not competitive with market
+EMP0043,Barbara Campbell,55,HR,Philadelphia,Mid-Level,10+ years,Dissatisfied,Excellent,Below Average,Probably Not,Hybrid (2 days office),2024-01-14,Workload can be overwhelming at times
+EMP0044,Nicholas Torres,51,Sales,Los Angeles,Lead,5-10 years,Very Satisfied,Fair,Average,Definitely,Fully Office,2024-01-17,Good work-life balance
+EMP0045,Steven Gomez,38,IT,San Diego,Lead,2-5 years,Very Satisfied,Good,Average,Not Sure,Mostly Office,2024-02-19,Clear career progression path
+EMP0046,Carol Mitchell,42,Legal,Philadelphia,Mid-Level,5-10 years,Neutral,Good,Poor,Definitely Not,Hybrid (2 days office),2024-03-17,Benefits package could be better
+EMP0047,Ryan Thomas,40,Legal,Portland,Mid-Level,1-2 years,Satisfied,Fair,Poor,Probably,Fully Office,2024-03-21,Flexible working hours
+EMP0048,Helen Adams,44,IT,San Diego,Mid-Level,< 1 year,Dissatisfied,Excellent,Good,Probably Not,Hybrid (3 days office),2024-03-25,Unclear performance evaluation process
+EMP0049,Steven Campbell,32,Customer Support,Houston,Manager,2-5 years,Satisfied,Fair,Average,Probably Not,Hybrid (2 days office),2024-01-29,Good work-life balance
+EMP0050,Jacob Turner,56,Marketing,Philadelphia,Manager,1-2 years,Very Satisfied,Good,Average,Probably,Hybrid (3 days office),2024-02-22,Clear career progression path
+EMP0051,Cynthia Parker,42,IT,Houston,Mid-Level,1-2 years,Neutral,Excellent,Excellent,Definitely Not,Hybrid (3 days office),2024-01-12,Office space needs improvement
+EMP0052,Joshua White,51,Product,New York,Lead,5-10 years,Very Satisfied,Good,Good,Probably,Mostly Office,2024-03-13,Competitive salary and benefits
+EMP0053,Gary Young,26,IT,Dallas,Mid-Level,10+ years,Dissatisfied,Good,Below Average,Not Sure,Mostly Office,2024-02-18,Would like more training opportunities
+EMP0054,David Taylor,62,IT,Dallas,Lead,2-5 years,Satisfied,Good,Good,Definitely,Hybrid (3 days office),2024-03-22,Modern tools and technology
+EMP0055,Gary Lopez,52,Sales,Detroit,Manager,< 1 year,Very Satisfied,Good,Poor,Not Sure,Mostly Office,2024-01-01,Good work-life balance
+EMP0056,Patricia Gomez,34,Engineering,Austin,Senior,< 1 year,Dissatisfied,Fair,Poor,Definitely Not,Hybrid (3 days office),2024-03-20,Unclear performance evaluation process
+EMP0057,Andrew Williams,58,Sales,San Antonio,Manager,2-5 years,Very Satisfied,Fair,Excellent,Definitely,Hybrid (3 days office),2024-02-12,Competitive salary and benefits
+EMP0058,Stephen Smith,35,Finance,Seattle,Lead,10+ years,Neutral,Excellent,Poor,Definitely,Fully Remote,2024-02-22,Would like more training opportunities
+EMP0059,Daniel Hall,59,IT,Houston,Director,< 1 year,Satisfied,Excellent,Good,Not Sure,Hybrid (3 days office),2024-02-05,Interesting and challenging projects
+EMP0060,Jeffrey Brown,41,IT,Denver,Manager,1-2 years,Neutral,Good,Average,Not Sure,Hybrid (2 days office),2024-02-17,Unclear performance evaluation process
+EMP0061,Ronald Gomez,56,Sales,Seattle,Mid-Level,< 1 year,Satisfied,Good,Average,Probably,Fully Office,2024-02-24,Competitive salary and benefits
+EMP0062,Donna Sanchez,58,Customer Support,New York,Senior,2-5 years,Satisfied,Excellent,Average,Not Sure,Mostly Office,2024-02-29,Inclusive and diverse workplace
+EMP0063,Cynthia Rodriguez,63,Operations,Portland,Senior,5-10 years,Very Dissatisfied,Fair,Excellent,Definitely Not,Fully Remote,2024-01-17,More transparency from leadership needed
+EMP0064,Helen Wright,50,Sales,Denver,Junior,5-10 years,Satisfied,Poor,Average,Probably,Mostly Office,2024-02-14,Strong leadership and clear direction
+EMP0065,Emily White,46,Customer Support,Dallas,Director,2-5 years,Neutral,Excellent,Excellent,Not Sure,Hybrid (3 days office),2024-01-14,Could improve communication between teams
+EMP0066,Nicholas Green,44,Product,Austin,Lead,< 1 year,Neutral,Fair,Good,Probably,Fully Office,2024-01-07,Could improve communication between teams
+EMP0067,Paul Green,22,Finance,Los Angeles,Mid-Level,10+ years,Neutral,Fair,Excellent,Probably,Fully Office,2024-03-30,Limited remote work options
+EMP0068,Christopher Nelson,23,Sales,Chicago,Senior,10+ years,Satisfied,Fair,Good,Definitely,Fully Remote,2024-02-16,Good work-life balance
+EMP0069,Edward Torres,56,Operations,San Antonio,Mid-Level,2-5 years,Very Dissatisfied,Fair,Good,Probably Not,Hybrid (2 days office),2024-01-08,Unclear performance evaluation process
+EMP0070,Edward Brown,52,Sales,Detroit,Manager,10+ years,Satisfied,Fair,Excellent,Definitely,Mostly Office,2024-01-15,Strong leadership and clear direction
+EMP0071,Deborah Smith,57,IT,Phoenix,Lead,2-5 years,Very Satisfied,Good,Poor,Definitely,Fully Remote,2024-02-04,Flexible working hours
+EMP0072,Barbara Moore,58,HR,Philadelphia,Mid-Level,1-2 years,Very Satisfied,Excellent,Good,Definitely,Fully Office,2024-02-05,Strong leadership and clear direction
+EMP0073,Jeffrey Lopez,47,HR,Dallas,Lead,10+ years,Very Satisfied,Poor,Below Average,Definitely,Fully Remote,2024-02-19,Modern tools and technology
+EMP0074,Nicholas King,50,Finance,San Jose,Senior,2-5 years,Dissatisfied,Excellent,Below Average,Not Sure,Fully Remote,2024-03-13,Office space needs improvement
+EMP0075,George Smith,45,HR,San Diego,Manager,2-5 years,Satisfied,Good,Poor,Definitely,Hybrid (2 days office),2024-02-04,Modern tools and technology
+EMP0076,Daniel Thompson,36,Legal,Seattle,Junior,2-5 years,Very Satisfied,Good,Below Average,Definitely,Fully Office,2024-01-15,Interesting and challenging projects
+EMP0077,Jonathan Hill,27,Marketing,Austin,Manager,5-10 years,Neutral,Excellent,Average,Probably,Fully Remote,2024-03-01,Benefits package could be better
+EMP0078,Michelle Miller,55,HR,Philadelphia,Junior,10+ years,Neutral,Good,Good,Definitely,Fully Office,2024-01-22,Office space needs improvement
+EMP0079,Michael Green,22,Sales,New York,Junior,< 1 year,Neutral,Fair,Below Average,Definitely Not,Fully Remote,2024-02-11,Limited remote work options
+EMP0080,Donald White,35,Sales,San Jose,Mid-Level,< 1 year,Very Satisfied,Poor,Below Average,Probably,Hybrid (3 days office),2024-01-20,Great team collaboration and culture
+EMP0081,Donna Garcia,32,Engineering,San Jose,Junior,< 1 year,Very Dissatisfied,Excellent,Excellent,Definitely Not,Fully Office,2024-01-24,Unclear performance evaluation process
+EMP0082,Ryan Green,59,Operations,Portland,Director,10+ years,Very Dissatisfied,Fair,Excellent,Not Sure,Mostly Office,2024-02-25,Office space needs improvement
+EMP0083,Melissa Diaz,44,Customer Support,Dallas,Manager,5-10 years,Very Dissatisfied,Poor,Good,Probably Not,Hybrid (2 days office),2024-01-13,Limited remote work options
+EMP0084,Susan Baker,23,Product,Phoenix,Lead,1-2 years,Very Satisfied,Fair,Good,Probably,Fully Remote,2024-01-18,Interesting and challenging projects
+EMP0085,Christopher King,23,HR,Miami,Senior,2-5 years,Very Dissatisfied,Poor,Poor,Not Sure,Hybrid (2 days office),2024-03-19,Benefits package could be better
+EMP0086,Robert Roberts,25,Marketing,Chicago,Mid-Level,< 1 year,Satisfied,Fair,Poor,Probably,Fully Remote,2024-02-17,Good work-life balance
+EMP0087,Ronald Walker,54,Operations,Dallas,Senior,2-5 years,Very Satisfied,Poor,Average,Definitely,Hybrid (2 days office),2024-03-22,Strong leadership and clear direction
+EMP0088,Ryan Robinson,43,Marketing,Seattle,Mid-Level,1-2 years,Neutral,Good,Poor,Definitely,Hybrid (3 days office),2024-01-02,Office space needs improvement
+EMP0089,Timothy King,38,Marketing,Atlanta,Mid-Level,1-2 years,Neutral,Good,Below Average,Not Sure,Mostly Office,2024-03-04,Benefits package could be better
+EMP0090,Kenneth Williams,65,Operations,Seattle,Mid-Level,5-10 years,Neutral,Fair,Poor,Not Sure,Hybrid (2 days office),2024-03-22,Workload can be overwhelming at times
+EMP0091,Brian Anderson,34,Customer Support,Phoenix,Junior,10+ years,Very Dissatisfied,Poor,Excellent,Not Sure,Fully Remote,2024-02-09,More transparency from leadership needed
+EMP0092,Donna Parker,49,IT,Portland,Junior,< 1 year,Very Dissatisfied,Fair,Below Average,Definitely Not,Fully Office,2024-01-08,More transparency from leadership needed
+EMP0093,Daniel Brown,35,IT,New York,Lead,2-5 years,Neutral,Excellent,Poor,Not Sure,Fully Remote,2024-02-25,More transparency from leadership needed
+EMP0094,Joshua Roberts,49,Operations,New York,Lead,1-2 years,Very Dissatisfied,Fair,Excellent,Definitely Not,Hybrid (2 days office),2024-03-13,Need better work equipment
+EMP0095,Kathleen Johnson,45,Finance,Chicago,Manager,< 1 year,Satisfied,Good,Good,Definitely,Fully Remote,2024-01-17,Inclusive and diverse workplace
+EMP0096,Steven Gomez,44,Engineering,Atlanta,Junior,1-2 years,Dissatisfied,Excellent,Good,Not Sure,Hybrid (2 days office),2024-01-10,Benefits package could be better
+EMP0097,Jennifer White,63,Marketing,Dallas,Senior,5-10 years,Dissatisfied,Excellent,Below Average,Definitely Not,Fully Remote,2024-02-02,Workload can be overwhelming at times
+EMP0098,Stephanie Robinson,59,HR,Atlanta,Manager,10+ years,Very Satisfied,Good,Good,Probably,Fully Office,2024-03-01,Inclusive and diverse workplace
+EMP0099,Emily Harris,24,Legal,New York,Senior,< 1 year,Satisfied,Fair,Poor,Definitely Not,Fully Remote,2024-03-01,Flexible working hours
+EMP0100,Jason Lewis,48,Marketing,New York,Director,1-2 years,Satisfied,Good,Average,Definitely,Hybrid (3 days office),2024-01-28,Competitive salary and benefits
+EMP0101,Edward White,22,Finance,San Jose,Director,2-5 years,Very Satisfied,Poor,Poor,Not Sure,Mostly Office,2024-03-19,Interesting and challenging projects
+EMP0102,James Moore,36,Marketing,Phoenix,Junior,1-2 years,Neutral,Excellent,Poor,Probably,Hybrid (2 days office),2024-01-21,Limited remote work options
+EMP0103,Cynthia Mitchell,52,Product,Los Angeles,Mid-Level,5-10 years,Neutral,Good,Below Average,Probably Not,Fully Office,2024-01-20,Benefits package could be better
+EMP0104,William Martin,23,Operations,Detroit,Senior,2-5 years,Dissatisfied,Excellent,Average,Probably Not,Fully Office,2024-02-20,Office space needs improvement
+EMP0105,Mark Hall,61,Marketing,Seattle,Manager,1-2 years,Satisfied,Excellent,Poor,Definitely,Hybrid (2 days office),2024-03-12,Flexible working hours
+EMP0106,Michael Gonzalez,53,Operations,Phoenix,Mid-Level,< 1 year,Dissatisfied,Fair,Below Average,Probably Not,Fully Office,2024-01-25,Could improve communication between teams
+EMP0107,Mary Williams,36,Product,Atlanta,Director,2-5 years,Neutral,Fair,Below Average,Not Sure,Fully Office,2024-01-07,Would like more training opportunities
+EMP0108,Laura Moore,51,Operations,Austin,Mid-Level,1-2 years,Dissatisfied,Fair,Average,Definitely Not,Mostly Office,2024-03-05,Benefits package could be better
+EMP0109,Jessica Davis,24,Finance,Denver,Senior,10+ years,Dissatisfied,Good,Average,Probably Not,Fully Remote,2024-02-07,Benefits package could be better
+EMP0110,George Adams,44,Legal,San Diego,Director,5-10 years,Dissatisfied,Fair,Excellent,Probably Not,Mostly Office,2024-01-27,More transparency from leadership needed
+EMP0111,Kenneth Hernandez,28,Legal,Atlanta,Mid-Level,2-5 years,Very Satisfied,Good,Poor,Not Sure,Fully Office,2024-02-01,Clear career progression path
+EMP0112,Stephen Wright,24,Sales,Boston,Lead,1-2 years,Dissatisfied,Fair,Excellent,Not Sure,Hybrid (2 days office),2024-03-24,Could improve communication between teams
+EMP0113,Donna Taylor,41,Product,San Jose,Mid-Level,< 1 year,Satisfied,Fair,Poor,Definitely,Hybrid (3 days office),2024-03-27,Inclusive and diverse workplace
+EMP0114,Ronald Hernandez,51,Marketing,Denver,Senior,< 1 year,Neutral,Good,Excellent,Probably,Hybrid (2 days office),2024-01-19,Benefits package could be better
+EMP0115,Carol Parker,33,Sales,Houston,Lead,2-5 years,Neutral,Excellent,Below Average,Not Sure,Hybrid (2 days office),2024-02-14,Benefits package could be better
+EMP0116,Stephen Clark,26,IT,Austin,Mid-Level,5-10 years,Satisfied,Poor,Excellent,Not Sure,Hybrid (2 days office),2024-01-26,Professional development opportunities
+EMP0117,Donald Rivera,38,Operations,San Antonio,Manager,< 1 year,Very Satisfied,Good,Excellent,Definitely,Mostly Office,2024-03-12,Inclusive and diverse workplace
+EMP0118,Michael Miller,44,Product,Dallas,Mid-Level,5-10 years,Very Satisfied,Excellent,Good,Definitely,Hybrid (3 days office),2024-03-25,Clear career progression path
+EMP0119,Michelle Thompson,39,Legal,San Diego,Lead,1-2 years,Satisfied,Good,Average,Probably Not,Fully Remote,2024-03-13,Modern tools and technology
+EMP0120,Betty Mitchell,38,Operations,Miami,Manager,1-2 years,Satisfied,Excellent,Excellent,Definitely,Fully Remote,2024-03-07,Good work-life balance
+EMP0121,Timothy Jackson,46,Customer Support,Houston,Senior,5-10 years,Neutral,Good,Excellent,Probably Not,Fully Remote,2024-01-16,Office space needs improvement
+EMP0122,Andrew Hall,41,Marketing,Boston,Senior,< 1 year,Dissatisfied,Fair,Poor,Definitely Not,Hybrid (2 days office),2024-03-22,Limited remote work options
+EMP0123,Matthew Anderson,56,Marketing,Austin,Manager,< 1 year,Neutral,Fair,Average,Probably Not,Fully Office,2024-02-08,Limited remote work options
+EMP0124,Lisa King,29,Operations,Portland,Lead,10+ years,Satisfied,Fair,Poor,Definitely,Hybrid (2 days office),2024-01-12,Flexible working hours
+EMP0125,Stephen Scott,48,Product,Los Angeles,Junior,5-10 years,Very Satisfied,Good,Excellent,Definitely,Fully Remote,2024-03-12,Good work-life balance
+EMP0126,Rebecca Lopez,52,IT,Chicago,Mid-Level,5-10 years,Satisfied,Fair,Poor,Definitely,Mostly Office,2024-02-02,Interesting and challenging projects
+EMP0127,Linda Walker,48,Marketing,San Jose,Junior,10+ years,Satisfied,Fair,Below Average,Definitely,Fully Remote,2024-02-12,Interesting and challenging projects
+EMP0128,George Clark,49,Sales,Atlanta,Director,5-10 years,Neutral,Fair,Poor,Definitely Not,Hybrid (2 days office),2024-01-07,Workload can be overwhelming at times
+EMP0129,Karen Gonzalez,47,Operations,Atlanta,Senior,2-5 years,Dissatisfied,Poor,Below Average,Probably Not,Mostly Office,2024-03-19,Limited remote work options
+EMP0130,Gary Mitchell,57,Sales,Seattle,Manager,1-2 years,Satisfied,Poor,Below Average,Definitely,Fully Office,2024-01-25,Flexible working hours
+EMP0131,George Moore,33,Engineering,Houston,Director,10+ years,Neutral,Fair,Average,Probably,Mostly Office,2024-01-13,Salary not competitive with market
+EMP0132,Mary Robinson,49,Customer Support,Miami,Junior,10+ years,Very Satisfied,Good,Excellent,Probably Not,Hybrid (2 days office),2024-01-13,Inclusive and diverse workplace
+EMP0133,Steven Davis,23,IT,Boston,Mid-Level,5-10 years,Neutral,Fair,Average,Probably Not,Hybrid (2 days office),2024-03-03,Need better work equipment
+EMP0134,Patricia Smith,47,Engineering,Phoenix,Manager,1-2 years,Very Satisfied,Good,Excellent,Definitely,Fully Office,2024-02-05,Professional development opportunities
+EMP0135,Linda Adams,49,Marketing,San Jose,Lead,10+ years,Very Satisfied,Fair,Good,Definitely,Fully Remote,2024-03-28,Clear career progression path
+EMP0136,Emily Martinez,27,Legal,Austin,Junior,2-5 years,Neutral,Good,Poor,Probably,Hybrid (3 days office),2024-01-29,Would like more training opportunities
+EMP0137,Jacob Miller,40,Marketing,Austin,Senior,2-5 years,Neutral,Good,Poor,Not Sure,Fully Remote,2024-01-06,Office space needs improvement
+EMP0138,Emily Thompson,49,Legal,New York,Director,< 1 year,Dissatisfied,Good,Average,Definitely Not,Hybrid (2 days office),2024-01-12,Would like more training opportunities
+EMP0139,Mary Parker,64,IT,New York,Lead,1-2 years,Very Satisfied,Good,Below Average,Definitely,Fully Remote,2024-01-21,Clear career progression path
+EMP0140,Ryan Hernandez,53,Sales,San Diego,Lead,< 1 year,Dissatisfied,Good,Below Average,Not Sure,Hybrid (2 days office),2024-02-12,More transparency from leadership needed
+EMP0141,Paul Scott,61,Marketing,Chicago,Lead,2-5 years,Very Dissatisfied,Fair,Average,Definitely Not,Fully Office,2024-01-18,Salary not competitive with market
+EMP0142,James Wright,28,Marketing,Houston,Junior,10+ years,Very Satisfied,Fair,Average,Definitely,Hybrid (2 days office),2024-01-29,Great team collaboration and culture
+EMP0143,Jessica Thompson,27,Product,New York,Lead,2-5 years,Very Satisfied,Fair,Below Average,Not Sure,Hybrid (2 days office),2024-02-07,Inclusive and diverse workplace
+EMP0144,George Rodriguez,57,Customer Support,Boston,Mid-Level,2-5 years,Neutral,Good,Average,Not Sure,Hybrid (2 days office),2024-03-04,Salary not competitive with market
+EMP0145,Helen Miller,54,Marketing,Phoenix,Director,10+ years,Very Satisfied,Excellent,Average,Probably,Fully Remote,2024-03-04,Inclusive and diverse workplace
+EMP0146,Lisa Lopez,40,Legal,Miami,Senior,5-10 years,Dissatisfied,Poor,Average,Probably Not,Hybrid (2 days office),2024-02-10,Salary not competitive with market
+EMP0147,Kimberly Davis,60,Engineering,San Antonio,Director,5-10 years,Satisfied,Good,Excellent,Definitely Not,Hybrid (3 days office),2024-01-06,Flexible working hours
+EMP0148,James Carter,31,Legal,Los Angeles,Lead,5-10 years,Very Satisfied,Good,Excellent,Probably,Mostly Office,2024-01-03,Flexible working hours
+EMP0149,Cynthia Williams,39,Engineering,Austin,Senior,10+ years,Dissatisfied,Good,Good,Probably Not,Mostly Office,2024-01-03,Unclear performance evaluation process
+EMP0150,James Green,48,HR,New York,Director,10+ years,Neutral,Fair,Good,Not Sure,Hybrid (3 days office),2024-02-24,Need better work equipment
+EMP0151,Linda Thomas,29,Engineering,New York,Mid-Level,< 1 year,Satisfied,Good,Excellent,Definitely,Fully Office,2024-02-17,Professional development opportunities
+EMP0152,David Hill,47,Sales,Phoenix,Senior,2-5 years,Very Satisfied,Good,Below Average,Not Sure,Hybrid (2 days office),2024-01-23,Flexible working hours
+EMP0153,Nicholas Martin,28,Operations,Portland,Mid-Level,5-10 years,Dissatisfied,Good,Good,Definitely Not,Hybrid (3 days office),2024-01-08,Benefits package could be better
+EMP0154,Deborah Davis,48,Marketing,San Diego,Senior,1-2 years,Satisfied,Poor,Excellent,Definitely,Hybrid (2 days office),2024-02-23,Clear career progression path
+EMP0155,Ronald Lee,26,Product,Austin,Director,< 1 year,Satisfied,Fair,Excellent,Definitely,Hybrid (2 days office),2024-03-20,Modern tools and technology
+EMP0156,Joshua Lee,61,Engineering,Denver,Junior,< 1 year,Neutral,Poor,Average,Definitely,Hybrid (3 days office),2024-03-05,Benefits package could be better
+EMP0157,George Campbell,54,Operations,Los Angeles,Lead,< 1 year,Neutral,Fair,Average,Not Sure,Hybrid (2 days office),2024-01-06,Could improve communication between teams
+EMP0158,Donna White,35,Marketing,Phoenix,Lead,5-10 years,Neutral,Excellent,Average,Definitely Not,Fully Remote,2024-01-22,Office space needs improvement
+EMP0159,Kevin Phillips,53,Operations,Detroit,Junior,10+ years,Neutral,Fair,Poor,Definitely Not,Hybrid (2 days office),2024-02-11,Benefits package could be better
+EMP0160,Nancy Evans,41,Operations,San Jose,Senior,1-2 years,Dissatisfied,Fair,Below Average,Probably,Fully Office,2024-03-23,Benefits package could be better
+EMP0161,Betty Turner,26,Marketing,San Diego,Manager,2-5 years,Satisfied,Fair,Good,Probably,Fully Remote,2024-01-19,Interesting and challenging projects
+EMP0162,Karen Wright,39,Marketing,Houston,Mid-Level,10+ years,Very Dissatisfied,Fair,Good,Definitely,Fully Remote,2024-01-28,Would like more training opportunities
+EMP0163,Barbara Turner,28,IT,Phoenix,Director,2-5 years,Satisfied,Good,Poor,Probably,Mostly Office,2024-02-13,Interesting and challenging projects
+EMP0164,Carol Ramirez,53,IT,Miami,Director,10+ years,Satisfied,Excellent,Average,Probably,Mostly Office,2024-01-28,Clear career progression path
+EMP0165,George Adams,36,HR,Chicago,Director,5-10 years,Neutral,Good,Below Average,Not Sure,Fully Remote,2024-02-17,Unclear performance evaluation process
+EMP0166,Jessica Johnson,56,Finance,New York,Director,< 1 year,Satisfied,Poor,Below Average,Probably Not,Mostly Office,2024-02-06,Inclusive and diverse workplace
+EMP0167,Sarah Jones,23,Operations,Detroit,Mid-Level,1-2 years,Neutral,Good,Average,Not Sure,Hybrid (2 days office),2024-02-11,Would like more training opportunities
+EMP0168,Patricia Garcia,52,Operations,San Diego,Mid-Level,1-2 years,Very Satisfied,Excellent,Average,Probably,Fully Office,2024-02-15,Flexible working hours
+EMP0169,Sarah Smith,23,Finance,Portland,Senior,5-10 years,Very Dissatisfied,Excellent,Excellent,Definitely Not,Mostly Office,2024-02-28,Could improve communication between teams
+EMP0170,Timothy Wright,38,Product,Austin,Lead,1-2 years,Very Satisfied,Poor,Excellent,Probably,Mostly Office,2024-01-27,Clear career progression path
+EMP0171,Sharon Diaz,30,Finance,Portland,Mid-Level,10+ years,Very Dissatisfied,Fair,Below Average,Definitely Not,Mostly Office,2024-01-08,Need better work equipment
+EMP0172,Deborah Parker,56,HR,Portland,Mid-Level,5-10 years,Neutral,Excellent,Average,Not Sure,Hybrid (2 days office),2024-03-22,Limited remote work options
+EMP0173,James Garcia,45,Sales,Miami,Director,2-5 years,Neutral,Good,Excellent,Not Sure,Hybrid (2 days office),2024-01-15,Unclear performance evaluation process
+EMP0174,Daniel Wilson,60,Marketing,San Jose,Lead,1-2 years,Satisfied,Fair,Excellent,Definitely,Fully Remote,2024-03-03,Good work-life balance
+EMP0175,Cynthia Lewis,55,Finance,Detroit,Junior,1-2 years,Dissatisfied,Fair,Poor,Definitely Not,Hybrid (2 days office),2024-01-08,Limited remote work options
+EMP0176,Laura Johnson,24,Engineering,San Antonio,Lead,10+ years,Very Satisfied,Fair,Excellent,Probably,Fully Remote,2024-03-28,Great team collaboration and culture
+EMP0177,Dorothy White,46,Customer Support,Atlanta,Lead,2-5 years,Neutral,Excellent,Good,Probably Not,Hybrid (3 days office),2024-03-26,Office space needs improvement
+EMP0178,Joshua Robinson,47,Customer Support,Austin,Junior,5-10 years,Satisfied,Fair,Good,Probably Not,Fully Office,2024-01-05,Flexible working hours
+EMP0179,Sharon Perez,27,Engineering,Miami,Senior,5-10 years,Dissatisfied,Good,Good,Probably Not,Mostly Office,2024-01-06,Limited remote work options
+EMP0180,Kevin Adams,23,IT,Atlanta,Mid-Level,1-2 years,Neutral,Good,Excellent,Probably Not,Fully Remote,2024-02-08,Benefits package could be better
+EMP0181,Jessica Thompson,55,Finance,Chicago,Manager,1-2 years,Satisfied,Fair,Excellent,Probably,Fully Remote,2024-02-24,Good work-life balance
+EMP0182,Ashley Wright,56,Operations,Austin,Junior,1-2 years,Dissatisfied,Good,Average,Probably,Fully Office,2024-02-03,Limited remote work options
+EMP0183,Ronald Harris,49,Sales,Phoenix,Mid-Level,2-5 years,Dissatisfied,Fair,Average,Definitely Not,Mostly Office,2024-01-23,Could improve communication between teams
+EMP0184,Laura King,45,HR,Portland,Mid-Level,5-10 years,Very Dissatisfied,Excellent,Poor,Not Sure,Hybrid (2 days office),2024-02-02,Benefits package could be better
+EMP0185,Laura King,35,Marketing,Houston,Mid-Level,5-10 years,Dissatisfied,Fair,Excellent,Not Sure,Fully Office,2024-02-09,Benefits package could be better
+EMP0186,Brian Adams,27,HR,Miami,Senior,< 1 year,Very Satisfied,Excellent,Good,Probably,Hybrid (2 days office),2024-02-07,Good work-life balance
+EMP0187,Laura Torres,53,HR,Denver,Director,10+ years,Dissatisfied,Fair,Average,Definitely Not,Fully Office,2024-03-26,Unclear performance evaluation process
+EMP0188,Cynthia Green,45,Customer Support,San Antonio,Director,5-10 years,Very Satisfied,Excellent,Poor,Definitely,Hybrid (3 days office),2024-03-24,Interesting and challenging projects
+EMP0189,Lisa Evans,38,Operations,New York,Junior,2-5 years,Neutral,Fair,Below Average,Not Sure,Fully Remote,2024-01-14,More transparency from leadership needed
+EMP0190,Patricia Lewis,38,Operations,Chicago,Manager,1-2 years,Dissatisfied,Fair,Average,Probably,Hybrid (2 days office),2024-02-15,Limited remote work options
+EMP0191,Amanda Flores,35,Finance,Houston,Lead,2-5 years,Satisfied,Good,Below Average,Probably Not,Fully Office,2024-02-20,Interesting and challenging projects
+EMP0192,Carol Johnson,33,Engineering,San Jose,Lead,1-2 years,Very Satisfied,Good,Excellent,Definitely,Hybrid (3 days office),2024-02-27,Good work-life balance
+EMP0193,Stephanie Moore,43,Customer Support,San Jose,Director,10+ years,Very Satisfied,Good,Excellent,Probably,Fully Remote,2024-03-29,Good work-life balance
+EMP0194,William Gomez,41,Sales,Miami,Mid-Level,1-2 years,Dissatisfied,Fair,Poor,Probably Not,Mostly Office,2024-01-15,Would like more training opportunities
+EMP0195,Jeffrey Jones,36,Engineering,Miami,Director,1-2 years,Satisfied,Fair,Excellent,Probably Not,Mostly Office,2024-02-20,Great team collaboration and culture
+EMP0196,Kenneth Rivera,39,Customer Support,New York,Manager,1-2 years,Satisfied,Fair,Average,Definitely,Hybrid (3 days office),2024-01-28,Interesting and challenging projects
+EMP0197,Susan Lee,54,Sales,Seattle,Director,< 1 year,Very Satisfied,Excellent,Poor,Definitely,Mostly Office,2024-03-30,Flexible working hours
+EMP0198,Linda Green,32,Marketing,San Antonio,Manager,1-2 years,Very Satisfied,Good,Average,Definitely,Mostly Office,2024-02-22,Strong leadership and clear direction
+EMP0199,William Perez,61,Marketing,San Diego,Senior,5-10 years,Very Dissatisfied,Fair,Average,Probably,Hybrid (2 days office),2024-01-27,More transparency from leadership needed
+EMP0200,Jonathan Carter,29,Sales,San Jose,Lead,< 1 year,Very Satisfied,Fair,Good,Probably,Hybrid (3 days office),2024-01-26,Professional development opportunities
+EMP0201,Mark Wilson,44,IT,Atlanta,Lead,5-10 years,Very Satisfied,Excellent,Average,Probably,Hybrid (2 days office),2024-02-28,Interesting and challenging projects
+EMP0202,Brian Clark,49,Operations,Phoenix,Senior,10+ years,Very Satisfied,Fair,Average,Definitely,Fully Office,2024-03-20,Great team collaboration and culture
+EMP0203,Nicholas Carter,40,Product,Los Angeles,Director,< 1 year,Very Dissatisfied,Fair,Good,Not Sure,Mostly Office,2024-01-20,Benefits package could be better
+EMP0204,Mark Jones,60,Sales,Houston,Mid-Level,2-5 years,Very Dissatisfied,Good,Excellent,Definitely Not,Fully Remote,2024-02-14,Salary not competitive with market
+EMP0205,Karen Gomez,61,Marketing,San Antonio,Senior,2-5 years,Satisfied,Good,Average,Definitely,Mostly Office,2024-01-23,Competitive salary and benefits
+EMP0206,Kevin Campbell,38,HR,New York,Lead,5-10 years,Satisfied,Excellent,Poor,Definitely,Fully Office,2024-03-08,Inclusive and diverse workplace
+EMP0207,Ronald Evans,33,Marketing,Austin,Senior,10+ years,Neutral,Fair,Average,Not Sure,Hybrid (3 days office),2024-03-25,Limited remote work options
+EMP0208,George Torres,29,IT,San Diego,Manager,2-5 years,Very Dissatisfied,Good,Below Average,Probably Not,Fully Remote,2024-02-17,Limited remote work options
+EMP0209,Jason Thompson,28,Finance,Miami,Lead,10+ years,Dissatisfied,Good,Average,Probably,Hybrid (2 days office),2024-03-25,Benefits package could be better
+EMP0210,Emily Campbell,43,HR,San Jose,Lead,5-10 years,Satisfied,Fair,Excellent,Probably,Fully Office,2024-03-10,Good work-life balance
+EMP0211,Sandra Rivera,47,IT,San Jose,Mid-Level,1-2 years,Dissatisfied,Poor,Poor,Not Sure,Fully Remote,2024-01-05,Would like more training opportunities
+EMP0212,James Hill,29,Customer Support,Dallas,Lead,1-2 years,Satisfied,Poor,Below Average,Definitely,Hybrid (3 days office),2024-02-03,Competitive salary and benefits
+EMP0213,Rebecca Miller,27,Product,San Antonio,Manager,< 1 year,Very Satisfied,Good,Excellent,Not Sure,Fully Office,2024-03-21,Interesting and challenging projects
+EMP0214,Linda Phillips,59,Sales,New York,Senior,1-2 years,Dissatisfied,Poor,Excellent,Probably Not,Mostly Office,2024-03-13,Workload can be overwhelming at times
+EMP0215,James Diaz,27,Operations,New York,Senior,2-5 years,Very Satisfied,Good,Poor,Definitely,Hybrid (2 days office),2024-01-08,Inclusive and diverse workplace
+EMP0216,Anthony Rivera,29,Legal,San Antonio,Manager,5-10 years,Dissatisfied,Fair,Below Average,Definitely,Fully Office,2024-03-05,Need better work equipment
+EMP0217,Dorothy White,49,IT,Los Angeles,Junior,1-2 years,Very Satisfied,Fair,Average,Not Sure,Fully Office,2024-02-06,Interesting and challenging projects
+EMP0218,Nicholas Baker,58,Product,San Jose,Manager,< 1 year,Neutral,Fair,Excellent,Probably Not,Hybrid (2 days office),2024-02-05,Workload can be overwhelming at times
+EMP0219,Andrew Carter,46,Engineering,New York,Lead,1-2 years,Satisfied,Fair,Average,Definitely,Fully Remote,2024-03-02,Clear career progression path
+EMP0220,Sharon Campbell,27,Engineering,Houston,Senior,5-10 years,Very Satisfied,Excellent,Excellent,Probably,Hybrid (2 days office),2024-01-16,Great team collaboration and culture
+EMP0221,Cynthia Lee,36,Marketing,Phoenix,Junior,2-5 years,Satisfied,Good,Poor,Definitely,Mostly Office,2024-02-28,Modern tools and technology
+EMP0222,Nancy Martin,61,Marketing,Dallas,Senior,10+ years,Satisfied,Excellent,Below Average,Probably,Fully Remote,2024-02-17,Competitive salary and benefits
+EMP0223,Robert Lopez,58,Operations,Phoenix,Director,< 1 year,Very Satisfied,Fair,Excellent,Definitely Not,Fully Office,2024-02-24,Interesting and challenging projects
+EMP0224,Ryan Lewis,30,Product,San Antonio,Director,< 1 year,Very Satisfied,Fair,Average,Definitely,Mostly Office,2024-02-15,Strong leadership and clear direction
+EMP0225,Daniel Gonzalez,65,Finance,Houston,Manager,1-2 years,Very Satisfied,Good,Good,Probably,Fully Remote,2024-03-16,Flexible working hours
+EMP0226,Brian Scott,24,Marketing,San Antonio,Manager,10+ years,Neutral,Fair,Good,Not Sure,Fully Office,2024-01-23,Workload can be overwhelming at times
+EMP0227,Sharon Torres,23,Engineering,San Antonio,Mid-Level,1-2 years,Very Satisfied,Good,Excellent,Definitely,Fully Office,2024-02-12,Good work-life balance
+EMP0228,Gary Moore,39,Product,Miami,Mid-Level,2-5 years,Very Satisfied,Good,Good,Probably,Mostly Office,2024-03-14,Clear career progression path
+EMP0229,Linda Campbell,33,Sales,Boston,Lead,1-2 years,Neutral,Good,Average,Not Sure,Hybrid (3 days office),2024-02-28,Would like more training opportunities
+EMP0230,James Wilson,43,Operations,San Jose,Manager,1-2 years,Dissatisfied,Fair,Average,Definitely Not,Fully Office,2024-01-02,Office space needs improvement
+EMP0231,Laura Flores,60,HR,Austin,Lead,1-2 years,Satisfied,Good,Average,Probably,Hybrid (3 days office),2024-03-23,Modern tools and technology
+EMP0232,Christopher Parker,61,Sales,New York,Junior,10+ years,Very Satisfied,Good,Good,Probably,Fully Remote,2024-03-13,Interesting and challenging projects
+EMP0233,Timothy Diaz,61,HR,San Antonio,Manager,2-5 years,Dissatisfied,Excellent,Good,Probably Not,Hybrid (2 days office),2024-01-19,Would like more training opportunities
+EMP0234,Edward Turner,58,Engineering,Atlanta,Senior,5-10 years,Neutral,Good,Below Average,Probably Not,Hybrid (2 days office),2024-03-16,Would like more training opportunities
+EMP0235,Robert Johnson,29,Customer Support,Austin,Mid-Level,< 1 year,Dissatisfied,Good,Average,Probably Not,Hybrid (3 days office),2024-03-16,Unclear performance evaluation process
+EMP0236,Ryan Roberts,60,Customer Support,Chicago,Lead,5-10 years,Neutral,Fair,Average,Probably,Fully Remote,2024-03-03,Benefits package could be better
+EMP0237,Dorothy Scott,49,Engineering,Boston,Junior,2-5 years,Dissatisfied,Poor,Excellent,Probably Not,Hybrid (2 days office),2024-01-27,Salary not competitive with market
+EMP0238,Anthony Parker,59,Operations,Portland,Senior,5-10 years,Dissatisfied,Fair,Below Average,Definitely Not,Hybrid (3 days office),2024-03-25,Unclear performance evaluation process
+EMP0239,Sarah Perez,36,Operations,Los Angeles,Manager,10+ years,Satisfied,Good,Good,Definitely,Mostly Office,2024-03-17,Modern tools and technology
+EMP0240,Joshua Adams,23,Legal,Atlanta,Junior,5-10 years,Satisfied,Fair,Poor,Definitely,Fully Office,2024-02-27,Interesting and challenging projects
+EMP0241,Gary Taylor,32,HR,Houston,Manager,10+ years,Very Satisfied,Fair,Good,Probably Not,Fully Remote,2024-03-25,Good work-life balance
+EMP0242,Mark Wright,31,Customer Support,Dallas,Mid-Level,< 1 year,Neutral,Excellent,Good,Probably,Fully Office,2024-03-09,More transparency from leadership needed
+EMP0243,Jane Mitchell,54,Product,Houston,Director,10+ years,Satisfied,Excellent,Average,Not Sure,Mostly Office,2024-03-07,Strong leadership and clear direction
+EMP0244,Melissa Ramirez,30,Marketing,Phoenix,Junior,2-5 years,Very Dissatisfied,Good,Excellent,Probably,Fully Office,2024-02-11,Salary not competitive with market
+EMP0245,Nancy Anderson,60,Customer Support,San Diego,Manager,5-10 years,Very Satisfied,Excellent,Average,Not Sure,Hybrid (2 days office),2024-02-01,Flexible working hours
+EMP0246,Eric Brown,53,IT,New York,Manager,1-2 years,Very Satisfied,Poor,Poor,Definitely,Fully Remote,2024-01-24,Interesting and challenging projects
+EMP0247,James Brown,59,IT,New York,Junior,< 1 year,Very Satisfied,Excellent,Average,Definitely,Fully Office,2024-01-02,Flexible working hours
+EMP0248,Donna Baker,29,Customer Support,Chicago,Director,10+ years,Neutral,Fair,Average,Probably Not,Mostly Office,2024-01-12,Benefits package could be better
+EMP0249,Gary Taylor,39,Sales,Atlanta,Senior,2-5 years,Very Satisfied,Fair,Excellent,Not Sure,Fully Remote,2024-01-09,Professional development opportunities
+EMP0250,Timothy Gomez,31,Legal,Chicago,Manager,1-2 years,Neutral,Good,Excellent,Probably Not,Hybrid (3 days office),2024-03-17,Limited remote work options
+EMP0251,Nicholas Taylor,48,Finance,Los Angeles,Director,< 1 year,Dissatisfied,Good,Poor,Definitely Not,Hybrid (3 days office),2024-01-05,Unclear performance evaluation process
+EMP0252,Emily Wright,38,Engineering,Austin,Mid-Level,5-10 years,Dissatisfied,Excellent,Average,Definitely Not,Mostly Office,2024-03-16,Benefits package could be better
+EMP0253,Mark Lopez,62,Operations,Houston,Lead,< 1 year,Very Dissatisfied,Fair,Below Average,Definitely Not,Hybrid (3 days office),2024-01-29,Could improve communication between teams
+EMP0254,Rebecca Thomas,58,Marketing,New York,Lead,2-5 years,Very Satisfied,Excellent,Excellent,Definitely,Hybrid (3 days office),2024-01-05,Flexible working hours
+EMP0255,Jason Scott,47,Sales,Chicago,Mid-Level,10+ years,Neutral,Fair,Excellent,Probably Not,Mostly Office,2024-02-23,Would like more training opportunities
+EMP0256,Matthew Clark,30,Operations,Denver,Manager,2-5 years,Very Satisfied,Fair,Excellent,Definitely,Fully Remote,2024-02-09,Strong leadership and clear direction
+EMP0257,Donald Johnson,54,IT,Portland,Manager,10+ years,Satisfied,Fair,Below Average,Definitely,Hybrid (2 days office),2024-03-27,Professional development opportunities
+EMP0258,Stephen Evans,65,Legal,Phoenix,Manager,< 1 year,Satisfied,Fair,Average,Probably,Hybrid (3 days office),2024-01-29,Great team collaboration and culture
+EMP0259,Deborah Mitchell,29,Sales,New York,Senior,5-10 years,Satisfied,Good,Below Average,Definitely Not,Hybrid (2 days office),2024-01-23,Professional development opportunities
+EMP0260,Barbara Martin,27,Sales,Chicago,Mid-Level,5-10 years,Neutral,Fair,Good,Probably,Fully Remote,2024-03-05,Could improve communication between teams
+EMP0261,Edward Smith,50,Legal,Austin,Lead,< 1 year,Satisfied,Good,Good,Definitely,Fully Remote,2024-02-08,Professional development opportunities
+EMP0262,Jonathan Allen,58,Finance,Atlanta,Director,< 1 year,Satisfied,Excellent,Average,Definitely,Hybrid (2 days office),2024-02-08,Competitive salary and benefits
+EMP0263,Nancy Wright,33,Finance,San Jose,Junior,1-2 years,Satisfied,Fair,Good,Definitely,Hybrid (2 days office),2024-03-22,Competitive salary and benefits
+EMP0264,Kenneth White,33,Customer Support,Los Angeles,Mid-Level,10+ years,Neutral,Poor,Excellent,Probably,Fully Remote,2024-02-20,Limited remote work options
+EMP0265,Helen Green,61,Legal,Philadelphia,Senior,< 1 year,Dissatisfied,Good,Good,Definitely Not,Hybrid (2 days office),2024-01-15,Would like more training opportunities
+EMP0266,Gary Anderson,36,HR,Detroit,Senior,< 1 year,Very Dissatisfied,Poor,Good,Probably Not,Hybrid (2 days office),2024-03-02,Limited remote work options
+EMP0267,Andrew Rodriguez,63,Engineering,San Antonio,Junior,10+ years,Neutral,Fair,Average,Probably,Mostly Office,2024-01-10,Unclear performance evaluation process
+EMP0268,Nicholas Smith,49,Product,Atlanta,Senior,2-5 years,Very Dissatisfied,Excellent,Excellent,Definitely Not,Fully Remote,2024-02-25,Benefits package could be better
+EMP0269,James Miller,28,Legal,Portland,Mid-Level,5-10 years,Dissatisfied,Poor,Average,Not Sure,Fully Office,2024-01-31,Need better work equipment
+EMP0270,Kimberly Smith,37,Marketing,Detroit,Lead,2-5 years,Satisfied,Fair,Poor,Probably,Hybrid (2 days office),2024-03-19,Modern tools and technology
+EMP0271,Brian Parker,50,Legal,Denver,Senior,< 1 year,Very Satisfied,Good,Below Average,Probably,Hybrid (3 days office),2024-01-03,Good work-life balance
+EMP0272,Edward Gomez,43,Customer Support,Boston,Manager,10+ years,Satisfied,Poor,Excellent,Definitely,Mostly Office,2024-02-06,Flexible working hours
+EMP0273,Kimberly Wilson,41,Product,Boston,Mid-Level,2-5 years,Dissatisfied,Good,Good,Probably Not,Hybrid (2 days office),2024-01-21,Benefits package could be better
+EMP0274,Rebecca Harris,28,Sales,Seattle,Director,2-5 years,Very Satisfied,Poor,Good,Not Sure,Fully Remote,2024-03-18,Professional development opportunities
+EMP0275,Ryan Martin,60,Customer Support,Seattle,Lead,10+ years,Very Satisfied,Excellent,Below Average,Definitely,Fully Office,2024-03-01,Professional development opportunities
+EMP0276,Helen Anderson,39,Marketing,San Diego,Junior,< 1 year,Neutral,Excellent,Average,Not Sure,Hybrid (3 days office),2024-02-22,Benefits package could be better
+EMP0277,Laura Wright,53,Operations,New York,Senior,10+ years,Neutral,Fair,Below Average,Definitely,Fully Office,2024-01-05,More transparency from leadership needed
+EMP0278,Joshua Turner,56,Marketing,Seattle,Junior,5-10 years,Satisfied,Good,Average,Probably,Mostly Office,2024-01-23,Clear career progression path
+EMP0279,Stephanie Jackson,46,Sales,Los Angeles,Manager,< 1 year,Very Satisfied,Poor,Average,Definitely,Fully Office,2024-01-04,Good work-life balance
+EMP0280,Steven Roberts,25,Finance,Philadelphia,Mid-Level,< 1 year,Dissatisfied,Fair,Excellent,Definitely Not,Hybrid (2 days office),2024-01-28,More transparency from leadership needed
+EMP0281,Deborah Mitchell,33,IT,Chicago,Mid-Level,< 1 year,Very Satisfied,Fair,Good,Not Sure,Mostly Office,2024-03-24,Flexible working hours
+EMP0282,Robert Turner,43,Marketing,Miami,Manager,< 1 year,Dissatisfied,Good,Below Average,Probably Not,Hybrid (3 days office),2024-03-18,Limited remote work options
+EMP0283,John Mitchell,30,Marketing,Philadelphia,Senior,10+ years,Very Satisfied,Excellent,Excellent,Probably,Fully Office,2024-01-11,Great team collaboration and culture
+EMP0284,Joshua Mitchell,57,Customer Support,San Antonio,Director,1-2 years,Very Satisfied,Good,Poor,Definitely,Hybrid (3 days office),2024-01-06,Strong leadership and clear direction
+EMP0285,William Hall,36,Product,Detroit,Junior,10+ years,Satisfied,Excellent,Good,Probably,Hybrid (2 days office),2024-03-24,Professional development opportunities
+EMP0286,Laura Garcia,25,Marketing,Denver,Mid-Level,2-5 years,Neutral,Excellent,Good,Probably,Hybrid (3 days office),2024-02-15,More transparency from leadership needed
+EMP0287,Karen Gonzalez,25,HR,Austin,Junior,< 1 year,Dissatisfied,Excellent,Below Average,Definitely Not,Mostly Office,2024-03-12,Could improve communication between teams
+EMP0288,William Lee,62,Finance,Phoenix,Lead,5-10 years,Satisfied,Fair,Average,Probably Not,Hybrid (3 days office),2024-01-30,Great team collaboration and culture
+EMP0289,Michael Perez,22,Customer Support,Austin,Lead,1-2 years,Satisfied,Excellent,Poor,Probably,Hybrid (2 days office),2024-02-23,Competitive salary and benefits
+EMP0290,Jennifer Lee,56,Sales,Chicago,Director,1-2 years,Dissatisfied,Good,Average,Definitely Not,Fully Remote,2024-03-22,Unclear performance evaluation process
+EMP0291,Stephanie Evans,35,Legal,Miami,Manager,2-5 years,Very Satisfied,Excellent,Average,Definitely,Hybrid (3 days office),2024-02-09,Clear career progression path
+EMP0292,Brian Green,29,HR,Philadelphia,Lead,5-10 years,Dissatisfied,Good,Good,Definitely,Hybrid (2 days office),2024-03-07,Unclear performance evaluation process
+EMP0293,Brian Mitchell,59,Sales,Austin,Junior,5-10 years,Neutral,Good,Average,Not Sure,Hybrid (2 days office),2024-02-10,Would like more training opportunities
+EMP0294,Betty Nelson,25,Engineering,Austin,Lead,< 1 year,Neutral,Excellent,Below Average,Definitely Not,Fully Remote,2024-02-11,Workload can be overwhelming at times
+EMP0295,Paul Miller,25,Product,New York,Manager,< 1 year,Neutral,Excellent,Poor,Probably,Hybrid (2 days office),2024-01-24,More transparency from leadership needed
+EMP0296,Stephanie Harris,49,Engineering,Detroit,Lead,1-2 years,Very Satisfied,Excellent,Average,Probably,Fully Remote,2024-01-19,Great team collaboration and culture
+EMP0297,Karen Lewis,61,Engineering,San Antonio,Lead,2-5 years,Very Satisfied,Fair,Good,Definitely,Fully Remote,2024-01-15,Competitive salary and benefits
+EMP0298,Jacob Allen,25,Sales,Philadelphia,Senior,< 1 year,Satisfied,Good,Below Average,Probably Not,Mostly Office,2024-02-08,Great team collaboration and culture
+EMP0299,Jason Hill,60,Legal,Austin,Mid-Level,5-10 years,Very Dissatisfied,Good,Below Average,Not Sure,Hybrid (3 days office),2024-03-18,Salary not competitive with market
+EMP0300,Paul Evans,33,Product,Portland,Senior,10+ years,Satisfied,Fair,Average,Definitely,Hybrid (2 days office),2024-02-15,Inclusive and diverse workplace
+EMP0301,Joshua Harris,50,Sales,Denver,Manager,10+ years,Dissatisfied,Fair,Poor,Probably,Hybrid (3 days office),2024-02-10,Need better work equipment
+EMP0302,Carol Green,27,IT,Denver,Senior,10+ years,Dissatisfied,Poor,Good,Definitely Not,Mostly Office,2024-03-05,Benefits package could be better
+EMP0303,Timothy Phillips,45,HR,Chicago,Director,< 1 year,Dissatisfied,Good,Below Average,Not Sure,Hybrid (3 days office),2024-01-13,Could improve communication between teams
+EMP0304,Emily Baker,29,Marketing,Denver,Junior,5-10 years,Dissatisfied,Fair,Below Average,Probably Not,Mostly Office,2024-02-04,More transparency from leadership needed
+EMP0305,Timothy Rivera,45,Legal,San Diego,Manager,2-5 years,Satisfied,Fair,Excellent,Definitely,Fully Office,2024-01-13,Interesting and challenging projects
+EMP0306,Stephen Davis,56,Engineering,San Antonio,Manager,< 1 year,Very Satisfied,Good,Poor,Definitely,Hybrid (2 days office),2024-03-22,Inclusive and diverse workplace
+EMP0307,John Diaz,63,Finance,Boston,Senior,< 1 year,Very Satisfied,Fair,Good,Definitely,Fully Office,2024-02-22,Good work-life balance
+EMP0308,Kathleen Gonzalez,62,Legal,Austin,Junior,1-2 years,Satisfied,Fair,Good,Probably,Mostly Office,2024-01-12,Competitive salary and benefits
+EMP0309,Ronald Wilson,35,Marketing,Austin,Lead,2-5 years,Very Satisfied,Fair,Below Average,Not Sure,Hybrid (3 days office),2024-02-21,Modern tools and technology
+EMP0310,Michelle Anderson,25,Finance,San Diego,Lead,< 1 year,Very Satisfied,Excellent,Good,Definitely,Fully Office,2024-03-04,Great team collaboration and culture
+EMP0311,Joshua Lee,44,Sales,Miami,Junior,< 1 year,Satisfied,Good,Poor,Not Sure,Hybrid (3 days office),2024-03-28,Modern tools and technology
+EMP0312,Carol Rodriguez,36,Product,Dallas,Senior,< 1 year,Neutral,Excellent,Below Average,Probably,Hybrid (3 days office),2024-03-22,Unclear performance evaluation process
+EMP0313,Robert Perez,37,Product,Dallas,Junior,< 1 year,Very Satisfied,Fair,Average,Not Sure,Mostly Office,2024-03-26,Modern tools and technology
+EMP0314,Helen Moore,40,Engineering,San Diego,Junior,< 1 year,Neutral,Good,Average,Probably,Fully Office,2024-01-31,Workload can be overwhelming at times
+EMP0315,Donna Baker,59,IT,Miami,Senior,1-2 years,Very Satisfied,Excellent,Average,Probably,Mostly Office,2024-01-30,Good work-life balance
+EMP0316,Kenneth Jackson,30,IT,Atlanta,Mid-Level,5-10 years,Neutral,Good,Below Average,Probably,Hybrid (2 days office),2024-03-06,Would like more training opportunities
+EMP0317,Ryan Lee,63,Operations,Chicago,Junior,2-5 years,Very Dissatisfied,Fair,Below Average,Definitely Not,Hybrid (2 days office),2024-01-25,Could improve communication between teams
+EMP0318,Deborah Thompson,39,Product,Denver,Senior,1-2 years,Satisfied,Fair,Poor,Probably,Mostly Office,2024-02-29,Clear career progression path
+EMP0319,Betty Walker,48,IT,Los Angeles,Director,2-5 years,Very Satisfied,Good,Below Average,Definitely,Fully Remote,2024-01-31,Competitive salary and benefits
+EMP0320,Donald Taylor,24,Finance,San Antonio,Lead,< 1 year,Satisfied,Fair,Below Average,Definitely,Fully Remote,2024-02-01,Clear career progression path
+EMP0321,Daniel Green,41,Product,Portland,Senior,< 1 year,Neutral,Good,Poor,Not Sure,Hybrid (3 days office),2024-02-19,Unclear performance evaluation process
+EMP0322,Ryan Young,24,Marketing,Portland,Lead,10+ years,Satisfied,Good,Good,Definitely,Hybrid (2 days office),2024-03-05,Flexible working hours
+EMP0323,James Allen,32,Operations,Boston,Mid-Level,2-5 years,Very Dissatisfied,Good,Excellent,Not Sure,Hybrid (2 days office),2024-01-24,Limited remote work options
+EMP0324,Matthew Allen,43,Product,Houston,Senior,< 1 year,Satisfied,Excellent,Below Average,Probably,Mostly Office,2024-01-12,Great team collaboration and culture
+EMP0325,Emily Martinez,63,Legal,Philadelphia,Manager,10+ years,Satisfied,Good,Average,Definitely,Hybrid (3 days office),2024-03-24,Clear career progression path
+EMP0326,Jeffrey Thomas,63,Product,Seattle,Mid-Level,2-5 years,Very Satisfied,Excellent,Poor,Probably,Fully Office,2024-01-08,Competitive salary and benefits
+EMP0327,Mark Taylor,37,Operations,New York,Director,< 1 year,Dissatisfied,Poor,Average,Probably Not,Hybrid (3 days office),2024-03-24,Would like more training opportunities
+EMP0328,Donna Hernandez,35,HR,Los Angeles,Director,< 1 year,Satisfied,Good,Good,Probably,Hybrid (3 days office),2024-01-26,Flexible working hours
+EMP0329,Susan Moore,31,Legal,Denver,Senior,2-5 years,Very Satisfied,Poor,Good,Definitely,Fully Remote,2024-01-02,Strong leadership and clear direction
+EMP0330,Ashley Martin,45,Operations,Boston,Lead,2-5 years,Very Satisfied,Fair,Good,Definitely,Hybrid (2 days office),2024-01-24,Flexible working hours
+EMP0331,Betty Turner,49,Legal,Philadelphia,Mid-Level,2-5 years,Dissatisfied,Fair,Excellent,Definitely Not,Hybrid (2 days office),2024-02-07,Workload can be overwhelming at times
+EMP0332,Amanda Rivera,34,Sales,Detroit,Senior,5-10 years,Neutral,Fair,Excellent,Definitely Not,Hybrid (3 days office),2024-03-27,More transparency from leadership needed
+EMP0333,Ronald Gonzalez,47,Marketing,Dallas,Manager,5-10 years,Neutral,Excellent,Average,Probably,Hybrid (2 days office),2024-02-22,Salary not competitive with market
+EMP0334,Carol Mitchell,28,Marketing,Denver,Director,10+ years,Very Satisfied,Good,Below Average,Not Sure,Fully Remote,2024-03-30,Interesting and challenging projects
+EMP0335,Nicholas Wright,38,Product,Atlanta,Senior,1-2 years,Satisfied,Good,Excellent,Probably,Hybrid (2 days office),2024-01-20,Inclusive and diverse workplace
+EMP0336,Stephanie Perez,33,Engineering,New York,Lead,< 1 year,Very Satisfied,Fair,Below Average,Definitely,Hybrid (2 days office),2024-01-15,Clear career progression path
+EMP0337,Nicholas Turner,50,Product,Chicago,Mid-Level,5-10 years,Very Satisfied,Good,Good,Definitely,Fully Office,2024-01-01,Great team collaboration and culture
+EMP0338,Lisa Hill,61,HR,Atlanta,Mid-Level,1-2 years,Very Dissatisfied,Poor,Below Average,Definitely Not,Mostly Office,2024-01-29,Benefits package could be better
+EMP0339,Stephanie Rodriguez,61,Marketing,Los Angeles,Manager,5-10 years,Satisfied,Good,Poor,Probably,Hybrid (3 days office),2024-02-27,Clear career progression path
+EMP0340,Melissa Torres,57,Legal,Detroit,Manager,10+ years,Very Satisfied,Good,Below Average,Definitely,Hybrid (3 days office),2024-02-11,Strong leadership and clear direction
+EMP0341,Patricia White,62,Customer Support,Houston,Lead,1-2 years,Very Satisfied,Excellent,Good,Probably,Fully Office,2024-02-08,Good work-life balance
+EMP0342,Kathleen Baker,36,Finance,Portland,Lead,5-10 years,Neutral,Fair,Below Average,Not Sure,Fully Remote,2024-02-05,Could improve communication between teams
+EMP0343,Sarah Allen,57,Legal,Seattle,Senior,< 1 year,Dissatisfied,Excellent,Below Average,Probably Not,Fully Remote,2024-01-22,More transparency from leadership needed
+EMP0344,Michael Hernandez,26,Sales,San Antonio,Mid-Level,1-2 years,Satisfied,Good,Below Average,Definitely,Fully Office,2024-03-14,Modern tools and technology
+EMP0345,Kimberly Wright,26,IT,Los Angeles,Manager,< 1 year,Satisfied,Fair,Excellent,Probably,Fully Office,2024-02-20,Clear career progression path
+EMP0346,Barbara Davis,29,Legal,Portland,Senior,1-2 years,Satisfied,Good,Good,Definitely,Fully Remote,2024-02-24,Strong leadership and clear direction
+EMP0347,Mark Lee,24,Engineering,San Antonio,Manager,< 1 year,Very Satisfied,Excellent,Below Average,Definitely,Hybrid (2 days office),2024-02-04,Competitive salary and benefits
+EMP0348,Andrew Sanchez,63,Engineering,Denver,Senior,2-5 years,Dissatisfied,Good,Excellent,Probably Not,Fully Office,2024-01-21,Benefits package could be better
+EMP0349,Betty Evans,35,Finance,Los Angeles,Manager,1-2 years,Satisfied,Good,Below Average,Definitely,Fully Office,2024-01-16,Inclusive and diverse workplace
+EMP0350,Patricia Green,36,Engineering,San Jose,Senior,10+ years,Satisfied,Fair,Average,Probably,Fully Office,2024-01-01,Professional development opportunities
+EMP0351,Robert Rivera,60,Customer Support,San Antonio,Mid-Level,< 1 year,Satisfied,Good,Poor,Probably,Fully Office,2024-01-01,Modern tools and technology
+EMP0352,Jane Thomas,65,Legal,Dallas,Manager,< 1 year,Dissatisfied,Good,Excellent,Not Sure,Fully Remote,2024-01-04,Workload can be overwhelming at times
+EMP0353,Anthony Evans,45,Marketing,Boston,Manager,1-2 years,Satisfied,Fair,Below Average,Not Sure,Mostly Office,2024-03-10,Great team collaboration and culture
+EMP0354,Robert Turner,51,Operations,Philadelphia,Junior,< 1 year,Satisfied,Excellent,Poor,Definitely,Hybrid (2 days office),2024-03-07,Modern tools and technology
+EMP0355,Melissa Baker,41,Sales,New York,Lead,< 1 year,Dissatisfied,Fair,Excellent,Not Sure,Fully Office,2024-02-18,Limited remote work options
+EMP0356,Jeffrey Lewis,60,Operations,Dallas,Director,< 1 year,Neutral,Fair,Average,Probably,Mostly Office,2024-02-25,Could improve communication between teams
+EMP0357,Eric Clark,65,Marketing,Atlanta,Manager,10+ years,Satisfied,Fair,Poor,Probably,Hybrid (3 days office),2024-01-18,Interesting and challenging projects
+EMP0358,Sarah Rivera,65,Sales,Atlanta,Manager,5-10 years,Neutral,Good,Poor,Probably,Hybrid (3 days office),2024-02-06,Benefits package could be better
+EMP0359,Patricia Hill,48,IT,Atlanta,Junior,10+ years,Dissatisfied,Excellent,Excellent,Probably Not,Fully Office,2024-03-13,Limited remote work options
+EMP0360,Kimberly Hernandez,45,Product,Los Angeles,Lead,10+ years,Neutral,Poor,Below Average,Probably Not,Hybrid (3 days office),2024-01-31,Salary not competitive with market
+EMP0361,Emily Thomas,30,Customer Support,Detroit,Senior,2-5 years,Very Dissatisfied,Good,Average,Definitely Not,Hybrid (3 days office),2024-03-12,Unclear performance evaluation process
+EMP0362,Carol Anderson,38,Legal,Miami,Lead,2-5 years,Very Satisfied,Poor,Good,Probably,Hybrid (3 days office),2024-03-29,Professional development opportunities
+EMP0363,Betty Moore,61,Legal,Phoenix,Lead,5-10 years,Neutral,Fair,Excellent,Not Sure,Hybrid (2 days office),2024-01-25,Limited remote work options
+EMP0364,Nancy Torres,44,Operations,Atlanta,Mid-Level,5-10 years,Satisfied,Good,Poor,Definitely Not,Hybrid (2 days office),2024-01-03,Inclusive and diverse workplace
+EMP0365,Kathleen Torres,46,Sales,Philadelphia,Mid-Level,5-10 years,Very Satisfied,Fair,Good,Probably,Hybrid (3 days office),2024-03-06,Great team collaboration and culture
+EMP0366,Kevin Thompson,52,Engineering,Seattle,Lead,1-2 years,Very Satisfied,Fair,Excellent,Definitely,Hybrid (2 days office),2024-03-23,Good work-life balance
+EMP0367,Donald Nguyen,28,IT,Detroit,Junior,< 1 year,Satisfied,Excellent,Poor,Definitely,Mostly Office,2024-01-30,Modern tools and technology
+EMP0368,Eric Evans,57,Sales,Los Angeles,Director,< 1 year,Very Satisfied,Good,Good,Definitely,Mostly Office,2024-01-20,Flexible working hours
+EMP0369,Gary Miller,35,Sales,Atlanta,Lead,< 1 year,Neutral,Fair,Good,Probably,Mostly Office,2024-01-17,Would like more training opportunities
+EMP0370,Sharon Rivera,51,Finance,Detroit,Mid-Level,10+ years,Neutral,Good,Excellent,Not Sure,Mostly Office,2024-02-03,Office space needs improvement
+EMP0371,Eric Gonzalez,36,HR,Atlanta,Director,2-5 years,Satisfied,Good,Good,Probably,Hybrid (3 days office),2024-02-16,Great team collaboration and culture
+EMP0372,Karen Perez,42,Operations,Boston,Junior,2-5 years,Very Satisfied,Good,Average,Definitely,Hybrid (2 days office),2024-02-07,Strong leadership and clear direction
+EMP0373,Jonathan Hall,42,IT,Atlanta,Director,1-2 years,Very Satisfied,Good,Below Average,Definitely,Fully Remote,2024-02-02,Interesting and challenging projects
+EMP0374,Paul Davis,35,IT,New York,Junior,2-5 years,Satisfied,Excellent,Average,Not Sure,Hybrid (3 days office),2024-03-26,Professional development opportunities
+EMP0375,Sarah Jones,30,Legal,Denver,Lead,2-5 years,Very Satisfied,Good,Below Average,Not Sure,Fully Remote,2024-02-17,Strong leadership and clear direction
+EMP0376,Kevin Diaz,40,Engineering,Houston,Manager,10+ years,Satisfied,Good,Good,Definitely,Hybrid (2 days office),2024-02-19,Inclusive and diverse workplace
+EMP0377,Matthew Hernandez,38,HR,Atlanta,Manager,5-10 years,Satisfied,Good,Excellent,Definitely,Hybrid (2 days office),2024-02-06,Good work-life balance
+EMP0378,Dorothy Parker,48,Finance,Dallas,Lead,1-2 years,Satisfied,Excellent,Average,Definitely,Fully Remote,2024-01-29,Modern tools and technology
+EMP0379,Karen Clark,53,Legal,Seattle,Mid-Level,2-5 years,Neutral,Excellent,Good,Probably Not,Hybrid (3 days office),2024-01-13,More transparency from leadership needed
+EMP0380,James Anderson,55,HR,Austin,Director,2-5 years,Very Satisfied,Fair,Poor,Probably Not,Mostly Office,2024-01-01,Inclusive and diverse workplace
+EMP0381,Jason Campbell,54,Marketing,Seattle,Junior,< 1 year,Very Satisfied,Good,Excellent,Probably,Fully Remote,2024-01-29,Good work-life balance
+EMP0382,Anthony Flores,37,Engineering,Seattle,Senior,10+ years,Very Dissatisfied,Excellent,Poor,Probably Not,Mostly Office,2024-02-07,Need better work equipment
+EMP0383,Stephen Gomez,56,Product,Denver,Manager,2-5 years,Very Dissatisfied,Excellent,Excellent,Definitely Not,Fully Remote,2024-02-03,Limited remote work options
+EMP0384,Donald Rodriguez,29,Legal,Los Angeles,Mid-Level,< 1 year,Very Satisfied,Good,Average,Probably,Fully Office,2024-01-12,Good work-life balance
+EMP0385,Sharon Williams,61,IT,Austin,Mid-Level,2-5 years,Neutral,Excellent,Below Average,Not Sure,Hybrid (2 days office),2024-01-10,Would like more training opportunities
+EMP0386,Sandra White,44,Legal,Dallas,Junior,< 1 year,Satisfied,Good,Poor,Probably,Hybrid (3 days office),2024-03-27,Professional development opportunities
+EMP0387,Barbara Diaz,59,Product,Seattle,Junior,2-5 years,Satisfied,Good,Excellent,Probably Not,Fully Remote,2024-02-02,Modern tools and technology
+EMP0388,Paul Turner,25,Product,Houston,Mid-Level,10+ years,Dissatisfied,Fair,Below Average,Probably Not,Mostly Office,2024-02-02,Would like more training opportunities
+EMP0389,Stephen Garcia,57,Legal,Atlanta,Mid-Level,10+ years,Very Satisfied,Fair,Good,Probably Not,Hybrid (2 days office),2024-03-14,Professional development opportunities
+EMP0390,Donald Baker,46,Sales,Atlanta,Manager,5-10 years,Neutral,Good,Excellent,Probably,Fully Office,2024-02-11,Office space needs improvement
+EMP0391,Jonathan Williams,63,Customer Support,New York,Director,10+ years,Satisfied,Fair,Good,Not Sure,Hybrid (3 days office),2024-02-18,Interesting and challenging projects
+EMP0392,Dorothy Moore,30,Sales,Dallas,Mid-Level,1-2 years,Satisfied,Excellent,Poor,Definitely,Fully Office,2024-02-25,Competitive salary and benefits
+EMP0393,Lisa Harris,49,HR,Austin,Manager,5-10 years,Very Satisfied,Poor,Good,Probably,Fully Remote,2024-01-20,Clear career progression path
+EMP0394,Gary Adams,22,IT,Detroit,Senior,5-10 years,Very Satisfied,Good,Good,Definitely,Mostly Office,2024-01-28,Modern tools and technology
+EMP0395,Ryan Hernandez,59,Product,Detroit,Director,2-5 years,Satisfied,Good,Excellent,Probably,Fully Office,2024-03-02,Interesting and challenging projects
+EMP0396,Joshua Lopez,40,Legal,New York,Senior,1-2 years,Satisfied,Fair,Average,Probably Not,Fully Office,2024-02-15,Flexible working hours
+EMP0397,Barbara Flores,29,Finance,Austin,Manager,2-5 years,Dissatisfied,Good,Average,Probably Not,Hybrid (3 days office),2024-03-18,Salary not competitive with market
+EMP0398,Anthony Brown,36,Sales,Portland,Junior,< 1 year,Very Satisfied,Good,Excellent,Probably,Fully Office,2024-01-12,Professional development opportunities
+EMP0399,Jonathan Phillips,63,Product,San Antonio,Lead,5-10 years,Satisfied,Good,Excellent,Probably,Mostly Office,2024-01-11,Good work-life balance
+EMP0400,Kevin Lopez,59,Sales,Houston,Director,5-10 years,Very Satisfied,Good,Poor,Probably,Fully Remote,2024-03-19,Inclusive and diverse workplace
+EMP0401,Jeffrey Wilson,61,Legal,Detroit,Lead,1-2 years,Very Satisfied,Fair,Excellent,Definitely,Hybrid (3 days office),2024-01-02,Professional development opportunities
+EMP0402,Steven Jackson,42,IT,San Diego,Senior,< 1 year,Neutral,Fair,Average,Definitely Not,Hybrid (2 days office),2024-01-18,Office space needs improvement
+EMP0403,Karen Martin,30,Operations,New York,Lead,1-2 years,Very Satisfied,Fair,Good,Probably,Fully Remote,2024-02-09,Competitive salary and benefits
+EMP0404,Stephanie Mitchell,36,HR,San Antonio,Junior,10+ years,Neutral,Good,Good,Probably,Hybrid (2 days office),2024-01-15,Salary not competitive with market
+EMP0405,Kevin Lewis,26,Legal,Austin,Director,2-5 years,Satisfied,Fair,Poor,Definitely,Hybrid (3 days office),2024-03-26,Clear career progression path
+EMP0406,George Young,54,Engineering,Philadelphia,Junior,< 1 year,Dissatisfied,Excellent,Excellent,Probably Not,Fully Remote,2024-01-30,Salary not competitive with market
+EMP0407,Michael Rodriguez,26,Finance,Dallas,Manager,1-2 years,Neutral,Fair,Below Average,Not Sure,Mostly Office,2024-03-05,More transparency from leadership needed
+EMP0408,Sandra Green,60,Finance,Los Angeles,Junior,2-5 years,Satisfied,Excellent,Below Average,Probably,Mostly Office,2024-01-28,Professional development opportunities
+EMP0409,Christopher Phillips,43,HR,Miami,Manager,2-5 years,Very Satisfied,Good,Good,Probably,Fully Office,2024-03-09,Inclusive and diverse workplace
+EMP0410,Gary Anderson,46,Finance,Seattle,Senior,< 1 year,Very Satisfied,Fair,Below Average,Definitely,Fully Office,2024-02-27,Professional development opportunities
+EMP0411,Jessica Hill,40,Engineering,New York,Lead,1-2 years,Satisfied,Excellent,Excellent,Probably Not,Mostly Office,2024-01-14,Strong leadership and clear direction
+EMP0412,Edward Allen,42,Operations,Dallas,Lead,1-2 years,Neutral,Good,Good,Probably Not,Hybrid (2 days office),2024-01-10,Workload can be overwhelming at times
+EMP0413,Linda Roberts,42,Sales,San Antonio,Junior,< 1 year,Very Dissatisfied,Fair,Good,Definitely Not,Mostly Office,2024-03-19,Could improve communication between teams
+EMP0414,William Walker,63,Legal,Miami,Manager,5-10 years,Very Satisfied,Good,Good,Not Sure,Fully Remote,2024-01-18,Inclusive and diverse workplace
+EMP0415,Paul Lewis,57,Customer Support,Portland,Junior,< 1 year,Dissatisfied,Good,Below Average,Probably Not,Hybrid (3 days office),2024-01-22,Would like more training opportunities
+EMP0416,Jessica Young,26,Customer Support,Dallas,Mid-Level,< 1 year,Very Satisfied,Good,Good,Probably,Fully Office,2024-03-08,Interesting and challenging projects
+EMP0417,Susan Smith,26,IT,San Jose,Director,1-2 years,Very Satisfied,Good,Poor,Definitely,Mostly Office,2024-02-16,Professional development opportunities
+EMP0418,Steven Harris,23,Operations,Phoenix,Senior,2-5 years,Neutral,Poor,Below Average,Probably,Fully Remote,2024-03-27,Need better work equipment
+EMP0419,Jennifer Thomas,34,IT,Chicago,Mid-Level,2-5 years,Satisfied,Poor,Excellent,Probably,Mostly Office,2024-01-31,Clear career progression path
+EMP0420,Sharon Roberts,55,Legal,Austin,Senior,1-2 years,Very Dissatisfied,Good,Good,Not Sure,Fully Office,2024-01-05,Limited remote work options
+EMP0421,Eric Sanchez,44,IT,Los Angeles,Senior,5-10 years,Dissatisfied,Excellent,Average,Definitely Not,Mostly Office,2024-02-08,Limited remote work options
+EMP0422,Brian Scott,37,IT,Phoenix,Director,2-5 years,Neutral,Good,Excellent,Not Sure,Hybrid (2 days office),2024-02-27,Could improve communication between teams
+EMP0423,Karen Jackson,55,Engineering,Austin,Mid-Level,5-10 years,Satisfied,Good,Below Average,Probably Not,Mostly Office,2024-02-18,Great team collaboration and culture
+EMP0424,Kenneth Carter,63,Legal,Atlanta,Mid-Level,2-5 years,Neutral,Good,Poor,Not Sure,Mostly Office,2024-03-06,Need better work equipment
+EMP0425,Deborah Moore,27,Customer Support,Austin,Lead,2-5 years,Neutral,Excellent,Poor,Not Sure,Hybrid (3 days office),2024-02-18,Limited remote work options
+EMP0426,Lisa Thompson,33,Legal,San Antonio,Manager,2-5 years,Satisfied,Good,Below Average,Probably,Fully Remote,2024-03-12,Interesting and challenging projects
+EMP0427,Michelle Jones,55,Legal,Phoenix,Junior,1-2 years,Very Dissatisfied,Good,Average,Definitely Not,Hybrid (3 days office),2024-02-07,Could improve communication between teams
+EMP0428,Daniel Allen,48,Customer Support,San Jose,Director,10+ years,Satisfied,Good,Below Average,Definitely,Hybrid (3 days office),2024-01-05,Good work-life balance
+EMP0429,Stephen Miller,35,Marketing,Atlanta,Director,10+ years,Satisfied,Good,Excellent,Definitely,Fully Office,2024-01-06,Flexible working hours
+EMP0430,Gary Wilson,34,Operations,Atlanta,Senior,< 1 year,Neutral,Good,Excellent,Probably Not,Fully Remote,2024-02-14,Need better work equipment
+EMP0431,Andrew Moore,22,Legal,Miami,Director,1-2 years,Satisfied,Excellent,Poor,Definitely,Fully Office,2024-01-04,Professional development opportunities
+EMP0432,Anthony Lopez,33,IT,Miami,Mid-Level,1-2 years,Dissatisfied,Good,Poor,Definitely,Hybrid (2 days office),2024-01-24,Would like more training opportunities
+EMP0433,Andrew Thomas,36,Engineering,Detroit,Manager,< 1 year,Satisfied,Excellent,Good,Probably Not,Hybrid (2 days office),2024-01-29,Great team collaboration and culture
+EMP0434,Timothy Martinez,43,Operations,Detroit,Manager,< 1 year,Satisfied,Fair,Excellent,Probably,Fully Remote,2024-01-23,Modern tools and technology
+EMP0435,Eric Miller,39,HR,Seattle,Mid-Level,2-5 years,Satisfied,Good,Good,Definitely,Mostly Office,2024-03-04,Good work-life balance
+EMP0436,John Parker,42,Engineering,Denver,Director,2-5 years,Satisfied,Good,Excellent,Probably,Mostly Office,2024-02-22,Strong leadership and clear direction
+EMP0437,Karen Torres,64,HR,Austin,Mid-Level,< 1 year,Neutral,Poor,Excellent,Definitely Not,Fully Remote,2024-01-22,Limited remote work options
+EMP0438,Jane Allen,58,Engineering,Philadelphia,Lead,10+ years,Very Satisfied,Good,Good,Probably,Fully Office,2024-01-30,Strong leadership and clear direction
+EMP0439,Carol Wright,41,Operations,Miami,Senior,2-5 years,Neutral,Poor,Below Average,Definitely Not,Mostly Office,2024-01-20,Unclear performance evaluation process
+EMP0440,Patricia Mitchell,26,Finance,Dallas,Lead,5-10 years,Dissatisfied,Fair,Poor,Probably Not,Hybrid (3 days office),2024-02-11,Would like more training opportunities
+EMP0441,Emily Nelson,32,IT,Atlanta,Senior,1-2 years,Satisfied,Good,Below Average,Probably,Hybrid (2 days office),2024-02-25,Inclusive and diverse workplace
+EMP0442,Susan Hill,39,Sales,Houston,Lead,10+ years,Very Satisfied,Good,Average,Probably,Fully Office,2024-03-02,Modern tools and technology
+EMP0443,David Hernandez,24,Customer Support,Philadelphia,Lead,< 1 year,Very Satisfied,Excellent,Excellent,Definitely,Hybrid (2 days office),2024-02-09,Professional development opportunities
+EMP0444,Michelle Rodriguez,60,Operations,Detroit,Senior,5-10 years,Dissatisfied,Fair,Good,Definitely Not,Hybrid (3 days office),2024-01-10,Office space needs improvement
+EMP0445,Carol Ramirez,38,Finance,New York,Mid-Level,5-10 years,Very Dissatisfied,Poor,Below Average,Definitely Not,Fully Remote,2024-03-06,Salary not competitive with market
+EMP0446,Nancy Rivera,23,HR,San Jose,Manager,2-5 years,Dissatisfied,Poor,Average,Not Sure,Fully Office,2024-02-27,Would like more training opportunities
+EMP0447,Timothy Garcia,56,Product,Austin,Junior,2-5 years,Satisfied,Poor,Good,Not Sure,Hybrid (3 days office),2024-01-22,Competitive salary and benefits
+EMP0448,Karen Wilson,38,Engineering,Chicago,Junior,1-2 years,Neutral,Fair,Below Average,Probably Not,Hybrid (3 days office),2024-01-31,Benefits package could be better
+EMP0449,Kimberly Thomas,37,Operations,San Jose,Junior,5-10 years,Neutral,Good,Below Average,Definitely Not,Fully Remote,2024-01-16,Need better work equipment
+EMP0450,Steven Carter,45,Engineering,Houston,Senior,10+ years,Dissatisfied,Fair,Excellent,Probably,Fully Office,2024-02-24,Would like more training opportunities
+EMP0451,Michelle Sanchez,43,Customer Support,Philadelphia,Mid-Level,1-2 years,Neutral,Good,Below Average,Probably,Fully Office,2024-03-07,More transparency from leadership needed
+EMP0452,Rebecca Moore,30,Engineering,Boston,Manager,5-10 years,Very Satisfied,Good,Excellent,Not Sure,Fully Office,2024-02-09,Strong leadership and clear direction
+EMP0453,Jessica Lee,41,Marketing,Atlanta,Senior,2-5 years,Neutral,Excellent,Average,Probably Not,Fully Remote,2024-02-17,Limited remote work options
+EMP0454,Nancy Wright,59,HR,Seattle,Director,5-10 years,Neutral,Excellent,Average,Probably Not,Mostly Office,2024-02-19,Limited remote work options
+EMP0455,Brian Torres,58,Operations,Phoenix,Manager,10+ years,Satisfied,Poor,Excellent,Definitely,Mostly Office,2024-03-29,Strong leadership and clear direction
+EMP0456,Michelle Wright,28,HR,Chicago,Manager,1-2 years,Neutral,Excellent,Excellent,Not Sure,Hybrid (3 days office),2024-02-20,Need better work equipment
+EMP0457,Gary Torres,53,Product,Philadelphia,Lead,1-2 years,Very Dissatisfied,Excellent,Average,Definitely Not,Hybrid (2 days office),2024-02-05,Benefits package could be better
+EMP0458,Stephen Lopez,54,Product,Atlanta,Director,10+ years,Very Satisfied,Good,Poor,Definitely,Hybrid (3 days office),2024-01-20,Inclusive and diverse workplace
+EMP0459,Joshua Roberts,33,IT,Philadelphia,Lead,1-2 years,Neutral,Good,Good,Probably,Fully Office,2024-01-25,Office space needs improvement
+EMP0460,Deborah Adams,26,Finance,Dallas,Senior,2-5 years,Very Satisfied,Good,Below Average,Definitely,Mostly Office,2024-01-31,Competitive salary and benefits
+EMP0461,Kimberly Allen,26,Legal,San Jose,Director,< 1 year,Neutral,Fair,Below Average,Not Sure,Hybrid (3 days office),2024-02-25,Salary not competitive with market
+EMP0462,Patricia Anderson,51,Finance,San Antonio,Director,2-5 years,Satisfied,Fair,Below Average,Probably,Hybrid (2 days office),2024-01-06,Flexible working hours
+EMP0463,Jason Evans,62,Customer Support,Boston,Junior,10+ years,Satisfied,Good,Average,Definitely,Mostly Office,2024-02-08,Inclusive and diverse workplace
+EMP0464,Jason Adams,38,Legal,San Antonio,Mid-Level,1-2 years,Satisfied,Fair,Average,Probably Not,Fully Remote,2024-03-02,Interesting and challenging projects
+EMP0465,Sandra Flores,53,Marketing,Boston,Director,5-10 years,Very Satisfied,Good,Below Average,Definitely,Fully Remote,2024-01-01,Inclusive and diverse workplace
+EMP0466,Patricia Jones,35,Customer Support,Denver,Senior,10+ years,Dissatisfied,Excellent,Average,Definitely Not,Fully Office,2024-03-23,Limited remote work options
+EMP0467,Timothy Parker,62,Marketing,Phoenix,Senior,5-10 years,Very Dissatisfied,Excellent,Below Average,Definitely Not,Fully Remote,2024-03-02,Could improve communication between teams
+EMP0468,Sarah Thompson,53,Engineering,San Antonio,Director,2-5 years,Very Satisfied,Fair,Good,Probably,Hybrid (2 days office),2024-02-02,Inclusive and diverse workplace
+EMP0469,Kimberly Perez,49,IT,Portland,Director,< 1 year,Satisfied,Good,Poor,Probably Not,Fully Office,2024-01-12,Great team collaboration and culture
+EMP0470,Ronald Harris,45,Sales,Chicago,Manager,1-2 years,Satisfied,Good,Good,Definitely,Fully Remote,2024-02-02,Clear career progression path
+EMP0471,John Walker,33,Customer Support,Atlanta,Mid-Level,< 1 year,Neutral,Good,Excellent,Probably Not,Hybrid (3 days office),2024-02-18,Limited remote work options
+EMP0472,Emily Sanchez,32,Engineering,Seattle,Lead,< 1 year,Dissatisfied,Good,Excellent,Not Sure,Fully Remote,2024-02-24,Would like more training opportunities
+EMP0473,Jason Sanchez,59,IT,Austin,Lead,1-2 years,Very Satisfied,Excellent,Poor,Definitely,Fully Remote,2024-03-10,Great team collaboration and culture
+EMP0474,Jonathan Anderson,44,Engineering,Philadelphia,Director,1-2 years,Dissatisfied,Excellent,Below Average,Definitely Not,Fully Remote,2024-02-10,Unclear performance evaluation process
+EMP0475,Jonathan Allen,42,Marketing,Chicago,Manager,5-10 years,Very Satisfied,Excellent,Average,Probably,Hybrid (3 days office),2024-02-10,Modern tools and technology
+EMP0476,Helen Thompson,24,HR,Dallas,Manager,2-5 years,Dissatisfied,Good,Good,Probably Not,Hybrid (2 days office),2024-01-06,Office space needs improvement
+EMP0477,Kathleen Scott,34,Engineering,Detroit,Mid-Level,2-5 years,Dissatisfied,Fair,Below Average,Probably Not,Hybrid (3 days office),2024-01-13,Would like more training opportunities
+EMP0478,Jason Thomas,59,Product,Portland,Senior,1-2 years,Neutral,Excellent,Good,Not Sure,Mostly Office,2024-02-13,Salary not competitive with market
+EMP0479,Gary Walker,49,Marketing,San Jose,Senior,2-5 years,Satisfied,Excellent,Excellent,Definitely,Fully Remote,2024-03-19,Clear career progression path
+EMP0480,Brian Jackson,57,IT,Boston,Lead,2-5 years,Very Satisfied,Fair,Average,Probably,Fully Remote,2024-03-21,Professional development opportunities
+EMP0481,Emily King,37,Finance,New York,Lead,5-10 years,Very Dissatisfied,Excellent,Below Average,Probably Not,Fully Office,2024-02-29,Need better work equipment
+EMP0482,Barbara Green,54,Legal,Atlanta,Junior,2-5 years,Neutral,Excellent,Excellent,Not Sure,Fully Office,2024-03-10,Salary not competitive with market
+EMP0483,Kimberly Hall,32,Sales,Philadelphia,Manager,2-5 years,Dissatisfied,Fair,Below Average,Not Sure,Fully Remote,2024-01-01,Benefits package could be better
+EMP0484,Michelle Torres,25,HR,Detroit,Director,2-5 years,Very Satisfied,Good,Average,Definitely,Fully Office,2024-01-28,Competitive salary and benefits
+EMP0485,Nicholas Carter,58,Customer Support,New York,Junior,1-2 years,Neutral,Good,Poor,Probably,Fully Remote,2024-03-29,Need better work equipment
+EMP0486,Paul Thomas,61,Finance,Denver,Senior,1-2 years,Satisfied,Good,Excellent,Not Sure,Fully Office,2024-01-26,Modern tools and technology
+EMP0487,Deborah White,25,Engineering,New York,Director,10+ years,Satisfied,Fair,Excellent,Definitely,Fully Remote,2024-02-05,Clear career progression path
+EMP0488,Sharon Johnson,54,Finance,Philadelphia,Director,5-10 years,Very Satisfied,Fair,Excellent,Definitely,Hybrid (3 days office),2024-02-18,Good work-life balance
+EMP0489,Jason Lewis,63,Operations,Chicago,Lead,< 1 year,Neutral,Fair,Average,Probably Not,Fully Office,2024-02-01,Office space needs improvement
+EMP0490,Dorothy Moore,42,IT,Houston,Mid-Level,2-5 years,Satisfied,Fair,Good,Definitely,Fully Office,2024-02-25,Clear career progression path
+EMP0491,Jessica Turner,24,Operations,Philadelphia,Junior,< 1 year,Dissatisfied,Poor,Poor,Definitely Not,Fully Remote,2024-03-22,Benefits package could be better
+EMP0492,Jacob Garcia,57,HR,Chicago,Director,1-2 years,Very Satisfied,Fair,Excellent,Probably,Hybrid (3 days office),2024-03-28,Flexible working hours
+EMP0493,Steven Hall,32,Operations,Philadelphia,Junior,5-10 years,Neutral,Good,Below Average,Probably,Fully Office,2024-02-03,More transparency from leadership needed
+EMP0494,Eric Rivera,40,Legal,Dallas,Mid-Level,< 1 year,Satisfied,Excellent,Poor,Probably,Hybrid (2 days office),2024-03-15,Competitive salary and benefits
+EMP0495,Timothy Lewis,62,Engineering,Detroit,Junior,1-2 years,Neutral,Good,Poor,Probably,Fully Remote,2024-03-12,Would like more training opportunities
+EMP0496,Nicholas Lee,53,Marketing,Portland,Manager,2-5 years,Neutral,Good,Below Average,Not Sure,Fully Office,2024-01-12,Benefits package could be better
+EMP0497,Matthew Turner,52,Marketing,San Diego,Mid-Level,2-5 years,Very Satisfied,Fair,Good,Probably,Mostly Office,2024-01-01,Inclusive and diverse workplace
+EMP0498,Jacob Campbell,46,Operations,Los Angeles,Mid-Level,1-2 years,Satisfied,Poor,Below Average,Definitely,Fully Remote,2024-01-31,Flexible working hours
+EMP0499,Jacob Wright,61,IT,Los Angeles,Manager,< 1 year,Very Satisfied,Good,Average,Probably Not,Mostly Office,2024-01-03,Professional development opportunities
+EMP0500,Jane Evans,42,IT,Austin,Mid-Level,2-5 years,Very Dissatisfied,Poor,Poor,Definitely,Fully Remote,2024-02-04,Office space needs improvement
+EMP0501,Susan Hall,46,HR,Detroit,Manager,10+ years,Satisfied,Fair,Excellent,Definitely,Hybrid (3 days office),2024-03-21,Competitive salary and benefits
+EMP0502,David Jones,60,Customer Support,San Antonio,Director,5-10 years,Very Satisfied,Good,Good,Definitely Not,Hybrid (3 days office),2024-01-01,Great team collaboration and culture
+EMP0503,Joshua Robinson,44,IT,Detroit,Mid-Level,2-5 years,Dissatisfied,Good,Poor,Definitely Not,Fully Office,2024-02-15,More transparency from leadership needed
+EMP0504,Mary Taylor,49,Product,Austin,Manager,< 1 year,Neutral,Poor,Excellent,Probably Not,Hybrid (3 days office),2024-01-18,Need better work equipment
+EMP0505,James Campbell,24,Engineering,Boston,Senior,1-2 years,Satisfied,Fair,Below Average,Definitely,Hybrid (3 days office),2024-03-18,Flexible working hours
+EMP0506,Eric Ramirez,56,Engineering,Dallas,Lead,< 1 year,Very Satisfied,Excellent,Poor,Definitely,Fully Office,2024-01-15,Competitive salary and benefits
+EMP0507,Jonathan Gonzalez,35,Legal,Miami,Mid-Level,5-10 years,Very Dissatisfied,Excellent,Poor,Probably,Mostly Office,2024-03-26,Would like more training opportunities
+EMP0508,Sharon Torres,58,HR,San Jose,Manager,2-5 years,Neutral,Good,Good,Not Sure,Fully Remote,2024-03-24,Would like more training opportunities
+EMP0509,Lisa Hill,59,Sales,Atlanta,Junior,5-10 years,Neutral,Fair,Excellent,Definitely Not,Fully Remote,2024-03-20,Could improve communication between teams
+EMP0510,Timothy Miller,41,HR,Phoenix,Director,< 1 year,Very Satisfied,Good,Excellent,Definitely,Mostly Office,2024-03-12,Competitive salary and benefits
+EMP0511,Cynthia Perez,61,Operations,San Diego,Mid-Level,2-5 years,Neutral,Good,Excellent,Not Sure,Hybrid (3 days office),2024-03-19,More transparency from leadership needed
+EMP0512,Gary Wright,59,IT,Miami,Manager,10+ years,Dissatisfied,Fair,Average,Probably Not,Hybrid (3 days office),2024-03-28,Office space needs improvement
+EMP0513,Eric Mitchell,52,Marketing,Phoenix,Manager,5-10 years,Very Satisfied,Fair,Excellent,Definitely,Mostly Office,2024-02-22,Modern tools and technology
+EMP0514,Linda Wilson,24,IT,Los Angeles,Senior,< 1 year,Satisfied,Good,Average,Not Sure,Fully Office,2024-02-15,Professional development opportunities
+EMP0515,Jessica Davis,27,HR,San Diego,Senior,2-5 years,Satisfied,Excellent,Poor,Definitely,Fully Office,2024-03-10,Professional development opportunities
+EMP0516,Eric Flores,63,IT,Philadelphia,Junior,< 1 year,Satisfied,Good,Excellent,Definitely,Fully Office,2024-03-05,Professional development opportunities
+EMP0517,Kevin Lewis,24,Sales,Miami,Lead,5-10 years,Neutral,Poor,Poor,Not Sure,Mostly Office,2024-01-04,Could improve communication between teams
+EMP0518,Eric White,29,Engineering,Detroit,Lead,< 1 year,Satisfied,Fair,Excellent,Definitely,Hybrid (2 days office),2024-01-18,Good work-life balance
+EMP0519,Deborah Thomas,62,IT,Los Angeles,Director,2-5 years,Dissatisfied,Excellent,Below Average,Probably Not,Mostly Office,2024-02-14,Could improve communication between teams
+EMP0520,John Nelson,53,IT,Portland,Senior,5-10 years,Satisfied,Fair,Average,Definitely Not,Fully Office,2024-02-12,Flexible working hours
+EMP0521,Jennifer Adams,61,Sales,Miami,Lead,2-5 years,Satisfied,Good,Excellent,Not Sure,Fully Remote,2024-01-29,Professional development opportunities
+EMP0522,Sandra Sanchez,43,Customer Support,Philadelphia,Junior,2-5 years,Satisfied,Fair,Below Average,Definitely,Fully Office,2024-01-15,Great team collaboration and culture
+EMP0523,Susan Roberts,63,Marketing,Phoenix,Manager,2-5 years,Very Satisfied,Good,Below Average,Not Sure,Mostly Office,2024-02-07,Great team collaboration and culture
+EMP0524,Betty Green,32,Customer Support,Philadelphia,Mid-Level,< 1 year,Very Satisfied,Good,Below Average,Definitely,Fully Office,2024-03-30,Clear career progression path
+EMP0525,Lisa Flores,23,Sales,New York,Director,5-10 years,Dissatisfied,Fair,Below Average,Probably,Mostly Office,2024-03-27,More transparency from leadership needed
+EMP0526,David Moore,62,Customer Support,Detroit,Director,1-2 years,Very Satisfied,Excellent,Excellent,Not Sure,Hybrid (3 days office),2024-02-23,Interesting and challenging projects
+EMP0527,Amanda Lee,65,Marketing,Dallas,Senior,2-5 years,Very Satisfied,Good,Below Average,Probably,Fully Office,2024-02-10,Inclusive and diverse workplace
+EMP0528,Laura King,41,Finance,Atlanta,Director,2-5 years,Neutral,Good,Good,Probably Not,Fully Remote,2024-03-12,Workload can be overwhelming at times
+EMP0529,Cynthia Garcia,33,HR,Phoenix,Lead,< 1 year,Very Satisfied,Fair,Good,Not Sure,Hybrid (3 days office),2024-03-07,Good work-life balance
+EMP0530,Emily Miller,51,Customer Support,Miami,Lead,< 1 year,Neutral,Good,Average,Probably,Mostly Office,2024-01-11,Salary not competitive with market
+EMP0531,Betty Baker,27,Marketing,New York,Manager,1-2 years,Very Satisfied,Good,Good,Definitely,Hybrid (2 days office),2024-01-14,Strong leadership and clear direction
+EMP0532,Jacob Garcia,22,Legal,San Diego,Director,< 1 year,Very Dissatisfied,Good,Good,Definitely Not,Hybrid (3 days office),2024-01-10,Office space needs improvement
+EMP0533,Stephen Adams,39,IT,Chicago,Junior,5-10 years,Neutral,Good,Below Average,Probably Not,Hybrid (2 days office),2024-03-13,Salary not competitive with market
+EMP0534,Edward Martin,37,Product,Philadelphia,Lead,2-5 years,Satisfied,Excellent,Excellent,Not Sure,Hybrid (2 days office),2024-03-12,Modern tools and technology
+EMP0535,Eric Robinson,46,Finance,Phoenix,Mid-Level,10+ years,Dissatisfied,Good,Average,Not Sure,Fully Remote,2024-02-02,Workload can be overwhelming at times
+EMP0536,Michael Brown,51,Product,Philadelphia,Manager,2-5 years,Very Satisfied,Good,Average,Definitely,Fully Remote,2024-03-07,Inclusive and diverse workplace
+EMP0537,Jennifer Rodriguez,48,Customer Support,Boston,Junior,10+ years,Neutral,Good,Good,Probably,Fully Remote,2024-02-05,More transparency from leadership needed
+EMP0538,Emily Phillips,37,Marketing,San Antonio,Junior,2-5 years,Dissatisfied,Good,Average,Not Sure,Hybrid (2 days office),2024-03-25,More transparency from leadership needed
+EMP0539,Timothy Moore,63,Finance,Portland,Director,< 1 year,Very Satisfied,Excellent,Excellent,Probably,Fully Remote,2024-02-19,Modern tools and technology
+EMP0540,Kenneth Davis,51,Customer Support,Portland,Mid-Level,5-10 years,Dissatisfied,Poor,Poor,Definitely Not,Fully Remote,2024-03-28,More transparency from leadership needed
+EMP0541,Lisa Rodriguez,39,Marketing,Los Angeles,Junior,1-2 years,Satisfied,Fair,Excellent,Not Sure,Hybrid (2 days office),2024-01-11,Professional development opportunities
+EMP0542,Stephen Torres,52,Operations,Chicago,Manager,< 1 year,Very Satisfied,Excellent,Excellent,Definitely,Fully Remote,2024-01-17,Strong leadership and clear direction
+EMP0543,Jessica Lopez,31,IT,Chicago,Lead,1-2 years,Very Dissatisfied,Excellent,Average,Not Sure,Hybrid (2 days office),2024-03-12,Would like more training opportunities
+EMP0544,Christopher Evans,27,Product,Detroit,Senior,10+ years,Very Dissatisfied,Good,Below Average,Definitely Not,Hybrid (3 days office),2024-01-04,Office space needs improvement
+EMP0545,Helen Jones,30,Legal,Houston,Director,5-10 years,Neutral,Good,Excellent,Probably,Hybrid (3 days office),2024-03-24,Limited remote work options
+EMP0546,Betty Scott,54,Operations,Los Angeles,Senior,1-2 years,Neutral,Fair,Good,Not Sure,Hybrid (2 days office),2024-02-11,Need better work equipment
+EMP0547,Ryan Perez,56,Engineering,San Antonio,Manager,2-5 years,Dissatisfied,Fair,Excellent,Definitely Not,Hybrid (2 days office),2024-03-10,More transparency from leadership needed
+EMP0548,Timothy White,36,Sales,Los Angeles,Senior,< 1 year,Satisfied,Poor,Poor,Definitely,Hybrid (2 days office),2024-02-20,Modern tools and technology
+EMP0549,Dorothy Robinson,61,HR,Denver,Manager,< 1 year,Neutral,Fair,Excellent,Not Sure,Hybrid (3 days office),2024-02-18,Would like more training opportunities
+EMP0550,Anthony Diaz,32,Finance,Portland,Director,5-10 years,Satisfied,Good,Below Average,Probably,Fully Remote,2024-03-28,Great team collaboration and culture
+EMP0551,Emily Lee,45,Sales,Houston,Junior,2-5 years,Very Satisfied,Good,Below Average,Not Sure,Hybrid (3 days office),2024-02-16,Good work-life balance
+EMP0552,Ashley Mitchell,32,Product,San Antonio,Senior,10+ years,Satisfied,Poor,Average,Probably,Mostly Office,2024-01-09,Modern tools and technology
+EMP0553,Amanda Walker,55,HR,Phoenix,Manager,5-10 years,Very Satisfied,Fair,Poor,Probably,Hybrid (2 days office),2024-03-28,Strong leadership and clear direction
+EMP0554,William Sanchez,36,Engineering,Chicago,Lead,2-5 years,Very Satisfied,Excellent,Poor,Not Sure,Fully Office,2024-01-19,Modern tools and technology
+EMP0555,Mary Johnson,58,HR,Atlanta,Junior,5-10 years,Very Satisfied,Fair,Below Average,Definitely,Fully Remote,2024-01-24,Inclusive and diverse workplace
+EMP0556,Ryan Taylor,53,Operations,Philadelphia,Director,10+ years,Very Satisfied,Fair,Below Average,Definitely,Hybrid (2 days office),2024-01-26,Great team collaboration and culture
+EMP0557,Edward Smith,32,Engineering,Detroit,Mid-Level,< 1 year,Neutral,Good,Average,Definitely,Hybrid (2 days office),2024-01-05,Could improve communication between teams
+EMP0558,Nicholas Davis,32,Customer Support,Los Angeles,Manager,10+ years,Neutral,Poor,Average,Probably,Hybrid (3 days office),2024-03-12,Could improve communication between teams
+EMP0559,John Roberts,54,Marketing,San Jose,Senior,1-2 years,Dissatisfied,Excellent,Poor,Definitely Not,Hybrid (2 days office),2024-02-12,Limited remote work options
+EMP0560,Lisa Miller,33,Product,Denver,Mid-Level,2-5 years,Neutral,Fair,Average,Probably,Mostly Office,2024-02-13,More transparency from leadership needed
+EMP0561,Kenneth Harris,53,Operations,Seattle,Junior,2-5 years,Dissatisfied,Excellent,Excellent,Probably Not,Fully Office,2024-01-19,More transparency from leadership needed
+EMP0562,Helen Miller,56,Operations,Seattle,Mid-Level,5-10 years,Neutral,Good,Excellent,Not Sure,Mostly Office,2024-03-26,More transparency from leadership needed
+EMP0563,Rebecca Smith,58,IT,Atlanta,Director,5-10 years,Satisfied,Poor,Excellent,Probably Not,Hybrid (3 days office),2024-03-25,Flexible working hours
+EMP0564,Edward Anderson,34,Customer Support,Dallas,Mid-Level,2-5 years,Satisfied,Good,Average,Definitely,Mostly Office,2024-03-29,Professional development opportunities
+EMP0565,Susan Lopez,47,Customer Support,Phoenix,Lead,1-2 years,Neutral,Good,Excellent,Not Sure,Hybrid (3 days office),2024-01-09,More transparency from leadership needed
+EMP0566,Eric Harris,63,HR,Atlanta,Manager,5-10 years,Very Dissatisfied,Fair,Excellent,Probably,Mostly Office,2024-02-20,Office space needs improvement
+EMP0567,Dorothy Jones,47,Operations,Philadelphia,Senior,2-5 years,Dissatisfied,Poor,Below Average,Probably Not,Mostly Office,2024-03-29,Unclear performance evaluation process
+EMP0568,Amanda Scott,43,Customer Support,Boston,Director,< 1 year,Neutral,Excellent,Below Average,Not Sure,Hybrid (3 days office),2024-03-28,Workload can be overwhelming at times
+EMP0569,Timothy Phillips,28,Legal,New York,Junior,2-5 years,Neutral,Excellent,Average,Definitely,Mostly Office,2024-01-23,Limited remote work options
+EMP0570,Christopher Torres,65,Legal,Dallas,Manager,< 1 year,Very Satisfied,Good,Average,Probably,Hybrid (3 days office),2024-03-12,Competitive salary and benefits
+EMP0571,Mary Jones,37,Engineering,Boston,Mid-Level,5-10 years,Satisfied,Good,Average,Definitely,Hybrid (2 days office),2024-03-01,Professional development opportunities
+EMP0572,Ronald Taylor,49,Marketing,Detroit,Lead,< 1 year,Very Satisfied,Good,Poor,Probably,Fully Office,2024-01-18,Inclusive and diverse workplace
+EMP0573,David Thomas,24,Finance,Phoenix,Senior,< 1 year,Dissatisfied,Excellent,Average,Probably Not,Hybrid (2 days office),2024-02-17,Benefits package could be better
+EMP0574,Ronald Martinez,51,IT,Miami,Junior,< 1 year,Very Dissatisfied,Fair,Below Average,Probably Not,Mostly Office,2024-02-24,Would like more training opportunities
+EMP0575,Kimberly White,47,Product,New York,Lead,10+ years,Dissatisfied,Excellent,Poor,Definitely Not,Fully Office,2024-01-10,Could improve communication between teams
+EMP0576,Barbara Harris,36,Finance,San Antonio,Senior,5-10 years,Very Satisfied,Fair,Good,Probably Not,Fully Remote,2024-01-28,Flexible working hours
+EMP0577,Emily Davis,62,Engineering,Boston,Senior,2-5 years,Neutral,Good,Good,Probably Not,Fully Remote,2024-03-25,Workload can be overwhelming at times
+EMP0578,John Hernandez,60,Customer Support,Miami,Lead,< 1 year,Very Satisfied,Good,Good,Probably,Hybrid (3 days office),2024-02-26,Interesting and challenging projects
+EMP0579,Donald Ramirez,51,Marketing,Houston,Lead,2-5 years,Very Satisfied,Good,Below Average,Definitely Not,Hybrid (3 days office),2024-03-22,Competitive salary and benefits
+EMP0580,Michelle Torres,44,HR,Seattle,Manager,10+ years,Satisfied,Good,Excellent,Probably,Mostly Office,2024-01-24,Modern tools and technology
+EMP0581,Nancy Smith,46,Engineering,San Jose,Junior,5-10 years,Dissatisfied,Good,Excellent,Probably,Hybrid (3 days office),2024-02-15,Unclear performance evaluation process
+EMP0582,Jacob Phillips,31,Sales,Houston,Mid-Level,10+ years,Very Satisfied,Good,Good,Probably Not,Fully Remote,2024-03-24,Strong leadership and clear direction
+EMP0583,Steven Williams,46,Product,Austin,Mid-Level,5-10 years,Neutral,Good,Good,Probably Not,Hybrid (2 days office),2024-03-13,Benefits package could be better
+EMP0584,Christopher Mitchell,44,Customer Support,New York,Manager,5-10 years,Very Satisfied,Excellent,Good,Not Sure,Fully Remote,2024-03-21,Competitive salary and benefits
+EMP0585,Jacob Hill,55,IT,Dallas,Mid-Level,10+ years,Dissatisfied,Good,Below Average,Definitely Not,Fully Remote,2024-02-29,More transparency from leadership needed
+EMP0586,Stephanie Campbell,58,Legal,Philadelphia,Director,1-2 years,Very Satisfied,Poor,Good,Definitely,Mostly Office,2024-03-02,Flexible working hours
+EMP0587,Mary Anderson,24,Engineering,San Diego,Manager,10+ years,Very Satisfied,Good,Good,Definitely Not,Hybrid (2 days office),2024-01-30,Good work-life balance
+EMP0588,Christopher Ramirez,44,Legal,New York,Senior,5-10 years,Satisfied,Poor,Below Average,Definitely,Fully Office,2024-03-18,Inclusive and diverse workplace
+EMP0589,Dorothy Thomas,30,Finance,Dallas,Mid-Level,1-2 years,Satisfied,Good,Excellent,Probably,Hybrid (3 days office),2024-01-09,Interesting and challenging projects
+EMP0590,Cynthia Flores,49,IT,San Jose,Senior,1-2 years,Neutral,Poor,Excellent,Probably,Hybrid (3 days office),2024-01-03,Unclear performance evaluation process
+EMP0591,Ashley Thomas,22,Finance,Chicago,Junior,2-5 years,Very Satisfied,Excellent,Excellent,Probably,Hybrid (3 days office),2024-01-27,Inclusive and diverse workplace
+EMP0592,Brian White,27,Product,Detroit,Mid-Level,10+ years,Very Satisfied,Fair,Below Average,Not Sure,Mostly Office,2024-03-20,Strong leadership and clear direction
+EMP0593,Barbara Green,26,Customer Support,Phoenix,Mid-Level,5-10 years,Neutral,Excellent,Below Average,Not Sure,Fully Remote,2024-02-13,Benefits package could be better
+EMP0594,Donald Jones,33,Legal,Denver,Manager,1-2 years,Very Satisfied,Good,Poor,Not Sure,Fully Remote,2024-01-15,Good work-life balance
+EMP0595,Jennifer Martinez,34,Operations,San Antonio,Director,< 1 year,Neutral,Fair,Average,Probably,Fully Office,2024-01-09,Would like more training opportunities
+EMP0596,Robert Mitchell,35,Finance,Houston,Manager,1-2 years,Neutral,Good,Excellent,Not Sure,Fully Office,2024-02-25,Salary not competitive with market
+EMP0597,Ashley Lee,64,HR,Dallas,Manager,< 1 year,Very Satisfied,Excellent,Average,Definitely,Hybrid (3 days office),2024-01-04,Flexible working hours
+EMP0598,Laura Diaz,48,HR,Portland,Lead,2-5 years,Satisfied,Poor,Average,Not Sure,Fully Remote,2024-02-21,Flexible working hours
+EMP0599,Emily Thompson,59,Finance,Chicago,Director,< 1 year,Satisfied,Fair,Good,Definitely,Hybrid (3 days office),2024-02-08,Great team collaboration and culture
+EMP0600,Edward Jones,65,Legal,Detroit,Manager,5-10 years,Satisfied,Excellent,Poor,Probably,Fully Office,2024-02-23,Inclusive and diverse workplace
+EMP0601,Linda Brown,25,Finance,Boston,Junior,5-10 years,Neutral,Fair,Excellent,Not Sure,Mostly Office,2024-03-04,Office space needs improvement
+EMP0602,Kenneth Martinez,64,Marketing,Seattle,Lead,2-5 years,Satisfied,Good,Excellent,Definitely,Mostly Office,2024-01-02,Clear career progression path
+EMP0603,Donald Garcia,28,Legal,Houston,Manager,< 1 year,Very Satisfied,Good,Good,Probably,Fully Remote,2024-03-04,Clear career progression path
+EMP0604,Kenneth Jones,63,Operations,San Antonio,Director,5-10 years,Very Satisfied,Fair,Poor,Probably,Hybrid (3 days office),2024-03-20,Modern tools and technology
+EMP0605,George Smith,35,Operations,Boston,Manager,10+ years,Satisfied,Fair,Good,Probably,Fully Remote,2024-02-22,Modern tools and technology
+EMP0606,William Perez,48,Operations,San Diego,Senior,2-5 years,Dissatisfied,Poor,Below Average,Probably Not,Fully Office,2024-03-01,Workload can be overwhelming at times
+EMP0607,Donald Hernandez,25,Sales,Houston,Mid-Level,1-2 years,Neutral,Fair,Below Average,Probably Not,Fully Office,2024-02-15,Workload can be overwhelming at times
+EMP0608,Christopher Flores,23,HR,Phoenix,Junior,1-2 years,Satisfied,Excellent,Poor,Probably Not,Hybrid (3 days office),2024-03-20,Great team collaboration and culture
+EMP0609,Donald Roberts,59,HR,Austin,Director,5-10 years,Satisfied,Good,Excellent,Probably,Hybrid (3 days office),2024-01-09,Clear career progression path
+EMP0610,James Hall,48,Sales,Portland,Director,1-2 years,Neutral,Good,Poor,Not Sure,Hybrid (3 days office),2024-03-17,Would like more training opportunities
+EMP0611,Nicholas Garcia,43,Operations,San Jose,Senior,10+ years,Dissatisfied,Good,Below Average,Not Sure,Hybrid (2 days office),2024-03-19,Limited remote work options
+EMP0612,Anthony Sanchez,61,HR,San Diego,Director,2-5 years,Satisfied,Good,Good,Probably,Hybrid (2 days office),2024-03-04,Strong leadership and clear direction
+EMP0613,Anthony Torres,26,Product,Boston,Lead,5-10 years,Satisfied,Good,Excellent,Not Sure,Mostly Office,2024-02-19,Interesting and challenging projects
+EMP0614,Jason Brown,56,Engineering,Austin,Junior,1-2 years,Very Satisfied,Excellent,Good,Definitely,Fully Office,2024-03-29,Good work-life balance
+EMP0615,Edward Sanchez,43,IT,San Jose,Director,10+ years,Satisfied,Good,Below Average,Definitely,Hybrid (2 days office),2024-01-05,Good work-life balance
+EMP0616,Gary Gonzalez,32,Customer Support,Austin,Director,1-2 years,Dissatisfied,Poor,Below Average,Definitely Not,Hybrid (2 days office),2024-02-17,More transparency from leadership needed
+EMP0617,Ryan Carter,57,HR,Los Angeles,Lead,5-10 years,Very Satisfied,Fair,Average,Not Sure,Fully Remote,2024-03-05,Strong leadership and clear direction
+EMP0618,Jonathan Torres,36,Customer Support,Boston,Lead,10+ years,Very Satisfied,Good,Good,Probably,Hybrid (3 days office),2024-01-08,Competitive salary and benefits
+EMP0619,Nancy Hill,53,IT,Austin,Manager,5-10 years,Very Satisfied,Good,Average,Probably,Hybrid (2 days office),2024-01-26,Professional development opportunities
+EMP0620,Deborah Wilson,38,Finance,San Diego,Director,5-10 years,Very Satisfied,Poor,Good,Definitely Not,Hybrid (2 days office),2024-01-30,Professional development opportunities
+EMP0621,Emily Hernandez,63,Engineering,Houston,Manager,1-2 years,Dissatisfied,Poor,Average,Probably,Fully Remote,2024-02-01,Benefits package could be better
+EMP0622,Christopher Thomas,63,Marketing,Houston,Senior,2-5 years,Neutral,Good,Poor,Not Sure,Hybrid (3 days office),2024-03-03,Benefits package could be better
+EMP0623,Kevin Torres,37,Finance,Los Angeles,Mid-Level,2-5 years,Very Satisfied,Good,Excellent,Not Sure,Fully Office,2024-01-12,Good work-life balance
+EMP0624,Cynthia Green,31,Engineering,New York,Mid-Level,1-2 years,Very Dissatisfied,Fair,Poor,Probably Not,Mostly Office,2024-01-24,Limited remote work options
+EMP0625,Jonathan Rodriguez,57,HR,Detroit,Manager,2-5 years,Very Satisfied,Good,Average,Not Sure,Hybrid (3 days office),2024-01-04,Flexible working hours
+EMP0626,Mark Davis,30,Finance,Denver,Lead,< 1 year,Neutral,Fair,Poor,Not Sure,Fully Remote,2024-03-09,Unclear performance evaluation process
+EMP0627,George Turner,56,Engineering,Chicago,Senior,< 1 year,Dissatisfied,Fair,Excellent,Definitely Not,Mostly Office,2024-01-02,Need better work equipment
+EMP0628,Edward Scott,32,Operations,Seattle,Senior,1-2 years,Neutral,Good,Average,Probably Not,Fully Remote,2024-01-12,Unclear performance evaluation process
+EMP0629,Sarah Baker,30,Operations,Houston,Mid-Level,1-2 years,Satisfied,Poor,Poor,Probably,Mostly Office,2024-01-17,Clear career progression path
+EMP0630,Edward Hernandez,47,IT,Atlanta,Mid-Level,< 1 year,Satisfied,Poor,Excellent,Definitely,Fully Office,2024-02-19,Inclusive and diverse workplace
+EMP0631,Susan Martin,41,Marketing,San Diego,Lead,10+ years,Dissatisfied,Excellent,Below Average,Probably Not,Fully Remote,2024-01-17,Could improve communication between teams
+EMP0632,Ryan Hill,38,Operations,San Jose,Manager,< 1 year,Dissatisfied,Poor,Below Average,Definitely Not,Fully Office,2024-01-18,Could improve communication between teams
+EMP0633,Susan Wright,53,Operations,Chicago,Manager,2-5 years,Very Satisfied,Poor,Poor,Definitely,Hybrid (3 days office),2024-01-04,Clear career progression path
+EMP0634,Patricia Lopez,23,HR,Houston,Junior,< 1 year,Neutral,Fair,Good,Probably,Hybrid (3 days office),2024-03-20,Workload can be overwhelming at times
+EMP0635,Sandra Davis,44,HR,San Antonio,Manager,10+ years,Neutral,Excellent,Poor,Not Sure,Fully Remote,2024-03-10,Benefits package could be better
+EMP0636,Lisa Hill,63,Marketing,Miami,Junior,1-2 years,Dissatisfied,Excellent,Poor,Probably,Fully Remote,2024-01-25,More transparency from leadership needed
+EMP0637,Kimberly Hill,43,Legal,Miami,Manager,5-10 years,Very Satisfied,Fair,Excellent,Probably,Fully Office,2024-02-07,Great team collaboration and culture
+EMP0638,Sharon Thomas,59,HR,Philadelphia,Director,5-10 years,Very Satisfied,Good,Average,Probably,Fully Office,2024-03-28,Interesting and challenging projects
+EMP0639,James Flores,59,Marketing,San Diego,Mid-Level,< 1 year,Neutral,Excellent,Below Average,Probably,Hybrid (3 days office),2024-01-18,Could improve communication between teams
+EMP0640,Kevin Flores,29,Marketing,Philadelphia,Mid-Level,10+ years,Satisfied,Fair,Poor,Definitely,Hybrid (2 days office),2024-02-12,Clear career progression path
+EMP0641,Carol Lewis,60,Operations,Denver,Senior,1-2 years,Satisfied,Fair,Excellent,Probably Not,Fully Office,2024-02-24,Modern tools and technology
+EMP0642,Kevin Sanchez,39,Engineering,New York,Lead,10+ years,Very Satisfied,Excellent,Average,Not Sure,Mostly Office,2024-03-17,Professional development opportunities
+EMP0643,Barbara King,57,Finance,Denver,Manager,2-5 years,Very Satisfied,Excellent,Average,Probably,Hybrid (3 days office),2024-02-02,Flexible working hours
+EMP0644,Jason Green,61,IT,Phoenix,Mid-Level,1-2 years,Satisfied,Good,Excellent,Probably,Mostly Office,2024-02-09,Inclusive and diverse workplace
+EMP0645,Edward Harris,65,Customer Support,Phoenix,Mid-Level,5-10 years,Neutral,Excellent,Excellent,Not Sure,Fully Remote,2024-03-17,Limited remote work options
+EMP0646,John Ramirez,33,Finance,Chicago,Mid-Level,2-5 years,Satisfied,Excellent,Average,Probably Not,Fully Remote,2024-02-01,Clear career progression path
+EMP0647,Stephen White,27,Marketing,Boston,Lead,5-10 years,Neutral,Excellent,Average,Definitely Not,Hybrid (2 days office),2024-02-16,Salary not competitive with market
+EMP0648,Kenneth Smith,52,Legal,Los Angeles,Lead,5-10 years,Satisfied,Good,Average,Probably,Fully Office,2024-01-31,Interesting and challenging projects
+EMP0649,Jeffrey Robinson,59,Marketing,Seattle,Mid-Level,10+ years,Dissatisfied,Poor,Excellent,Not Sure,Hybrid (2 days office),2024-03-20,Unclear performance evaluation process
+EMP0650,Donna Wright,51,Sales,Denver,Mid-Level,1-2 years,Neutral,Fair,Average,Probably,Hybrid (2 days office),2024-01-19,Could improve communication between teams
+EMP0651,Donna Hall,35,Finance,San Diego,Junior,< 1 year,Neutral,Fair,Good,Definitely,Fully Office,2024-02-04,Workload can be overwhelming at times
+EMP0652,Nancy Jackson,46,Sales,Boston,Director,2-5 years,Neutral,Good,Average,Not Sure,Hybrid (2 days office),2024-01-06,Salary not competitive with market
+EMP0653,Paul Jackson,30,IT,Houston,Junior,5-10 years,Very Dissatisfied,Fair,Good,Not Sure,Fully Remote,2024-03-11,Salary not competitive with market
+EMP0654,Betty Lewis,44,Sales,Boston,Junior,< 1 year,Dissatisfied,Poor,Poor,Not Sure,Fully Remote,2024-02-26,Office space needs improvement
+EMP0655,Mark Flores,25,Product,Dallas,Lead,2-5 years,Very Satisfied,Fair,Poor,Probably,Fully Remote,2024-02-19,Competitive salary and benefits
+EMP0656,Edward Garcia,63,HR,Denver,Junior,5-10 years,Dissatisfied,Fair,Good,Definitely Not,Hybrid (3 days office),2024-03-26,Workload can be overwhelming at times
+EMP0657,Kevin Wilson,31,Marketing,Atlanta,Senior,1-2 years,Neutral,Good,Poor,Definitely,Hybrid (2 days office),2024-02-08,Benefits package could be better
+EMP0658,Brian Roberts,30,Engineering,Portland,Lead,2-5 years,Very Satisfied,Good,Excellent,Definitely,Fully Remote,2024-03-12,Professional development opportunities
+EMP0659,Karen White,62,Finance,Austin,Senior,10+ years,Dissatisfied,Fair,Good,Probably,Hybrid (2 days office),2024-03-06,Workload can be overwhelming at times
+EMP0660,Laura Davis,43,Engineering,Philadelphia,Director,5-10 years,Neutral,Fair,Poor,Probably,Fully Remote,2024-01-19,Benefits package could be better
+EMP0661,Emily Hernandez,62,HR,New York,Manager,2-5 years,Satisfied,Fair,Poor,Not Sure,Hybrid (3 days office),2024-03-30,Inclusive and diverse workplace
+EMP0662,Emily Allen,43,Customer Support,Chicago,Mid-Level,1-2 years,Dissatisfied,Excellent,Poor,Probably Not,Mostly Office,2024-03-17,More transparency from leadership needed
+EMP0663,Andrew Taylor,40,Sales,Atlanta,Manager,1-2 years,Neutral,Good,Average,Not Sure,Mostly Office,2024-01-24,Unclear performance evaluation process
+EMP0664,Melissa Rivera,22,HR,Seattle,Mid-Level,5-10 years,Dissatisfied,Good,Below Average,Not Sure,Fully Remote,2024-01-25,Could improve communication between teams
+EMP0665,Daniel Brown,26,Product,San Diego,Junior,< 1 year,Neutral,Good,Excellent,Probably,Hybrid (3 days office),2024-01-31,Unclear performance evaluation process
+EMP0666,Ryan Baker,48,Legal,San Jose,Senior,1-2 years,Neutral,Good,Average,Not Sure,Hybrid (3 days office),2024-03-21,Could improve communication between teams
+EMP0667,Michelle King,30,Sales,Denver,Junior,10+ years,Neutral,Good,Below Average,Definitely,Hybrid (3 days office),2024-02-08,Workload can be overwhelming at times
+EMP0668,Mary Gomez,45,Customer Support,New York,Director,1-2 years,Very Satisfied,Fair,Average,Not Sure,Hybrid (3 days office),2024-02-17,Interesting and challenging projects
+EMP0669,Ryan Gonzalez,36,Sales,Portland,Mid-Level,5-10 years,Very Satisfied,Good,Good,Definitely,Mostly Office,2024-01-07,Interesting and challenging projects
+EMP0670,Barbara Turner,38,Marketing,Portland,Junior,< 1 year,Satisfied,Excellent,Average,Definitely,Fully Office,2024-01-19,Good work-life balance
+EMP0671,Michael Hernandez,35,IT,New York,Junior,2-5 years,Neutral,Poor,Poor,Probably Not,Fully Office,2024-01-16,Could improve communication between teams
+EMP0672,Emily Martinez,43,Customer Support,Seattle,Junior,< 1 year,Dissatisfied,Good,Below Average,Probably Not,Hybrid (2 days office),2024-02-03,Benefits package could be better
+EMP0673,Deborah Jackson,54,Legal,Chicago,Junior,2-5 years,Satisfied,Good,Poor,Not Sure,Hybrid (3 days office),2024-02-12,Good work-life balance
+EMP0674,Joshua Williams,25,HR,Atlanta,Manager,5-10 years,Neutral,Good,Average,Probably Not,Fully Remote,2024-02-24,Unclear performance evaluation process
+EMP0675,Cynthia Thompson,65,Finance,New York,Manager,< 1 year,Very Satisfied,Fair,Excellent,Definitely,Fully Remote,2024-02-24,Good work-life balance
+EMP0676,Linda Green,40,Customer Support,Miami,Manager,1-2 years,Satisfied,Good,Poor,Definitely,Fully Remote,2024-01-05,Professional development opportunities
+EMP0677,Ryan Allen,43,Sales,New York,Manager,1-2 years,Very Satisfied,Poor,Good,Definitely,Hybrid (2 days office),2024-02-08,Interesting and challenging projects
+EMP0678,Sarah Nelson,46,Operations,Atlanta,Lead,10+ years,Very Satisfied,Poor,Poor,Probably,Hybrid (2 days office),2024-03-22,Interesting and challenging projects
+EMP0679,Deborah Anderson,49,Customer Support,Phoenix,Manager,1-2 years,Dissatisfied,Good,Poor,Probably Not,Fully Office,2024-03-23,Limited remote work options
+EMP0680,Patricia Garcia,51,Legal,San Jose,Junior,1-2 years,Very Satisfied,Excellent,Poor,Not Sure,Mostly Office,2024-01-26,Good work-life balance
+EMP0681,William Perez,61,Marketing,Houston,Senior,5-10 years,Neutral,Good,Below Average,Not Sure,Fully Remote,2024-03-16,Benefits package could be better
+EMP0682,Steven Jackson,31,Sales,Phoenix,Manager,2-5 years,Satisfied,Excellent,Excellent,Not Sure,Fully Office,2024-02-10,Modern tools and technology
+EMP0683,Carol Moore,56,Product,Seattle,Mid-Level,1-2 years,Neutral,Excellent,Excellent,Not Sure,Fully Remote,2024-03-21,Would like more training opportunities
+EMP0684,Patricia Scott,39,Product,Los Angeles,Manager,2-5 years,Very Satisfied,Excellent,Good,Probably,Hybrid (2 days office),2024-03-24,Interesting and challenging projects
+EMP0685,Timothy Taylor,28,Customer Support,Dallas,Manager,1-2 years,Satisfied,Fair,Good,Probably,Mostly Office,2024-03-10,Strong leadership and clear direction
+EMP0686,Jessica Thompson,44,Marketing,Chicago,Director,10+ years,Satisfied,Fair,Poor,Not Sure,Hybrid (3 days office),2024-01-24,Good work-life balance
+EMP0687,Laura Nelson,33,Customer Support,Austin,Lead,< 1 year,Neutral,Fair,Excellent,Definitely,Fully Remote,2024-01-09,Workload can be overwhelming at times
+EMP0688,Carol Wright,48,Marketing,Philadelphia,Junior,2-5 years,Very Satisfied,Good,Poor,Probably,Mostly Office,2024-02-08,Great team collaboration and culture
+EMP0689,Helen Wilson,41,Customer Support,Detroit,Junior,< 1 year,Satisfied,Good,Excellent,Probably Not,Mostly Office,2024-01-15,Professional development opportunities
+EMP0690,Robert Miller,42,Customer Support,Portland,Manager,10+ years,Neutral,Fair,Excellent,Not Sure,Fully Remote,2024-03-02,Office space needs improvement
+EMP0691,Nancy Turner,59,Engineering,Portland,Lead,10+ years,Very Satisfied,Good,Excellent,Definitely,Fully Office,2024-03-22,Good work-life balance
+EMP0692,Cynthia Jackson,27,Operations,Chicago,Manager,1-2 years,Dissatisfied,Poor,Good,Probably Not,Hybrid (3 days office),2024-01-16,Need better work equipment
+EMP0693,Jason Williams,25,Marketing,Atlanta,Lead,2-5 years,Dissatisfied,Excellent,Average,Definitely Not,Hybrid (2 days office),2024-03-17,Salary not competitive with market
+EMP0694,Edward Thomas,61,Product,Denver,Director,10+ years,Very Satisfied,Excellent,Poor,Probably,Mostly Office,2024-01-08,Good work-life balance
+EMP0695,Karen Campbell,39,Sales,San Antonio,Director,5-10 years,Satisfied,Poor,Excellent,Definitely,Fully Remote,2024-01-29,Competitive salary and benefits
+EMP0696,Edward Martinez,45,Engineering,Chicago,Director,< 1 year,Neutral,Excellent,Poor,Definitely Not,Hybrid (3 days office),2024-03-09,Would like more training opportunities
+EMP0697,David Miller,47,HR,Miami,Mid-Level,< 1 year,Dissatisfied,Fair,Good,Definitely Not,Fully Office,2024-03-30,Limited remote work options
+EMP0698,Linda Ramirez,60,Marketing,Chicago,Director,2-5 years,Satisfied,Fair,Good,Definitely,Hybrid (2 days office),2024-02-13,Inclusive and diverse workplace
+EMP0699,Ashley Thompson,27,Product,Miami,Director,2-5 years,Dissatisfied,Good,Average,Definitely Not,Fully Remote,2024-03-13,Unclear performance evaluation process
+EMP0700,Sarah Lee,55,Operations,Denver,Senior,1-2 years,Very Dissatisfied,Excellent,Excellent,Probably,Fully Remote,2024-02-13,Office space needs improvement
+EMP0701,Lisa Nguyen,50,Engineering,Houston,Mid-Level,5-10 years,Dissatisfied,Poor,Excellent,Definitely,Fully Office,2024-01-03,Office space needs improvement
+EMP0702,Dorothy Thomas,54,Legal,Austin,Director,2-5 years,Very Satisfied,Fair,Average,Definitely,Fully Office,2024-02-28,Flexible working hours
+EMP0703,Timothy Carter,53,Operations,Phoenix,Senior,5-10 years,Satisfied,Fair,Excellent,Definitely,Hybrid (3 days office),2024-02-25,Great team collaboration and culture
+EMP0704,Kenneth Wilson,56,Engineering,Philadelphia,Mid-Level,10+ years,Dissatisfied,Poor,Excellent,Probably Not,Fully Office,2024-03-06,Benefits package could be better
+EMP0705,Steven Ramirez,26,Product,Seattle,Mid-Level,< 1 year,Satisfied,Fair,Below Average,Definitely,Fully Office,2024-02-06,Modern tools and technology
+EMP0706,Anthony Baker,33,Operations,Houston,Junior,1-2 years,Neutral,Fair,Excellent,Not Sure,Fully Remote,2024-03-14,Would like more training opportunities
+EMP0707,Christopher Moore,40,Marketing,Chicago,Manager,2-5 years,Satisfied,Poor,Average,Probably,Fully Office,2024-02-12,Professional development opportunities
+EMP0708,Michelle Allen,39,Operations,Chicago,Manager,5-10 years,Very Dissatisfied,Good,Good,Definitely Not,Hybrid (2 days office),2024-03-29,Need better work equipment
+EMP0709,Laura Hernandez,44,Operations,Dallas,Mid-Level,< 1 year,Satisfied,Fair,Average,Definitely,Fully Office,2024-02-02,Professional development opportunities
+EMP0710,Amanda Johnson,28,Marketing,Boston,Senior,< 1 year,Neutral,Fair,Below Average,Probably Not,Fully Remote,2024-01-04,Workload can be overwhelming at times
+EMP0711,John Gomez,24,IT,Seattle,Lead,10+ years,Satisfied,Excellent,Good,Probably,Hybrid (3 days office),2024-01-18,Good work-life balance
+EMP0712,David Davis,60,Product,Phoenix,Senior,2-5 years,Very Satisfied,Good,Excellent,Definitely,Hybrid (2 days office),2024-03-14,Strong leadership and clear direction
+EMP0713,Sharon Hill,30,Product,Philadelphia,Lead,5-10 years,Very Satisfied,Fair,Excellent,Probably,Hybrid (2 days office),2024-01-13,Strong leadership and clear direction
+EMP0714,Daniel Adams,37,Engineering,Los Angeles,Manager,5-10 years,Neutral,Excellent,Average,Definitely Not,Hybrid (3 days office),2024-01-13,More transparency from leadership needed
+EMP0715,Mark Parker,47,Marketing,Dallas,Senior,< 1 year,Satisfied,Good,Below Average,Definitely,Fully Office,2024-03-24,Good work-life balance
+EMP0716,Amanda Taylor,40,IT,New York,Director,1-2 years,Very Satisfied,Good,Below Average,Probably,Hybrid (2 days office),2024-03-15,Modern tools and technology
+EMP0717,Stephanie Lewis,37,HR,Austin,Junior,10+ years,Satisfied,Good,Good,Probably,Hybrid (2 days office),2024-02-10,Professional development opportunities
+EMP0718,Amanda Hill,65,Customer Support,Phoenix,Manager,2-5 years,Satisfied,Excellent,Poor,Not Sure,Hybrid (2 days office),2024-03-18,Competitive salary and benefits
+EMP0719,Linda Carter,34,HR,Philadelphia,Mid-Level,5-10 years,Very Dissatisfied,Fair,Poor,Probably Not,Hybrid (3 days office),2024-02-11,More transparency from leadership needed
+EMP0720,Emily Sanchez,24,HR,Houston,Director,10+ years,Dissatisfied,Good,Below Average,Not Sure,Hybrid (3 days office),2024-02-17,Could improve communication between teams
+EMP0721,Nicholas Williams,65,Marketing,Austin,Mid-Level,2-5 years,Very Satisfied,Good,Average,Probably,Mostly Office,2024-03-09,Modern tools and technology
+EMP0722,Mary Gomez,46,IT,San Diego,Senior,5-10 years,Satisfied,Excellent,Poor,Definitely,Fully Office,2024-02-29,Great team collaboration and culture
+EMP0723,Karen Thomas,23,Customer Support,San Jose,Director,2-5 years,Neutral,Good,Below Average,Not Sure,Fully Office,2024-03-20,Limited remote work options
+EMP0724,Kimberly Thomas,47,Sales,Los Angeles,Lead,5-10 years,Very Satisfied,Poor,Below Average,Probably,Hybrid (2 days office),2024-03-08,Good work-life balance
+EMP0725,Deborah Brown,54,Product,Houston,Senior,1-2 years,Very Satisfied,Poor,Good,Not Sure,Hybrid (2 days office),2024-03-06,Competitive salary and benefits
+EMP0726,Brian Diaz,43,Engineering,Portland,Mid-Level,10+ years,Dissatisfied,Poor,Excellent,Definitely Not,Mostly Office,2024-02-13,Unclear performance evaluation process
+EMP0727,Andrew Walker,28,Operations,Austin,Lead,5-10 years,Satisfied,Good,Below Average,Definitely,Hybrid (3 days office),2024-03-19,Clear career progression path
+EMP0728,Michael Thompson,51,Sales,Detroit,Lead,1-2 years,Neutral,Excellent,Excellent,Not Sure,Fully Office,2024-01-28,Workload can be overwhelming at times
+EMP0729,Nancy Mitchell,63,Operations,Dallas,Manager,5-10 years,Very Satisfied,Poor,Below Average,Probably,Mostly Office,2024-01-07,Clear career progression path
+EMP0730,Emily Lopez,23,HR,San Antonio,Director,10+ years,Very Satisfied,Good,Poor,Definitely,Fully Remote,2024-03-05,Professional development opportunities
+EMP0731,Sandra Allen,40,Operations,San Antonio,Junior,5-10 years,Dissatisfied,Poor,Good,Not Sure,Fully Office,2024-01-28,Benefits package could be better
+EMP0732,Stephen Robinson,50,Finance,Boston,Junior,2-5 years,Dissatisfied,Fair,Good,Not Sure,Hybrid (3 days office),2024-01-20,Would like more training opportunities
+EMP0733,George Martinez,47,Product,Chicago,Senior,5-10 years,Neutral,Fair,Poor,Not Sure,Hybrid (2 days office),2024-01-22,Would like more training opportunities
+EMP0734,Steven Wilson,61,IT,Atlanta,Manager,1-2 years,Very Satisfied,Good,Average,Definitely,Hybrid (3 days office),2024-03-01,Professional development opportunities
+EMP0735,Edward King,59,Marketing,San Jose,Director,10+ years,Dissatisfied,Fair,Below Average,Not Sure,Hybrid (3 days office),2024-03-01,More transparency from leadership needed
+EMP0736,Betty King,57,Customer Support,Atlanta,Mid-Level,1-2 years,Neutral,Excellent,Poor,Probably,Hybrid (2 days office),2024-02-17,Benefits package could be better
+EMP0737,Sharon Allen,43,Product,San Jose,Manager,10+ years,Very Satisfied,Excellent,Average,Definitely,Hybrid (2 days office),2024-02-08,Great team collaboration and culture
+EMP0738,George Scott,43,Marketing,Atlanta,Mid-Level,< 1 year,Neutral,Good,Excellent,Definitely Not,Mostly Office,2024-03-04,Benefits package could be better
+EMP0739,Sandra Garcia,46,Engineering,San Antonio,Lead,10+ years,Neutral,Good,Good,Not Sure,Hybrid (2 days office),2024-01-01,Workload can be overwhelming at times
+EMP0740,Andrew Wilson,58,Finance,New York,Lead,2-5 years,Neutral,Excellent,Poor,Probably Not,Hybrid (2 days office),2024-01-19,Unclear performance evaluation process
+EMP0741,Ronald Turner,59,Engineering,San Jose,Director,5-10 years,Very Satisfied,Good,Excellent,Definitely,Hybrid (2 days office),2024-01-06,Strong leadership and clear direction
+EMP0742,David Mitchell,56,IT,Miami,Manager,< 1 year,Neutral,Fair,Excellent,Probably Not,Hybrid (2 days office),2024-02-13,Workload can be overwhelming at times
+EMP0743,Amanda Garcia,28,HR,San Antonio,Mid-Level,10+ years,Very Satisfied,Excellent,Average,Definitely,Mostly Office,2024-02-17,Clear career progression path
+EMP0744,Ryan Martinez,22,Engineering,San Diego,Junior,2-5 years,Dissatisfied,Fair,Below Average,Probably Not,Fully Office,2024-03-03,More transparency from leadership needed
+EMP0745,Daniel Ramirez,45,HR,New York,Lead,5-10 years,Dissatisfied,Good,Poor,Probably Not,Fully Remote,2024-01-29,Could improve communication between teams
+EMP0746,Kevin Robinson,29,Legal,Seattle,Senior,2-5 years,Neutral,Excellent,Below Average,Probably Not,Mostly Office,2024-02-12,Unclear performance evaluation process
+EMP0747,Gary Carter,54,IT,San Diego,Lead,1-2 years,Neutral,Good,Average,Probably Not,Mostly Office,2024-03-07,More transparency from leadership needed
+EMP0748,Michelle Carter,53,HR,Atlanta,Senior,2-5 years,Dissatisfied,Fair,Below Average,Probably Not,Fully Office,2024-03-19,Limited remote work options
+EMP0749,Nicholas Wilson,30,IT,Miami,Director,10+ years,Very Satisfied,Poor,Average,Definitely,Hybrid (2 days office),2024-02-25,Strong leadership and clear direction
+EMP0750,Ronald Hill,29,Legal,Los Angeles,Lead,5-10 years,Satisfied,Good,Below Average,Definitely,Mostly Office,2024-01-15,Inclusive and diverse workplace
+EMP0751,Jacob Campbell,48,Product,Phoenix,Manager,< 1 year,Satisfied,Excellent,Average,Probably,Fully Office,2024-02-14,Modern tools and technology
+EMP0752,Stephanie Brown,54,Operations,Seattle,Director,1-2 years,Satisfied,Fair,Good,Not Sure,Hybrid (3 days office),2024-01-14,Strong leadership and clear direction
+EMP0753,Susan Anderson,51,Engineering,Chicago,Lead,1-2 years,Satisfied,Good,Good,Probably,Mostly Office,2024-02-06,Good work-life balance
+EMP0754,Cynthia Harris,36,Customer Support,Houston,Mid-Level,5-10 years,Neutral,Good,Poor,Not Sure,Mostly Office,2024-01-11,Benefits package could be better
+EMP0755,Nancy Moore,38,Sales,Los Angeles,Manager,1-2 years,Very Satisfied,Fair,Below Average,Probably,Hybrid (3 days office),2024-02-27,Good work-life balance
+EMP0756,Stephen Adams,43,Operations,San Antonio,Manager,< 1 year,Satisfied,Poor,Good,Definitely,Hybrid (2 days office),2024-02-29,Modern tools and technology
+EMP0757,Karen Wilson,27,Engineering,Miami,Director,2-5 years,Satisfied,Good,Poor,Definitely,Hybrid (3 days office),2024-02-07,Interesting and challenging projects
+EMP0758,Kenneth Gonzalez,37,Marketing,Denver,Senior,1-2 years,Neutral,Excellent,Average,Probably,Fully Office,2024-01-07,Office space needs improvement
+EMP0759,Kimberly Taylor,43,Marketing,Seattle,Manager,1-2 years,Very Satisfied,Good,Poor,Definitely,Hybrid (3 days office),2024-01-01,Strong leadership and clear direction
+EMP0760,Jason Lee,28,Sales,New York,Junior,5-10 years,Neutral,Good,Good,Not Sure,Fully Remote,2024-03-29,Office space needs improvement
+EMP0761,Jane White,60,Legal,Denver,Manager,5-10 years,Neutral,Excellent,Below Average,Probably Not,Hybrid (2 days office),2024-03-03,Workload can be overwhelming at times
+EMP0762,Melissa Perez,33,IT,Detroit,Junior,< 1 year,Neutral,Fair,Good,Not Sure,Fully Office,2024-01-20,Office space needs improvement
+EMP0763,Mark Thompson,40,HR,Chicago,Lead,2-5 years,Very Satisfied,Fair,Excellent,Definitely,Fully Remote,2024-02-27,Clear career progression path
+EMP0764,Carol Anderson,33,Marketing,Chicago,Mid-Level,10+ years,Very Dissatisfied,Fair,Poor,Definitely,Hybrid (3 days office),2024-02-20,Salary not competitive with market
+EMP0765,Laura Scott,27,HR,Houston,Director,1-2 years,Satisfied,Fair,Below Average,Probably,Fully Office,2024-03-27,Good work-life balance
+EMP0766,Jane Diaz,37,Product,Detroit,Mid-Level,5-10 years,Very Satisfied,Good,Below Average,Probably,Hybrid (3 days office),2024-02-01,Inclusive and diverse workplace
+EMP0767,Patricia Baker,61,Sales,New York,Director,5-10 years,Satisfied,Fair,Poor,Definitely,Hybrid (2 days office),2024-03-05,Modern tools and technology
+EMP0768,Kathleen Torres,62,Customer Support,Detroit,Director,< 1 year,Satisfied,Good,Average,Definitely,Mostly Office,2024-03-24,Inclusive and diverse workplace
+EMP0769,Brian Harris,54,Product,Austin,Manager,10+ years,Satisfied,Good,Below Average,Definitely,Hybrid (3 days office),2024-01-25,Flexible working hours
+EMP0770,Betty Green,50,Sales,Dallas,Director,2-5 years,Very Satisfied,Fair,Below Average,Definitely Not,Hybrid (3 days office),2024-02-25,Clear career progression path
+EMP0771,Mary Brown,53,Operations,Atlanta,Lead,< 1 year,Neutral,Good,Below Average,Probably,Hybrid (3 days office),2024-02-15,Workload can be overwhelming at times
+EMP0772,Nicholas King,51,Operations,Philadelphia,Lead,1-2 years,Satisfied,Good,Poor,Definitely,Hybrid (3 days office),2024-03-03,Flexible working hours
+EMP0773,Jane Thompson,40,Customer Support,Denver,Junior,10+ years,Very Satisfied,Fair,Poor,Definitely,Hybrid (2 days office),2024-02-04,Professional development opportunities
+EMP0774,Amanda King,57,Customer Support,San Diego,Manager,< 1 year,Neutral,Poor,Average,Not Sure,Fully Office,2024-01-21,Limited remote work options
+EMP0775,Edward Jones,24,Operations,New York,Mid-Level,< 1 year,Satisfied,Good,Below Average,Definitely,Fully Office,2024-01-27,Competitive salary and benefits
+EMP0776,Stephanie Allen,30,Engineering,Portland,Senior,1-2 years,Neutral,Fair,Good,Not Sure,Mostly Office,2024-03-17,Could improve communication between teams
+EMP0777,Stephanie Turner,28,Finance,San Diego,Mid-Level,10+ years,Satisfied,Fair,Excellent,Definitely,Mostly Office,2024-02-12,Clear career progression path
+EMP0778,Mark Smith,26,IT,Miami,Junior,2-5 years,Neutral,Fair,Excellent,Not Sure,Fully Remote,2024-03-13,Unclear performance evaluation process
+EMP0779,Emily Brown,32,Finance,Seattle,Junior,< 1 year,Satisfied,Good,Below Average,Probably,Fully Office,2024-02-20,Great team collaboration and culture
+EMP0780,Susan Gonzalez,54,Engineering,Detroit,Junior,< 1 year,Satisfied,Fair,Below Average,Definitely,Fully Remote,2024-02-15,Professional development opportunities
+EMP0781,James Anderson,56,Operations,Portland,Mid-Level,< 1 year,Satisfied,Fair,Good,Definitely,Mostly Office,2024-01-12,Interesting and challenging projects
+EMP0782,Stephanie Evans,51,Sales,Portland,Junior,< 1 year,Satisfied,Poor,Average,Definitely,Fully Office,2024-01-13,Interesting and challenging projects
+EMP0783,Jennifer Wilson,65,Customer Support,Detroit,Manager,2-5 years,Dissatisfied,Poor,Average,Probably,Fully Remote,2024-03-13,More transparency from leadership needed
+EMP0784,Ronald King,46,Product,San Diego,Manager,10+ years,Very Satisfied,Good,Good,Definitely,Fully Remote,2024-01-03,Interesting and challenging projects
+EMP0785,Anthony Evans,31,Legal,Austin,Mid-Level,1-2 years,Neutral,Fair,Excellent,Probably,Fully Remote,2024-03-21,Limited remote work options
+EMP0786,Eric Hill,50,Finance,Dallas,Junior,5-10 years,Dissatisfied,Excellent,Excellent,Definitely Not,Fully Remote,2024-01-13,Benefits package could be better
+EMP0787,William Evans,44,Marketing,San Jose,Director,< 1 year,Satisfied,Excellent,Average,Probably,Hybrid (3 days office),2024-02-18,Strong leadership and clear direction
+EMP0788,Eric Wright,31,Sales,Philadelphia,Junior,5-10 years,Neutral,Fair,Poor,Probably,Mostly Office,2024-03-23,More transparency from leadership needed
+EMP0789,Lisa Jackson,55,Product,Seattle,Lead,5-10 years,Neutral,Good,Poor,Definitely,Fully Remote,2024-02-07,Would like more training opportunities
+EMP0790,Stephanie Lewis,35,Customer Support,San Diego,Junior,5-10 years,Very Satisfied,Fair,Average,Probably,Hybrid (2 days office),2024-03-10,Strong leadership and clear direction
+EMP0791,Jennifer Brown,38,Marketing,Detroit,Junior,1-2 years,Satisfied,Fair,Excellent,Definitely,Hybrid (3 days office),2024-02-03,Modern tools and technology
+EMP0792,Timothy Martin,55,HR,Boston,Director,2-5 years,Satisfied,Good,Average,Definitely,Mostly Office,2024-01-18,Interesting and challenging projects
+EMP0793,Mary Phillips,37,Legal,New York,Mid-Level,< 1 year,Very Satisfied,Fair,Average,Probably,Hybrid (3 days office),2024-01-08,Inclusive and diverse workplace
+EMP0794,Jason Adams,44,Product,Boston,Mid-Level,1-2 years,Neutral,Excellent,Excellent,Not Sure,Hybrid (3 days office),2024-01-29,Unclear performance evaluation process
+EMP0795,Timothy Wright,54,Customer Support,Seattle,Director,1-2 years,Neutral,Poor,Good,Probably,Fully Office,2024-02-24,Unclear performance evaluation process
+EMP0796,Timothy Taylor,37,HR,Philadelphia,Director,1-2 years,Satisfied,Good,Below Average,Definitely,Hybrid (3 days office),2024-03-02,Flexible working hours
+EMP0797,Timothy Jones,62,Engineering,San Antonio,Junior,< 1 year,Dissatisfied,Fair,Below Average,Not Sure,Fully Office,2024-02-02,Could improve communication between teams
+EMP0798,Jason Miller,48,Finance,Dallas,Junior,< 1 year,Very Satisfied,Poor,Poor,Probably,Fully Remote,2024-03-30,Good work-life balance
+EMP0799,Emily Jones,38,Product,San Antonio,Lead,10+ years,Dissatisfied,Good,Good,Definitely,Hybrid (3 days office),2024-01-25,Would like more training opportunities
+EMP0800,Brian Scott,54,Sales,Phoenix,Senior,10+ years,Very Satisfied,Fair,Good,Definitely,Mostly Office,2024-01-23,Professional development opportunities
+EMP0801,Kimberly King,56,Customer Support,San Antonio,Lead,5-10 years,Satisfied,Good,Below Average,Probably,Fully Office,2024-02-28,Interesting and challenging projects
+EMP0802,Christopher Phillips,63,Legal,San Jose,Junior,10+ years,Very Satisfied,Fair,Excellent,Definitely,Mostly Office,2024-02-27,Interesting and challenging projects
+EMP0803,Stephen Martin,50,Sales,Miami,Manager,< 1 year,Very Satisfied,Fair,Good,Probably Not,Mostly Office,2024-02-16,Professional development opportunities
+EMP0804,Stephanie Roberts,64,Operations,Denver,Director,1-2 years,Satisfied,Fair,Average,Probably,Fully Remote,2024-01-03,Clear career progression path
+EMP0805,Barbara Carter,39,Product,Miami,Lead,5-10 years,Satisfied,Fair,Below Average,Probably Not,Mostly Office,2024-03-18,Strong leadership and clear direction
+EMP0806,Melissa Rivera,62,Operations,Detroit,Manager,10+ years,Dissatisfied,Good,Poor,Probably Not,Fully Remote,2024-02-19,Workload can be overwhelming at times
+EMP0807,Linda Wright,58,Finance,Los Angeles,Mid-Level,5-10 years,Satisfied,Good,Below Average,Probably,Fully Office,2024-02-07,Modern tools and technology
+EMP0808,Amanda Thomas,54,IT,Detroit,Manager,< 1 year,Neutral,Excellent,Average,Not Sure,Fully Office,2024-01-19,Could improve communication between teams
+EMP0809,Jeffrey Martinez,58,Marketing,New York,Lead,< 1 year,Very Dissatisfied,Fair,Good,Definitely Not,Fully Remote,2024-03-11,Could improve communication between teams
+EMP0810,Joshua Green,58,Legal,Atlanta,Senior,5-10 years,Satisfied,Fair,Good,Definitely,Mostly Office,2024-02-29,Competitive salary and benefits
+EMP0811,Nancy Johnson,43,Operations,Chicago,Director,2-5 years,Very Satisfied,Fair,Below Average,Not Sure,Fully Remote,2024-02-14,Interesting and challenging projects
+EMP0812,Timothy Young,36,IT,Dallas,Director,10+ years,Neutral,Fair,Excellent,Not Sure,Mostly Office,2024-01-25,Workload can be overwhelming at times
+EMP0813,Jennifer Hill,57,Engineering,Portland,Senior,2-5 years,Very Dissatisfied,Poor,Average,Probably Not,Fully Remote,2024-02-29,Salary not competitive with market
+EMP0814,Ronald Robinson,55,IT,Phoenix,Junior,5-10 years,Very Dissatisfied,Excellent,Below Average,Not Sure,Fully Office,2024-02-02,Office space needs improvement
+EMP0815,Edward Jones,57,HR,Austin,Manager,2-5 years,Very Satisfied,Fair,Excellent,Definitely,Mostly Office,2024-01-10,Great team collaboration and culture
+EMP0816,Eric Johnson,40,IT,Houston,Mid-Level,< 1 year,Satisfied,Fair,Below Average,Definitely Not,Hybrid (2 days office),2024-03-28,Interesting and challenging projects
+EMP0817,Kenneth Parker,64,Customer Support,Chicago,Lead,10+ years,Very Dissatisfied,Fair,Good,Not Sure,Fully Remote,2024-03-30,More transparency from leadership needed
+EMP0818,Jeffrey Taylor,36,Customer Support,San Antonio,Mid-Level,< 1 year,Very Satisfied,Good,Average,Not Sure,Fully Remote,2024-01-16,Inclusive and diverse workplace
+EMP0819,Patricia Torres,37,HR,Boston,Lead,1-2 years,Neutral,Good,Good,Not Sure,Hybrid (3 days office),2024-02-27,Limited remote work options
+EMP0820,Donna Martinez,50,Customer Support,Denver,Director,5-10 years,Very Satisfied,Good,Average,Definitely,Fully Office,2024-01-14,Modern tools and technology
+EMP0821,Barbara Sanchez,64,Sales,New York,Manager,< 1 year,Very Satisfied,Good,Below Average,Definitely,Hybrid (2 days office),2024-02-06,Modern tools and technology
+EMP0822,David Jones,23,Finance,Phoenix,Director,10+ years,Neutral,Fair,Average,Not Sure,Fully Remote,2024-03-13,Would like more training opportunities
+EMP0823,Kevin Walker,54,Legal,Denver,Senior,< 1 year,Neutral,Good,Good,Not Sure,Hybrid (2 days office),2024-03-22,Benefits package could be better
+EMP0824,Barbara Green,37,Finance,Phoenix,Junior,10+ years,Satisfied,Poor,Poor,Probably,Fully Remote,2024-01-18,Clear career progression path
+EMP0825,Barbara Evans,63,Finance,Chicago,Director,2-5 years,Dissatisfied,Good,Below Average,Probably Not,Hybrid (2 days office),2024-03-29,More transparency from leadership needed
+EMP0826,James Lee,37,Operations,Phoenix,Manager,10+ years,Dissatisfied,Fair,Poor,Probably,Hybrid (2 days office),2024-02-25,More transparency from leadership needed
+EMP0827,Timothy Rodriguez,45,Operations,Miami,Director,10+ years,Neutral,Fair,Excellent,Not Sure,Fully Office,2024-01-23,Limited remote work options
+EMP0828,Kathleen Baker,63,HR,Phoenix,Mid-Level,10+ years,Very Dissatisfied,Poor,Average,Definitely Not,Hybrid (3 days office),2024-01-20,More transparency from leadership needed
+EMP0829,Linda Adams,60,HR,Portland,Director,5-10 years,Satisfied,Excellent,Excellent,Probably Not,Fully Remote,2024-03-15,Flexible working hours
+EMP0830,Sarah Thompson,50,Product,San Jose,Director,5-10 years,Neutral,Excellent,Average,Probably,Fully Office,2024-02-14,Could improve communication between teams
+EMP0831,Timothy Martin,25,Product,Houston,Director,1-2 years,Very Satisfied,Fair,Poor,Definitely Not,Mostly Office,2024-01-15,Competitive salary and benefits
+EMP0832,Jacob Anderson,41,Finance,Denver,Director,1-2 years,Dissatisfied,Excellent,Average,Probably Not,Fully Remote,2024-02-20,More transparency from leadership needed
+EMP0833,Patricia Carter,44,Marketing,Phoenix,Mid-Level,< 1 year,Very Dissatisfied,Excellent,Below Average,Probably Not,Fully Remote,2024-03-26,Need better work equipment
+EMP0834,Jonathan Martin,60,Engineering,Austin,Senior,2-5 years,Very Dissatisfied,Good,Below Average,Definitely Not,Fully Office,2024-01-30,Unclear performance evaluation process
+EMP0835,Andrew Thompson,25,Finance,Atlanta,Lead,5-10 years,Very Satisfied,Fair,Poor,Probably,Fully Office,2024-01-04,Professional development opportunities
+EMP0836,Sharon Jones,41,Product,Boston,Manager,< 1 year,Neutral,Fair,Poor,Probably,Fully Office,2024-03-08,Unclear performance evaluation process
+EMP0837,Joshua Torres,49,Engineering,Denver,Lead,10+ years,Neutral,Fair,Average,Definitely Not,Hybrid (3 days office),2024-03-30,Office space needs improvement
+EMP0838,Michelle Lewis,51,Customer Support,Los Angeles,Junior,10+ years,Satisfied,Good,Excellent,Probably,Hybrid (3 days office),2024-03-06,Modern tools and technology
+EMP0839,Barbara Rodriguez,22,Sales,San Diego,Junior,< 1 year,Dissatisfied,Poor,Average,Definitely Not,Mostly Office,2024-03-25,Could improve communication between teams
+EMP0840,Ronald Miller,34,Product,San Antonio,Manager,2-5 years,Neutral,Fair,Excellent,Not Sure,Fully Office,2024-02-17,Would like more training opportunities
+EMP0841,Patricia Hernandez,49,Sales,Boston,Junior,1-2 years,Neutral,Fair,Below Average,Not Sure,Hybrid (2 days office),2024-01-11,Could improve communication between teams
+EMP0842,Kenneth Torres,38,Finance,Austin,Senior,1-2 years,Neutral,Excellent,Poor,Probably Not,Fully Office,2024-01-22,Workload can be overwhelming at times
+EMP0843,Sharon Walker,38,Finance,Seattle,Lead,1-2 years,Satisfied,Good,Good,Definitely,Fully Remote,2024-02-16,Great team collaboration and culture
+EMP0844,Ronald Carter,40,HR,Houston,Manager,10+ years,Neutral,Fair,Below Average,Definitely Not,Hybrid (2 days office),2024-03-05,Salary not competitive with market
+EMP0845,Laura Martin,24,Operations,Philadelphia,Director,2-5 years,Very Satisfied,Fair,Poor,Definitely,Mostly Office,2024-02-26,Clear career progression path
+EMP0846,Sarah Martinez,44,Marketing,Boston,Manager,5-10 years,Very Satisfied,Poor,Average,Probably,Hybrid (3 days office),2024-03-27,Great team collaboration and culture
+EMP0847,John Thomas,49,Product,Miami,Mid-Level,2-5 years,Neutral,Good,Good,Probably,Mostly Office,2024-01-07,Would like more training opportunities
+EMP0848,Brian Taylor,65,IT,Atlanta,Senior,1-2 years,Satisfied,Good,Poor,Probably,Hybrid (3 days office),2024-02-05,Clear career progression path
+EMP0849,Emily Gonzalez,40,Customer Support,Boston,Manager,2-5 years,Satisfied,Good,Poor,Probably,Fully Remote,2024-03-11,Flexible working hours
+EMP0850,Deborah Mitchell,58,Sales,San Jose,Lead,5-10 years,Satisfied,Fair,Poor,Not Sure,Fully Remote,2024-01-20,Strong leadership and clear direction
+EMP0851,Amanda Robinson,59,Finance,Phoenix,Junior,5-10 years,Satisfied,Good,Excellent,Not Sure,Fully Office,2024-02-19,Great team collaboration and culture
+EMP0852,Karen Lewis,26,Engineering,Austin,Lead,1-2 years,Neutral,Fair,Poor,Probably Not,Fully Office,2024-01-30,Unclear performance evaluation process
+EMP0853,Jane Hernandez,42,Sales,San Jose,Mid-Level,< 1 year,Very Dissatisfied,Fair,Average,Not Sure,Mostly Office,2024-02-21,Limited remote work options
+EMP0854,Deborah Gomez,27,Engineering,Seattle,Mid-Level,2-5 years,Satisfied,Good,Below Average,Definitely Not,Fully Office,2024-02-06,Flexible working hours
+EMP0855,Susan Garcia,59,Product,Philadelphia,Manager,< 1 year,Satisfied,Fair,Average,Not Sure,Hybrid (2 days office),2024-01-21,Flexible working hours
+EMP0856,Dorothy Torres,37,IT,Dallas,Director,2-5 years,Very Satisfied,Excellent,Below Average,Definitely,Hybrid (2 days office),2024-02-12,Modern tools and technology
+EMP0857,Anthony Clark,65,IT,Los Angeles,Lead,1-2 years,Neutral,Good,Average,Definitely Not,Hybrid (2 days office),2024-03-06,Could improve communication between teams
+EMP0858,Stephen Gonzalez,43,Finance,Portland,Lead,< 1 year,Neutral,Fair,Excellent,Probably,Fully Office,2024-01-19,Office space needs improvement
+EMP0859,George Hill,50,Engineering,San Diego,Junior,< 1 year,Neutral,Poor,Excellent,Probably Not,Fully Office,2024-03-18,Salary not competitive with market
+EMP0860,Barbara Baker,30,Marketing,Miami,Director,1-2 years,Dissatisfied,Good,Good,Definitely Not,Hybrid (3 days office),2024-02-07,Benefits package could be better
+EMP0861,Betty Sanchez,58,Sales,Boston,Senior,10+ years,Neutral,Fair,Excellent,Probably,Fully Office,2024-01-28,Office space needs improvement
+EMP0862,Deborah Lee,63,Sales,Phoenix,Mid-Level,5-10 years,Satisfied,Fair,Below Average,Definitely,Fully Remote,2024-01-15,Good work-life balance
+EMP0863,Stephanie Hill,45,Sales,Austin,Mid-Level,5-10 years,Neutral,Excellent,Average,Not Sure,Hybrid (3 days office),2024-01-18,Limited remote work options
+EMP0864,Andrew Baker,65,IT,San Jose,Director,10+ years,Satisfied,Fair,Good,Probably Not,Mostly Office,2024-03-06,Strong leadership and clear direction
+EMP0865,Sharon Jackson,64,Product,Los Angeles,Director,5-10 years,Very Satisfied,Excellent,Good,Definitely,Fully Office,2024-03-16,Inclusive and diverse workplace
+EMP0866,James Scott,62,Engineering,Los Angeles,Director,1-2 years,Satisfied,Fair,Excellent,Probably Not,Fully Remote,2024-01-22,Competitive salary and benefits
+EMP0867,Emily Brown,44,Finance,Los Angeles,Lead,10+ years,Neutral,Poor,Excellent,Probably,Hybrid (2 days office),2024-03-16,Need better work equipment
+EMP0868,Anthony Ramirez,49,Operations,San Antonio,Senior,1-2 years,Satisfied,Poor,Below Average,Not Sure,Hybrid (2 days office),2024-03-05,Great team collaboration and culture
+EMP0869,Amanda Green,40,HR,Portland,Junior,2-5 years,Neutral,Good,Excellent,Not Sure,Mostly Office,2024-02-19,Could improve communication between teams
+EMP0870,Linda Thomas,57,HR,Houston,Mid-Level,2-5 years,Dissatisfied,Excellent,Good,Probably,Fully Remote,2024-03-15,Limited remote work options
+EMP0871,Susan Diaz,50,Customer Support,Detroit,Mid-Level,1-2 years,Very Satisfied,Excellent,Poor,Definitely,Hybrid (2 days office),2024-02-28,Strong leadership and clear direction
+EMP0872,Dorothy Nguyen,52,IT,Seattle,Manager,2-5 years,Neutral,Fair,Average,Not Sure,Mostly Office,2024-01-29,Workload can be overwhelming at times
+EMP0873,Michelle Walker,63,Legal,Boston,Lead,10+ years,Dissatisfied,Good,Good,Probably Not,Hybrid (2 days office),2024-01-05,Could improve communication between teams
+EMP0874,Kathleen Lewis,38,Finance,Boston,Mid-Level,1-2 years,Satisfied,Excellent,Good,Definitely,Hybrid (3 days office),2024-03-15,Flexible working hours
+EMP0875,Stephen Taylor,55,Product,Portland,Manager,5-10 years,Satisfied,Excellent,Good,Definitely,Fully Remote,2024-01-10,Clear career progression path
+EMP0876,Sharon Davis,28,Operations,Atlanta,Manager,2-5 years,Very Satisfied,Fair,Below Average,Probably,Fully Remote,2024-02-28,Competitive salary and benefits
+EMP0877,Michael Roberts,50,IT,Denver,Senior,5-10 years,Very Satisfied,Good,Below Average,Probably,Hybrid (2 days office),2024-02-17,Strong leadership and clear direction
+EMP0878,Deborah Lopez,33,Sales,Portland,Senior,< 1 year,Neutral,Fair,Good,Probably Not,Hybrid (3 days office),2024-02-25,More transparency from leadership needed
+EMP0879,Michael Johnson,46,Finance,Detroit,Manager,5-10 years,Neutral,Poor,Below Average,Not Sure,Fully Office,2024-01-02,Limited remote work options
+EMP0880,Michael Baker,22,Legal,San Diego,Mid-Level,10+ years,Satisfied,Good,Average,Probably,Fully Office,2024-03-19,Good work-life balance
+EMP0881,Emily Miller,35,HR,Denver,Junior,10+ years,Neutral,Fair,Poor,Probably,Fully Office,2024-01-26,Limited remote work options
+EMP0882,Timothy Williams,43,Operations,Detroit,Manager,1-2 years,Dissatisfied,Good,Excellent,Probably Not,Hybrid (3 days office),2024-03-13,Salary not competitive with market
+EMP0883,Nancy Harris,36,Sales,Phoenix,Manager,5-10 years,Very Dissatisfied,Poor,Excellent,Definitely Not,Fully Remote,2024-01-14,Would like more training opportunities
+EMP0884,Susan Ramirez,51,Customer Support,San Antonio,Lead,< 1 year,Very Satisfied,Good,Excellent,Definitely,Fully Remote,2024-01-12,Interesting and challenging projects
+EMP0885,Kenneth Perez,51,HR,Detroit,Lead,1-2 years,Very Dissatisfied,Excellent,Average,Definitely Not,Hybrid (3 days office),2024-02-12,Workload can be overwhelming at times
+EMP0886,Helen Lopez,40,Marketing,Atlanta,Junior,10+ years,Very Dissatisfied,Fair,Below Average,Probably,Fully Office,2024-03-07,Office space needs improvement
+EMP0887,Michelle Gomez,60,Operations,San Jose,Manager,1-2 years,Neutral,Poor,Excellent,Not Sure,Fully Remote,2024-02-15,Need better work equipment
+EMP0888,Michelle Scott,65,HR,Los Angeles,Manager,5-10 years,Very Satisfied,Good,Excellent,Definitely,Mostly Office,2024-02-03,Great team collaboration and culture
+EMP0889,Kevin Garcia,42,Finance,Atlanta,Junior,10+ years,Dissatisfied,Excellent,Good,Not Sure,Fully Remote,2024-03-08,Workload can be overwhelming at times
+EMP0890,Steven Moore,56,HR,Dallas,Junior,10+ years,Dissatisfied,Excellent,Average,Not Sure,Hybrid (2 days office),2024-02-07,Benefits package could be better
+EMP0891,Emily Thompson,63,HR,Denver,Director,2-5 years,Very Satisfied,Poor,Poor,Probably,Fully Office,2024-01-22,Great team collaboration and culture
+EMP0892,Laura Turner,65,Engineering,Chicago,Director,2-5 years,Very Satisfied,Excellent,Below Average,Definitely,Hybrid (3 days office),2024-01-20,Clear career progression path
+EMP0893,Jacob Sanchez,31,Sales,Austin,Manager,5-10 years,Very Satisfied,Fair,Poor,Not Sure,Mostly Office,2024-03-24,Modern tools and technology
+EMP0894,Jason Sanchez,64,Legal,Houston,Director,1-2 years,Very Satisfied,Excellent,Good,Definitely,Hybrid (3 days office),2024-02-19,Modern tools and technology
+EMP0895,Jonathan Davis,26,Marketing,Phoenix,Lead,10+ years,Dissatisfied,Good,Average,Definitely,Fully Remote,2024-01-13,Workload can be overwhelming at times
+EMP0896,Jonathan Thompson,38,Engineering,Miami,Senior,1-2 years,Very Dissatisfied,Excellent,Good,Definitely Not,Hybrid (2 days office),2024-02-19,Unclear performance evaluation process
+EMP0897,Anthony Clark,40,Marketing,Portland,Mid-Level,2-5 years,Neutral,Fair,Below Average,Not Sure,Mostly Office,2024-02-21,Could improve communication between teams
+EMP0898,Stephanie Roberts,32,Customer Support,Portland,Mid-Level,2-5 years,Dissatisfied,Fair,Average,Probably Not,Hybrid (2 days office),2024-02-21,Office space needs improvement
+EMP0899,Kimberly Smith,23,Customer Support,Phoenix,Junior,2-5 years,Neutral,Excellent,Average,Definitely,Fully Remote,2024-02-23,Benefits package could be better
+EMP0900,Dorothy Torres,30,Product,Boston,Director,2-5 years,Neutral,Fair,Poor,Not Sure,Fully Office,2024-01-30,More transparency from leadership needed
+EMP0901,Barbara Lewis,28,Operations,Phoenix,Manager,1-2 years,Very Satisfied,Poor,Average,Probably,Fully Remote,2024-02-27,Strong leadership and clear direction
+EMP0902,Robert Clark,46,Marketing,Austin,Director,< 1 year,Satisfied,Excellent,Average,Probably Not,Fully Office,2024-01-19,Inclusive and diverse workplace
+EMP0903,Emily Smith,46,Product,Atlanta,Junior,2-5 years,Satisfied,Excellent,Excellent,Definitely,Hybrid (2 days office),2024-02-04,Great team collaboration and culture
+EMP0904,Matthew Williams,22,Marketing,Seattle,Mid-Level,5-10 years,Dissatisfied,Poor,Average,Probably Not,Hybrid (3 days office),2024-02-10,Need better work equipment
+EMP0905,Cynthia White,61,Engineering,Miami,Director,5-10 years,Satisfied,Good,Good,Probably,Fully Office,2024-01-05,Strong leadership and clear direction
+EMP0906,Brian Wright,49,IT,Portland,Junior,2-5 years,Very Satisfied,Excellent,Excellent,Definitely,Hybrid (3 days office),2024-03-01,Great team collaboration and culture
+EMP0907,Sandra Carter,27,Legal,Seattle,Lead,< 1 year,Neutral,Good,Below Average,Probably,Hybrid (2 days office),2024-02-21,Office space needs improvement
+EMP0908,Mary Wright,46,Customer Support,San Antonio,Manager,10+ years,Neutral,Fair,Excellent,Probably Not,Hybrid (3 days office),2024-03-18,Could improve communication between teams
+EMP0909,Nancy Williams,36,Product,Phoenix,Manager,2-5 years,Neutral,Fair,Below Average,Not Sure,Fully Remote,2024-03-05,Salary not competitive with market
+EMP0910,Laura Roberts,60,Engineering,Dallas,Lead,10+ years,Neutral,Good,Average,Not Sure,Fully Office,2024-03-30,Need better work equipment
+EMP0911,Amanda Wright,39,HR,Detroit,Mid-Level,< 1 year,Dissatisfied,Excellent,Below Average,Probably Not,Mostly Office,2024-01-14,More transparency from leadership needed
+EMP0912,Dorothy Moore,29,Engineering,Atlanta,Lead,< 1 year,Neutral,Good,Good,Definitely,Hybrid (2 days office),2024-02-22,Unclear performance evaluation process
+EMP0913,James Roberts,46,Operations,Detroit,Manager,2-5 years,Neutral,Fair,Poor,Definitely Not,Hybrid (3 days office),2024-02-06,Benefits package could be better
+EMP0914,Kathleen Walker,31,Engineering,Boston,Lead,5-10 years,Very Satisfied,Excellent,Excellent,Definitely,Hybrid (3 days office),2024-02-10,Great team collaboration and culture
+EMP0915,Lisa Green,22,Customer Support,San Jose,Senior,10+ years,Very Dissatisfied,Good,Good,Definitely Not,Fully Office,2024-01-04,Workload can be overwhelming at times
+EMP0916,Helen Lewis,52,Finance,Chicago,Lead,2-5 years,Very Satisfied,Fair,Good,Definitely,Fully Office,2024-01-27,Clear career progression path
+EMP0917,Betty Turner,57,Finance,San Jose,Manager,5-10 years,Very Satisfied,Excellent,Excellent,Definitely,Mostly Office,2024-01-10,Professional development opportunities
+EMP0918,Emily Ramirez,47,IT,Denver,Manager,2-5 years,Very Dissatisfied,Good,Good,Definitely Not,Fully Remote,2024-02-10,Need better work equipment
+EMP0919,Michael White,32,Operations,San Diego,Lead,10+ years,Neutral,Fair,Below Average,Probably,Mostly Office,2024-02-16,Office space needs improvement
+EMP0920,George Gomez,29,IT,Chicago,Lead,1-2 years,Neutral,Fair,Average,Definitely,Fully Remote,2024-01-02,More transparency from leadership needed
+EMP0921,Timothy Martinez,64,Product,Austin,Senior,1-2 years,Satisfied,Fair,Below Average,Definitely Not,Mostly Office,2024-01-20,Good work-life balance
+EMP0922,Karen Carter,56,Sales,Boston,Mid-Level,< 1 year,Dissatisfied,Poor,Excellent,Not Sure,Fully Office,2024-03-04,Need better work equipment
+EMP0923,Jonathan Roberts,55,Engineering,Philadelphia,Director,2-5 years,Neutral,Good,Poor,Definitely,Mostly Office,2024-01-30,Benefits package could be better
+EMP0924,Anthony Lee,46,Legal,San Antonio,Director,5-10 years,Neutral,Good,Average,Not Sure,Fully Remote,2024-01-31,Limited remote work options
+EMP0925,Emily Thomas,32,IT,San Diego,Mid-Level,2-5 years,Neutral,Good,Poor,Probably,Fully Office,2024-01-20,Unclear performance evaluation process
+EMP0926,Laura Thompson,56,Sales,Seattle,Mid-Level,< 1 year,Dissatisfied,Fair,Excellent,Probably,Mostly Office,2024-01-22,Workload can be overwhelming at times
+EMP0927,Stephen Williams,42,Customer Support,Los Angeles,Mid-Level,5-10 years,Dissatisfied,Excellent,Below Average,Definitely Not,Hybrid (3 days office),2024-03-07,Limited remote work options
+EMP0928,Robert Green,23,Customer Support,Philadelphia,Director,5-10 years,Very Satisfied,Good,Excellent,Probably,Mostly Office,2024-03-14,Inclusive and diverse workplace
+EMP0929,Betty Evans,54,Customer Support,Denver,Mid-Level,1-2 years,Dissatisfied,Good,Average,Probably,Hybrid (2 days office),2024-01-22,More transparency from leadership needed
+EMP0930,Stephen Gonzalez,36,IT,Dallas,Lead,2-5 years,Neutral,Good,Good,Probably,Mostly Office,2024-02-19,Office space needs improvement
+EMP0931,Emily Lopez,54,Sales,Atlanta,Mid-Level,< 1 year,Dissatisfied,Fair,Excellent,Probably Not,Fully Office,2024-01-11,Benefits package could be better
+EMP0932,Amanda Davis,22,Operations,Phoenix,Junior,2-5 years,Satisfied,Good,Below Average,Definitely,Mostly Office,2024-02-26,Great team collaboration and culture
+EMP0933,Betty Jones,55,Product,Dallas,Lead,1-2 years,Satisfied,Poor,Excellent,Definitely,Hybrid (2 days office),2024-02-27,Competitive salary and benefits
+EMP0934,Mary Williams,47,IT,San Diego,Senior,< 1 year,Very Satisfied,Good,Good,Probably,Hybrid (2 days office),2024-01-06,Strong leadership and clear direction
+EMP0935,Rebecca Ramirez,62,HR,Detroit,Director,10+ years,Very Satisfied,Fair,Average,Probably,Hybrid (3 days office),2024-02-25,Modern tools and technology
+EMP0936,Dorothy Taylor,61,HR,Phoenix,Lead,10+ years,Neutral,Fair,Average,Probably Not,Mostly Office,2024-03-28,Office space needs improvement
+EMP0937,James Brown,36,Customer Support,Miami,Mid-Level,1-2 years,Very Satisfied,Poor,Average,Definitely,Fully Remote,2024-02-25,Great team collaboration and culture
+EMP0938,Mary Harris,37,Product,Los Angeles,Junior,2-5 years,Satisfied,Good,Poor,Probably,Hybrid (2 days office),2024-01-21,Inclusive and diverse workplace
+EMP0939,Sharon Carter,24,Finance,Houston,Manager,< 1 year,Very Satisfied,Excellent,Average,Probably,Hybrid (2 days office),2024-01-06,Professional development opportunities
+EMP0940,Matthew Clark,25,HR,San Antonio,Lead,10+ years,Satisfied,Good,Poor,Definitely,Hybrid (3 days office),2024-02-24,Inclusive and diverse workplace
+EMP0941,Linda Perez,31,Finance,Los Angeles,Lead,10+ years,Very Satisfied,Good,Below Average,Probably,Hybrid (3 days office),2024-02-03,Flexible working hours
+EMP0942,Emily Diaz,33,Customer Support,Denver,Director,1-2 years,Very Satisfied,Fair,Average,Probably,Fully Office,2024-03-19,Clear career progression path
+EMP0943,Gary Thomas,45,Finance,Dallas,Lead,10+ years,Very Dissatisfied,Excellent,Below Average,Probably Not,Mostly Office,2024-03-16,Salary not competitive with market
+EMP0944,Nicholas Thompson,43,IT,San Jose,Mid-Level,< 1 year,Very Satisfied,Good,Excellent,Probably Not,Hybrid (3 days office),2024-03-28,Modern tools and technology
+EMP0945,Jeffrey Lee,38,Sales,Dallas,Senior,1-2 years,Dissatisfied,Good,Good,Not Sure,Mostly Office,2024-03-23,Salary not competitive with market
+EMP0946,Stephanie Hill,53,Product,Detroit,Director,5-10 years,Very Satisfied,Excellent,Poor,Definitely,Mostly Office,2024-02-20,Clear career progression path
+EMP0947,Emily Anderson,57,Sales,Seattle,Senior,1-2 years,Very Satisfied,Fair,Below Average,Probably,Mostly Office,2024-03-10,Clear career progression path
+EMP0948,Stephen White,23,Legal,San Antonio,Junior,2-5 years,Dissatisfied,Excellent,Good,Probably Not,Mostly Office,2024-02-02,Unclear performance evaluation process
+EMP0949,Melissa Johnson,22,Marketing,Atlanta,Junior,1-2 years,Satisfied,Fair,Below Average,Definitely,Mostly Office,2024-02-23,Modern tools and technology
+EMP0950,Matthew Hall,62,Sales,Detroit,Director,5-10 years,Neutral,Good,Average,Not Sure,Hybrid (2 days office),2024-03-30,Unclear performance evaluation process
+EMP0951,Jessica Evans,28,Marketing,San Antonio,Mid-Level,2-5 years,Neutral,Excellent,Excellent,Not Sure,Fully Office,2024-01-14,Could improve communication between teams
+EMP0952,Paul Harris,64,Customer Support,Detroit,Director,5-10 years,Very Dissatisfied,Good,Excellent,Probably Not,Hybrid (2 days office),2024-01-16,Limited remote work options
+EMP0953,Michelle Roberts,48,HR,Atlanta,Senior,1-2 years,Neutral,Good,Good,Definitely,Mostly Office,2024-01-27,Unclear performance evaluation process
+EMP0954,Matthew Davis,47,HR,San Antonio,Mid-Level,5-10 years,Neutral,Fair,Good,Not Sure,Hybrid (3 days office),2024-03-16,Limited remote work options
+EMP0955,Linda Mitchell,26,Product,Portland,Junior,5-10 years,Neutral,Good,Average,Probably,Hybrid (3 days office),2024-02-21,Unclear performance evaluation process
+EMP0956,Amanda Smith,33,Legal,San Jose,Junior,5-10 years,Very Satisfied,Good,Good,Definitely,Fully Remote,2024-01-09,Clear career progression path
+EMP0957,Linda Wright,60,HR,Los Angeles,Lead,5-10 years,Very Satisfied,Excellent,Poor,Definitely,Fully Remote,2024-02-05,Competitive salary and benefits
+EMP0958,Sharon Flores,27,HR,Detroit,Mid-Level,5-10 years,Satisfied,Fair,Good,Definitely,Mostly Office,2024-01-22,Good work-life balance
+EMP0959,David Moore,35,IT,Atlanta,Director,2-5 years,Very Satisfied,Good,Poor,Probably,Hybrid (3 days office),2024-01-15,Modern tools and technology
+EMP0960,Linda Walker,38,Sales,Phoenix,Senior,5-10 years,Neutral,Poor,Excellent,Probably,Fully Remote,2024-02-26,Need better work equipment
+EMP0961,Kevin Rivera,44,Engineering,Atlanta,Director,< 1 year,Very Satisfied,Poor,Excellent,Not Sure,Fully Office,2024-02-21,Inclusive and diverse workplace
+EMP0962,Barbara Wilson,62,Product,Houston,Senior,< 1 year,Dissatisfied,Excellent,Poor,Probably Not,Hybrid (3 days office),2024-03-02,Could improve communication between teams
+EMP0963,Cynthia Torres,62,Operations,Los Angeles,Senior,< 1 year,Dissatisfied,Fair,Average,Definitely,Hybrid (3 days office),2024-02-12,More transparency from leadership needed
+EMP0964,John Robinson,49,HR,Boston,Manager,5-10 years,Dissatisfied,Good,Good,Probably Not,Mostly Office,2024-03-03,Could improve communication between teams
+EMP0965,Susan Lewis,34,Sales,Portland,Director,< 1 year,Dissatisfied,Poor,Good,Probably Not,Hybrid (3 days office),2024-03-07,Need better work equipment
+EMP0966,George Moore,32,Legal,Phoenix,Senior,< 1 year,Satisfied,Good,Average,Definitely,Hybrid (2 days office),2024-03-08,Strong leadership and clear direction
+EMP0967,Jason Anderson,37,Engineering,Detroit,Senior,10+ years,Dissatisfied,Fair,Below Average,Probably Not,Fully Office,2024-01-25,Could improve communication between teams
+EMP0968,Joshua Smith,54,Finance,Phoenix,Lead,10+ years,Satisfied,Poor,Below Average,Definitely,Mostly Office,2024-02-27,Interesting and challenging projects
+EMP0969,Donald White,30,Finance,Miami,Lead,2-5 years,Satisfied,Fair,Below Average,Probably,Fully Remote,2024-02-15,Interesting and challenging projects
+EMP0970,Amanda Lewis,45,Product,Chicago,Mid-Level,5-10 years,Dissatisfied,Good,Excellent,Definitely Not,Fully Office,2024-02-19,Workload can be overwhelming at times
+EMP0971,Sharon Jones,49,Engineering,Los Angeles,Mid-Level,1-2 years,Very Satisfied,Excellent,Excellent,Definitely,Hybrid (2 days office),2024-02-09,Strong leadership and clear direction
+EMP0972,Mary Sanchez,57,Legal,Houston,Junior,1-2 years,Dissatisfied,Good,Excellent,Not Sure,Hybrid (3 days office),2024-02-13,Unclear performance evaluation process
+EMP0973,Gary Thomas,38,Marketing,Houston,Senior,10+ years,Satisfied,Poor,Good,Probably,Fully Office,2024-03-21,Clear career progression path
+EMP0974,Jeffrey Jones,56,Sales,Boston,Senior,< 1 year,Satisfied,Fair,Below Average,Definitely,Fully Office,2024-02-04,Clear career progression path
+EMP0975,Sarah Martin,60,Customer Support,Portland,Manager,< 1 year,Very Satisfied,Fair,Excellent,Probably,Mostly Office,2024-01-15,Inclusive and diverse workplace
+EMP0976,Ashley Wilson,25,Engineering,Philadelphia,Lead,2-5 years,Very Dissatisfied,Excellent,Below Average,Definitely Not,Mostly Office,2024-03-07,Unclear performance evaluation process
+EMP0977,Joshua Lopez,32,Operations,San Antonio,Mid-Level,1-2 years,Satisfied,Poor,Poor,Definitely,Fully Remote,2024-02-28,Good work-life balance
+EMP0978,Emily Lopez,23,Product,Phoenix,Director,2-5 years,Very Satisfied,Fair,Below Average,Definitely,Fully Office,2024-01-03,Clear career progression path
+EMP0979,Kimberly Gonzalez,34,Operations,San Jose,Mid-Level,10+ years,Neutral,Good,Poor,Probably Not,Fully Remote,2024-01-12,Salary not competitive with market
+EMP0980,Rebecca Hernandez,49,Finance,San Jose,Junior,2-5 years,Dissatisfied,Good,Good,Definitely Not,Fully Remote,2024-03-06,Limited remote work options
+EMP0981,Timothy Scott,26,IT,Atlanta,Manager,< 1 year,Satisfied,Good,Good,Probably,Fully Office,2024-03-18,Professional development opportunities
+EMP0982,Donna Thompson,56,Sales,Chicago,Manager,< 1 year,Very Satisfied,Fair,Excellent,Definitely,Fully Remote,2024-01-12,Interesting and challenging projects
+EMP0983,Kevin Adams,48,Engineering,San Antonio,Manager,5-10 years,Very Satisfied,Good,Below Average,Probably,Mostly Office,2024-02-23,Great team collaboration and culture
+EMP0984,Emily Thompson,46,Operations,Dallas,Mid-Level,2-5 years,Dissatisfied,Good,Poor,Probably Not,Fully Office,2024-02-26,Benefits package could be better
+EMP0985,Edward Walker,61,Finance,Los Angeles,Mid-Level,10+ years,Neutral,Good,Below Average,Probably Not,Fully Office,2024-01-03,Would like more training opportunities
+EMP0986,Jason Lopez,28,Legal,Chicago,Senior,5-10 years,Satisfied,Fair,Below Average,Definitely,Fully Remote,2024-03-14,Inclusive and diverse workplace
+EMP0987,Jane Martinez,44,Product,Seattle,Manager,5-10 years,Satisfied,Fair,Good,Probably,Mostly Office,2024-01-17,Clear career progression path
+EMP0988,Cynthia Lewis,29,Finance,Chicago,Manager,2-5 years,Satisfied,Good,Excellent,Probably,Fully Office,2024-03-09,Competitive salary and benefits
+EMP0989,David Miller,28,Marketing,San Jose,Manager,2-5 years,Satisfied,Fair,Excellent,Definitely,Fully Remote,2024-01-14,Great team collaboration and culture
+EMP0990,Mary Gomez,65,Sales,Philadelphia,Manager,5-10 years,Neutral,Fair,Below Average,Probably,Mostly Office,2024-02-17,Office space needs improvement
+EMP0991,Timothy Green,27,HR,New York,Mid-Level,5-10 years,Satisfied,Excellent,Excellent,Definitely,Mostly Office,2024-03-16,Modern tools and technology
+EMP0992,Brian Campbell,43,Operations,New York,Manager,1-2 years,Dissatisfied,Good,Below Average,Probably,Fully Remote,2024-01-29,Salary not competitive with market
+EMP0993,Carol Johnson,30,Legal,San Diego,Senior,< 1 year,Satisfied,Good,Good,Probably,Fully Remote,2024-01-12,Flexible working hours
+EMP0994,Mark Anderson,27,Sales,Los Angeles,Junior,5-10 years,Neutral,Fair,Below Average,Not Sure,Fully Remote,2024-01-01,Could improve communication between teams
+EMP0995,Nancy Phillips,65,Sales,Denver,Director,2-5 years,Very Satisfied,Fair,Poor,Probably,Fully Office,2024-01-26,Interesting and challenging projects
+EMP0996,Dorothy Hernandez,36,Product,Atlanta,Senior,< 1 year,Dissatisfied,Fair,Excellent,Definitely Not,Fully Office,2024-03-03,More transparency from leadership needed
+EMP0997,Sarah Harris,24,Operations,San Jose,Junior,5-10 years,Neutral,Good,Below Average,Probably,Mostly Office,2024-03-11,Office space needs improvement
+EMP0998,Stephanie Sanchez,26,Sales,Dallas,Junior,5-10 years,Neutral,Excellent,Below Average,Probably Not,Hybrid (2 days office),2024-02-18,More transparency from leadership needed
+EMP0999,Brian Martinez,44,Legal,Dallas,Director,5-10 years,Very Satisfied,Fair,Good,Definitely,Mostly Office,2024-01-24,Interesting and challenging projects
+EMP1000,Joshua Ramirez,25,Finance,New York,Junior,10+ years,Satisfied,Fair,Good,Not Sure,Mostly Office,2024-03-23,Competitive salary and benefits

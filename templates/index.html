@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Data Viewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Survey Data Viewer</h1>
+            <p>Upload CSV or Excel files to visualize and filter survey data</p>
+        </header>
+
+        <section class="upload-section">
+            <h2>Upload Survey Data</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="file-input-wrapper">
+                    <input type="file" id="fileInput" name="file" accept=".csv,.xlsx,.xls" required>
+                    <label for="fileInput" class="file-label">
+                        <span id="fileName">Choose a file...</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+            <div id="uploadStatus" class="status-message"></div>
+        </section>
+
+        <section class="surveys-section">
+            <h2>Your Surveys</h2>
+            {% if surveys %}
+            <div class="surveys-grid">
+                {% for survey in surveys %}
+                <div class="survey-card">
+                    <div class="survey-header">
+                        <h3>{{ survey.filename }}</h3>
+                        <button class="btn-delete" onclick="deleteSurvey('{{ survey.id }}')">×</button>
+                    </div>
+                    <div class="survey-info">
+                        <p><strong>Rows:</strong> {{ survey.row_count }}</p>
+                        <p><strong>Uploaded:</strong> {{ survey.upload_date[:10] }}</p>
+                    </div>
+                    <a href="{{ url_for('view_survey', survey_id=survey.id) }}" class="btn btn-secondary">View Data</a>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="empty-state">No surveys uploaded yet. Upload a file to get started!</p>
+            {% endif %}
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

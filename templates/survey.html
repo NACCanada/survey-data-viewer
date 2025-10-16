@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ survey.filename }} - Survey Data Viewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="{{ url_for('index') }}" class="back-link">← Back to Home</a>
+            <h1>{{ survey.filename }}</h1>
+            <div class="survey-meta">
+                <span>{{ survey.row_count }} rows</span>
+                <span>Uploaded: {{ survey.upload_date[:10] }}</span>
+            </div>
+        </header>
+
+        <section class="charts-section">
+            <div class="section-header">
+                <h2>Visualizations</h2>
+                <button id="toggleCharts" class="btn btn-secondary">Show/Hide Charts</button>
+            </div>
+            <div id="chartsContainer" class="charts-grid">
+                <!-- Charts will be dynamically generated here -->
+            </div>
+        </section>
+
+        <section class="comparison-section" id="comparisonSection" style="display: none;">
+            <div class="section-header">
+                <h2>Compare Data Segments</h2>
+                <button id="closeComparison" class="btn btn-secondary">Close Comparison</button>
+            </div>
+
+            <div class="comparison-container">
+                <div class="comparison-group">
+                    <div class="comparison-group-header">
+                        <h3>Group A</h3>
+                        <button id="clearGroupA" class="btn btn-clear">Clear</button>
+                    </div>
+                    <div id="groupAFilters" class="comparison-filters">
+                        <!-- Group A filters will be generated here -->
+                    </div>
+                    <div class="comparison-stats" id="groupAStats">
+                        <p><strong>Count:</strong> <span id="groupACount">0</span></p>
+                    </div>
+                </div>
+
+                <div class="comparison-divider">
+                    <span>VS</span>
+                </div>
+
+                <div class="comparison-group">
+                    <div class="comparison-group-header">
+                        <h3>Group B</h3>
+                        <button id="clearGroupB" class="btn btn-clear">Clear</button>
+                    </div>
+                    <div id="groupBFilters" class="comparison-filters">
+                        <!-- Group B filters will be generated here -->
+                    </div>
+                    <div class="comparison-stats" id="groupBStats">
+                        <p><strong>Count:</strong> <span id="groupBCount">0</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comparison-results">
+                <h3>Comparison Results</h3>
+                <div id="comparisonCharts" class="charts-grid">
+                    <!-- Comparison charts will be generated here -->
+                </div>
+            </div>
+        </section>
+
+        <section class="filters-section">
+            <div class="section-header">
+                <h2>Filters</h2>
+                <button id="enableComparison" class="btn btn-primary">Compare Data</button>
+            </div>
+            <div id="filtersContainer" class="filters-grid">
+                <!-- Filters will be dynamically generated here -->
+            </div>
+            <button id="clearFilters" class="btn btn-secondary">Clear All Filters</button>
+        </section>
+
+        <section class="data-section">
+            <div class="table-controls">
+                <div class="search-box">
+                    <input type="text" id="globalSearch" placeholder="Search all columns...">
+                </div>
+                <div class="export-buttons">
+                    <button id="exportCSV" class="btn btn-secondary">Export CSV</button>
+                    <button id="exportJSON" class="btn btn-secondary">Export JSON</button>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="surveyTable" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            {% for column in survey.columns %}
+                            <th>{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be loaded via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script>
+        const surveyId = "{{ survey.id }}";
+        const columns = {{ survey.columns | tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='js/survey.js') }}"></script>
+</body>
+</html>
