@@ -1,0 +1,51 @@
+RespondentID,Region,Age,Gender,Education,Marital_Status,Identity,Tenure_in_Canada,General_Happiness,Q2_Service_Attendance,Q3_Satisfaction_with_Church,Q4_Years_as_Member,Q5_Volunteer_Activities
+1,East/North,16-34,Female,University,Married/common law,White,< 10 years,Very happy,Less often,Very satisfied,44,Yes
+2,East/North,70+,Female,High school or less,Single,White,< 10 years,Not very/at all happy,Once or twice a year,Very satisfied,36,Yes
+3,East/North,70+,Female,Apprenticeship/College,Divorced/widowed,Racialized and Indigenous,< 10 years,Very happy,Less often,Somewhat dissatisfied,22,No
+4,West,35-54,Male,High school or less,Single,Racialized and Indigenous,< 10 years,Somewhat happy,Never,Neutral,39,No
+5,West,70+,Female,Apprenticeship/College,Single,Racialized and Indigenous,Born in Canada,Not very/at all happy,Never,Neutral,37,Yes
+6,East/North,16-34,Female,University,Single,Racialized and Indigenous,< 10 years,Very happy,Never,Very satisfied,25,No
+7,ON,55-69,Female,Apprenticeship/College,Married/common law,White,Born in Canada,Somewhat happy,Less often,Very satisfied,39,Yes
+8,East/North,35-54,Female,Apprenticeship/College,Married/common law,Racialized and Indigenous,Born in Canada,Not very/at all happy,Once or twice a year,Somewhat satisfied,44,No
+9,West,35-54,Female,Apprenticeship/College,Married/common law,Racialized and Indigenous,< 10 years,Very happy,Once or twice a year,Neutral,14,No
+10,ON,70+,Female,Apprenticeship/College,Single,White,Born in Canada,Not very/at all happy,Once or twice a year,Neutral,48,No
+11,East/North,70+,Male,High school or less,Single,Racialized and Indigenous,< 10 years,Very happy,Never,Very satisfied,10,Yes
+12,East/North,70+,Female,Apprenticeship/College,Married/common law,Racialized and Indigenous,Born in Canada,Somewhat happy,Once or twice a year,Very satisfied,44,Yes
+13,East/North,55-69,Male,High school or less,Married/common law,Racialized and Indigenous,< 10 years,Somewhat happy,At least once a week,Neutral,33,Yes
+14,East/North,16-34,Male,University,Divorced/widowed,White,< 10 years,Somewhat happy,Never,Somewhat satisfied,35,Yes
+15,East/North,55-69,Male,High school or less,Single,Racialized and Indigenous,10+ years,Very happy,At least once a week,Somewhat satisfied,37,Yes
+16,West,70+,Female,University,Single,White,Born in Canada,Somewhat happy,Once or twice a year,Somewhat satisfied,17,No
+17,West,35-54,Male,Apprenticeship/College,Divorced/widowed,Racialized and Indigenous,10+ years,Not very/at all happy,A few times a year,Very satisfied,16,Yes
+18,West,55-69,Female,University,Divorced/widowed,White,Born in Canada,Very happy,At least once a week,Very satisfied,46,Yes
+19,West,16-34,Female,Apprenticeship/College,Single,White,10+ years,Not very/at all happy,A few times a year,Somewhat satisfied,35,Yes
+20,East/North,70+,Female,Apprenticeship/College,Married/common law,White,< 10 years,Very happy,Less often,Somewhat dissatisfied,23,No
+21,ON,70+,Female,University,Divorced/widowed,White,< 10 years,Somewhat happy,Less often,Neutral,7,Yes
+22,West,35-54,Male,High school or less,Married/common law,White,10+ years,Somewhat happy,Two or three times a month,Very satisfied,29,Yes
+23,West,16-34,Female,High school or less,Single,Racialized and Indigenous,10+ years,Somewhat happy,Two or three times a month,Somewhat dissatisfied,4,Yes
+24,ON,16-34,Male,Apprenticeship/College,Married/common law,Racialized and Indigenous,10+ years,Not very/at all happy,Less often,Very dissatisfied,43,No
+25,West,35-54,Male,High school or less,Single,White,Born in Canada,Somewhat happy,At least once a week,Very satisfied,38,No
+26,East/North,35-54,Female,University,Single,White,< 10 years,Not very/at all happy,At least once a week,Somewhat satisfied,26,Yes
+27,East/North,35-54,Female,University,Single,Racialized and Indigenous,Born in Canada,Not very/at all happy,Once or twice a year,Very dissatisfied,21,No
+28,West,55-69,Female,Apprenticeship/College,Married/common law,White,Born in Canada,Not very/at all happy,Once a month,Somewhat dissatisfied,21,Yes
+29,West,70+,Female,High school or less,Divorced/widowed,White,Born in Canada,Somewhat happy,Two or three times a month,Neutral,5,Yes
+30,ON,55-69,Female,Apprenticeship/College,Divorced/widowed,Racialized and Indigenous,Born in Canada,Not very/at all happy,Once or twice a year,Very satisfied,43,No
+31,East/North,16-34,Female,Apprenticeship/College,Single,White,Born in Canada,Not very/at all happy,Two or three times a month,Neutral,19,Yes
+32,East/North,55-69,Female,University,Divorced/widowed,Racialized and Indigenous,Born in Canada,Somewhat happy,Once a month,Very satisfied,6,No
+33,ON,16-34,Female,Apprenticeship/College,Single,Racialized and Indigenous,< 10 years,Not very/at all happy,A few times a year,Very dissatisfied,46,No
+34,East/North,16-34,Female,High school or less,Divorced/widowed,White,Born in Canada,Very happy,Never,Neutral,38,Yes
+35,ON,35-54,Female,Apprenticeship/College,Married/common law,White,10+ years,Very happy,Less often,Somewhat satisfied,43,Yes
+36,ON,70+,Female,High school or less,Single,White,10+ years,Very happy,Two or three times a month,Neutral,27,Yes
+37,ON,35-54,Female,Apprenticeship/College,Single,Racialized and Indigenous,< 10 years,Very happy,Never,Somewhat dissatisfied,23,No
+38,West,35-54,Female,University,Single,Racialized and Indigenous,10+ years,Somewhat happy,Never,Very satisfied,50,No
+39,ON,70+,Male,High school or less,Single,Racialized and Indigenous,< 10 years,Not very/at all happy,Once a month,Very satisfied,7,No
+40,ON,55-69,Male,University,Divorced/widowed,White,10+ years,Not very/at all happy,Two or three times a month,Neutral,3,No
+41,West,35-54,Male,Apprenticeship/College,Single,Racialized and Indigenous,Born in Canada,Somewhat happy,Less often,Very satisfied,47,No
+42,East/North,55-69,Male,Apprenticeship/College,Married/common law,Racialized and Indigenous,Born in Canada,Very happy,Two or three times a month,Somewhat dissatisfied,43,No
+43,East/North,35-54,Male,Apprenticeship/College,Divorced/widowed,White,10+ years,Somewhat happy,Two or three times a month,Somewhat dissatisfied,38,No
+44,ON,70+,Male,University,Single,Racialized and Indigenous,Born in Canada,Very happy,Less often,Very satisfied,19,No
+45,West,35-54,Male,High school or less,Single,White,< 10 years,Very happy,Two or three times a month,Somewhat dissatisfied,40,Yes
+46,ON,70+,Female,University,Divorced/widowed,Racialized and Indigenous,10+ years,Somewhat happy,Two or three times a month,Somewhat satisfied,42,Yes
+47,West,70+,Female,High school or less,Divorced/widowed,Racialized and Indigenous,< 10 years,Not very/at all happy,Two or three times a month,Very satisfied,30,Yes
+48,ON,55-69,Male,University,Divorced/widowed,Racialized and Indigenous,Born in Canada,Somewhat happy,Two or three times a month,Somewhat dissatisfied,29,No
+49,West,55-69,Male,University,Single,Racialized and Indigenous,10+ years,Very happy,Less often,Neutral,16,No
+50,ON,55-69,Female,High school or less,Single,White,10+ years,Not very/at all happy,Two or three times a month,Somewhat satisfied,5,No

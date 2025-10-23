@@ -7,6 +7,7 @@ from flask import Flask, render_template, request, jsonify, redirect, url_for
 from werkzeug.utils import secure_filename
 import pandas as pd
 from dotenv import load_dotenv
+from crosstab_parser import CrosstabParser
 
 # Load environment variables
 load_dotenv()
@@ -27,7 +28,15 @@ def init_db():
                   filename TEXT NOT NULL,
                   upload_date TEXT NOT NULL,
                   columns TEXT NOT NULL,
-                  row_count INTEGER NOT NULL)''')
+                  row_count INTEGER NOT NULL,
+                  file_type TEXT DEFAULT 'standard')''')
+
+    # Add file_type column if it doesn't exist (for existing databases)
+    c.execute("PRAGMA table_info(surveys)")
+    columns = [col[1] for col in c.fetchall()]
+    if 'file_type' not in columns:
+        c.execute('ALTER TABLE surveys ADD COLUMN file_type TEXT DEFAULT "standard"')
+
     conn.commit()
     conn.close()
 
@@ -35,6 +44,36 @@ init_db()
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+
+def detect_file_type(filepath, file_extension):
+    """Detect if file is standard survey data or crosstab format"""
+    try:
+        if file_extension == 'csv':
+            df = pd.read_csv(filepath, header=None, nrows=20)
+        else:
+            # Check if it has multiple sheets (likely crosstab)
+            xl_file = pd.ExcelFile(filepath)
+            if len(xl_file.sheet_names) > 1:
+                # Check for BANNER pattern
+                if any('BANNER' in sheet.upper() for sheet in xl_file.sheet_names):
+                    return 'crosstab'
+
+            df = pd.read_excel(filepath, header=None, nrows=20)
+
+        # Look for crosstab indicators in first 20 rows
+        for idx, row in df.iterrows():
+            row_text = ' '.join([str(x) for x in row if pd.notna(x)])
+            # Check for question patterns like "Q1.", "Q2.", etc.
+            if any(pattern in row_text for pattern in ['Q1.', 'Q2.', 'Q3.']):
+                # Check for demographic headers
+                if any(keyword in row_text for keyword in ['Region', 'Age', 'Gender']):
+                    return 'crosstab'
+
+        return 'standard'
+
+    except Exception:
+        return 'standard'  # Default to standard if detection fails
+
 
 def process_file(filepath, file_extension):
     """Process CSV or Excel file and return dataframe"""
@@ -59,8 +98,9 @@ def index():
     """Home page with upload form and list of surveys"""
     conn = sqlite3.connect('data/surveys.db')
     c = conn.cursor()
-    c.execute('SELECT id, filename, upload_date, row_count FROM surveys ORDER BY upload_date DESC')
-    surveys = [{'id': row[0], 'filename': row[1], 'upload_date': row[2], 'row_count': row[3]}
+    c.execute('SELECT id, filename, upload_date, row_count, file_type FROM surveys ORDER BY upload_date DESC')
+    surveys = [{'id': row[0], 'filename': row[1], 'upload_date': row[2], 'row_count': row[3],
+                'file_type': row[4] if len(row) > 4 else 'standard'}
                for row in c.fetchall()]
     conn.close()
 
@@ -90,28 +130,51 @@ def upload_file():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], f"{survey_id}_{filename}")
         file.save(filepath)
 
-        # Process file
-        df = process_file(filepath, file_extension)
+        # Detect file type
+        file_type = detect_file_type(filepath, file_extension)
 
-        # Save data as JSON
-        data_path = os.path.join(app.config['DATA_FOLDER'], f"{survey_id}.json")
-        data = {
-            'columns': df.columns.tolist(),
-            'data': df.to_dict('records')
-        }
-        with open(data_path, 'w') as f:
-            json.dump(data, f)
+        if file_type == 'crosstab':
+            # Process as crosstab
+            parser = CrosstabParser(filepath)
+            data = parser.parse_all_sheets()
 
-        # Save metadata to database
-        conn = sqlite3.connect('data/surveys.db')
-        c = conn.cursor()
-        c.execute('INSERT INTO surveys VALUES (?, ?, ?, ?, ?)',
-                  (survey_id, filename, datetime.now().isoformat(),
-                   json.dumps(df.columns.tolist()), len(df)))
-        conn.commit()
-        conn.close()
+            # Save crosstab data as JSON
+            data_path = os.path.join(app.config['DATA_FOLDER'], f"{survey_id}.json")
+            with open(data_path, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
 
-        return jsonify({'success': True, 'survey_id': survey_id})
+            # Save metadata
+            conn = sqlite3.connect('data/surveys.db')
+            c = conn.cursor()
+            c.execute('INSERT INTO surveys VALUES (?, ?, ?, ?, ?, ?)',
+                      (survey_id, filename, datetime.now().isoformat(),
+                       json.dumps([]), data['metadata']['total_questions'], 'crosstab'))
+            conn.commit()
+            conn.close()
+
+        else:
+            # Process as standard file
+            df = process_file(filepath, file_extension)
+
+            # Save data as JSON
+            data_path = os.path.join(app.config['DATA_FOLDER'], f"{survey_id}.json")
+            data = {
+                'columns': df.columns.tolist(),
+                'data': df.to_dict('records')
+            }
+            with open(data_path, 'w') as f:
+                json.dump(data, f)
+
+            # Save metadata to database
+            conn = sqlite3.connect('data/surveys.db')
+            c = conn.cursor()
+            c.execute('INSERT INTO surveys VALUES (?, ?, ?, ?, ?, ?)',
+                      (survey_id, filename, datetime.now().isoformat(),
+                       json.dumps(df.columns.tolist()), len(df), 'standard'))
+            conn.commit()
+            conn.close()
+
+        return jsonify({'success': True, 'survey_id': survey_id, 'file_type': file_type})
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
@@ -121,12 +184,18 @@ def view_survey(survey_id):
     """View survey data with filters"""
     conn = sqlite3.connect('data/surveys.db')
     c = conn.cursor()
-    c.execute('SELECT filename, upload_date, columns, row_count FROM surveys WHERE id = ?', (survey_id,))
+    c.execute('SELECT filename, upload_date, columns, row_count, file_type FROM surveys WHERE id = ?', (survey_id,))
     result = c.fetchone()
     conn.close()
 
     if not result:
         return "Survey not found", 404
+
+    file_type = result[4] if len(result) > 4 else 'standard'
+
+    if file_type == 'crosstab':
+        # Redirect to crosstab viewer
+        return redirect(url_for('view_crosstab', survey_id=survey_id))
 
     survey_info = {
         'id': survey_id,
@@ -175,6 +244,93 @@ def delete_survey(survey_id):
         return jsonify({'success': True})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+# Crosstab routes
+@app.route('/crosstab/<survey_id>')
+def view_crosstab(survey_id):
+    """View crosstab data"""
+    conn = sqlite3.connect('data/surveys.db')
+    c = conn.cursor()
+    c.execute('SELECT filename, upload_date, row_count FROM surveys WHERE id = ?', (survey_id,))
+    result = c.fetchone()
+    conn.close()
+
+    if not result:
+        return "Survey not found", 404
+
+    survey_info = {
+        'id': survey_id,
+        'filename': result[0],
+        'upload_date': result[1],
+        'total_questions': result[2]
+    }
+
+    return render_template('crosstab.html', survey=survey_info)
+
+
+@app.route('/api/crosstab/<survey_id>/data')
+def get_crosstab_data(survey_id):
+    """API endpoint to get crosstab data"""
+    data_path = os.path.join(app.config['DATA_FOLDER'], f"{survey_id}.json")
+
+    if not os.path.exists(data_path):
+        return jsonify({'error': 'Survey not found'}), 404
+
+    with open(data_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    return jsonify(data)
+
+
+@app.route('/api/crosstab/<survey_id>/questions')
+def get_crosstab_questions(survey_id):
+    """Get list of all questions in crosstab"""
+    data_path = os.path.join(app.config['DATA_FOLDER'], f"{survey_id}.json")
+
+    if not os.path.exists(data_path):
+        return jsonify({'error': 'Survey not found'}), 404
+
+    with open(data_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    # Extract questions from first banner
+    if data['banners']:
+        first_banner = list(data['banners'].values())[0]
+        questions = [{'id': q['id'], 'text': q['text']} for q in first_banner['questions']]
+        return jsonify({'questions': questions})
+
+    return jsonify({'questions': []})
+
+
+@app.route('/api/crosstab/<survey_id>/question/<question_id>')
+def get_crosstab_question(survey_id, question_id):
+    """Get specific question data from all banners"""
+    data_path = os.path.join(app.config['DATA_FOLDER'], f"{survey_id}.json")
+
+    if not os.path.exists(data_path):
+        return jsonify({'error': 'Survey not found'}), 404
+
+    with open(data_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    result = {'question_id': question_id, 'banners': {}}
+
+    for banner_name, banner_data in data['banners'].items():
+        for question in banner_data['questions']:
+            if question['id'] == question_id:
+                result['banners'][banner_name] = {
+                    'question': question,
+                    'demographics': banner_data['demographics'],
+                    'column_labels': banner_data['column_labels']
+                }
+                break
+
+    if not result['banners']:
+        return jsonify({'error': 'Question not found'}), 404
+
+    return jsonify(result)
+
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 8080))

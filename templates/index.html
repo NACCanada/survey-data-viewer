@@ -38,7 +38,13 @@
                         <button class="btn-delete" onclick="deleteSurvey('{{ survey.id }}')">×</button>
                     </div>
                     <div class="survey-info">
+                        {% if survey.file_type == 'crosstab' %}
+                        <p><strong>Type:</strong> <span class="badge badge-crosstab">Crosstab</span></p>
+                        <p><strong>Questions:</strong> {{ survey.row_count }}</p>
+                        {% else %}
+                        <p><strong>Type:</strong> <span class="badge badge-standard">Standard</span></p>
                         <p><strong>Rows:</strong> {{ survey.row_count }}</p>
+                        {% endif %}
                         <p><strong>Uploaded:</strong> {{ survey.upload_date[:10] }}</p>
                     </div>
                     <a href="{{ url_for('view_survey', survey_id=survey.id) }}" class="btn btn-secondary">View Data</a>
