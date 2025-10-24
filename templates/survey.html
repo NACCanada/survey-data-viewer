@@ -10,7 +10,10 @@
 <body>
     <div class="container">
         <header>
-            <a href="{{ url_for('index') }}" class="back-link">← Back to Home</a>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                <a href="{{ url_for('index') }}" class="back-link">← Back to Home</a>
+                <a href="{{ url_for('logout') }}" class="btn" style="background: #e74c3c; padding: 6px 12px; font-size: 14px;">Logout</a>
+            </div>
             <h1>{{ survey.filename }}</h1>
             <div class="survey-meta">
                 <span>{{ survey.row_count }} rows</span>

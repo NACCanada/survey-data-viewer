@@ -3,7 +3,8 @@ import json
 import uuid
 import sqlite3
 from datetime import datetime
-from flask import Flask, render_template, request, jsonify, redirect, url_for
+from functools import wraps
+from flask import Flask, render_template, request, jsonify, redirect, url_for, session, flash
 from werkzeug.utils import secure_filename
 import pandas as pd
 from dotenv import load_dotenv
@@ -18,6 +19,16 @@ app.config['UPLOAD_FOLDER'] = os.getenv('UPLOAD_FOLDER', 'uploads')
 app.config['DATA_FOLDER'] = os.getenv('DATA_FOLDER', 'data')
 app.config['MAX_CONTENT_LENGTH'] = int(os.getenv('MAX_CONTENT_LENGTH', 16 * 1024 * 1024))
 app.config['ALLOWED_EXTENSIONS'] = {'csv', 'xlsx', 'xls'}
+app.config['SITE_PASSWORD'] = os.getenv('SITE_PASSWORD', 'changeme')
+
+# Authentication decorator
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not session.get('authenticated'):
+            return redirect(url_for('login', next=request.url))
+        return f(*args, **kwargs)
+    return decorated_function
 
 # Initialize database
 def init_db():
@@ -93,7 +104,28 @@ def process_file(filepath, file_extension):
     except Exception as e:
         raise Exception(f"Error processing file: {str(e)}")
 
+# Authentication routes
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    """Login page"""
+    if request.method == 'POST':
+        password = request.form.get('password')
+        if password == app.config['SITE_PASSWORD']:
+            session['authenticated'] = True
+            next_page = request.args.get('next')
+            return redirect(next_page or url_for('index'))
+        else:
+            flash('Incorrect password. Please try again.', 'error')
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    """Logout and clear session"""
+    session.pop('authenticated', None)
+    return redirect(url_for('login'))
+
 @app.route('/')
+@login_required
 def index():
     """Home page with upload form and list of surveys"""
     conn = sqlite3.connect('data/surveys.db')
@@ -107,6 +139,7 @@ def index():
     return render_template('index.html', surveys=surveys)
 
 @app.route('/upload', methods=['POST'])
+@login_required
 def upload_file():
     """Handle file upload"""
     if 'file' not in request.files:
@@ -180,6 +213,7 @@ def upload_file():
         return jsonify({'error': str(e)}), 500
 
 @app.route('/survey/<survey_id>')
+@login_required
 def view_survey(survey_id):
     """View survey data with filters"""
     conn = sqlite3.connect('data/surveys.db')
@@ -208,6 +242,7 @@ def view_survey(survey_id):
     return render_template('survey.html', survey=survey_info)
 
 @app.route('/api/survey/<survey_id>/data')
+@login_required
 def get_survey_data(survey_id):
     """API endpoint to get survey data"""
     data_path = os.path.join(app.config['DATA_FOLDER'], f"{survey_id}.json")
@@ -221,6 +256,7 @@ def get_survey_data(survey_id):
     return jsonify(data)
 
 @app.route('/delete/<survey_id>', methods=['POST'])
+@login_required
 def delete_survey(survey_id):
     """Delete a survey"""
     try:
@@ -248,6 +284,7 @@ def delete_survey(survey_id):
 
 # Crosstab routes
 @app.route('/crosstab/<survey_id>')
+@login_required
 def view_crosstab(survey_id):
     """View crosstab data"""
     conn = sqlite3.connect('data/surveys.db')
@@ -270,6 +307,7 @@ def view_crosstab(survey_id):
 
 
 @app.route('/api/crosstab/<survey_id>/data')
+@login_required
 def get_crosstab_data(survey_id):
     """API endpoint to get crosstab data"""
     data_path = os.path.join(app.config['DATA_FOLDER'], f"{survey_id}.json")
@@ -284,6 +322,7 @@ def get_crosstab_data(survey_id):
 
 
 @app.route('/api/crosstab/<survey_id>/questions')
+@login_required
 def get_crosstab_questions(survey_id):
     """Get list of all questions in crosstab"""
     data_path = os.path.join(app.config['DATA_FOLDER'], f"{survey_id}.json")
@@ -304,6 +343,7 @@ def get_crosstab_questions(survey_id):
 
 
 @app.route('/api/crosstab/<survey_id>/question/<question_id>')
+@login_required
 def get_crosstab_question(survey_id, question_id):
     """Get specific question data from all banners"""
     data_path = os.path.join(app.config['DATA_FOLDER'], f"{survey_id}.json")

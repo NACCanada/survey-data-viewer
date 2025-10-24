@@ -284,9 +284,12 @@
 <body>
     <div class="container">
         <header>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <a href="/" class="btn btn-secondary">← Back to Home</a>
+                <a href="{{ url_for('logout') }}" class="btn" style="background: #e74c3c; padding: 6px 12px; font-size: 14px;">Logout</a>
+            </div>
             <h1>📊 Crosstab Viewer</h1>
             <p>{{ survey.filename }}</p>
-            <a href="/" class="btn btn-secondary" style="position: absolute; top: 20px; right: 20px;">← Back to Home</a>
         </header>
 
         <div class="stats-summary">
