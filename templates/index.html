@@ -11,7 +11,7 @@
         <header style="display: flex; justify-content: space-between; align-items: center;">
             <div>
                 <h1>Survey Data Viewer</h1>
-                <p>Upload CSV or Excel files to visualize and filter survey data</p>
+                <p>Upload CSV, Excel, or SPSS (SAV) files to visualize and filter survey data</p>
             </div>
             <a href="{{ url_for('logout') }}" class="btn" style="background: #e74c3c; height: fit-content;">Logout</a>
         </header>
@@ -20,7 +20,7 @@
             <h2>Upload Survey Data</h2>
             <form id="uploadForm" enctype="multipart/form-data">
                 <div class="file-input-wrapper">
-                    <input type="file" id="fileInput" name="file" accept=".csv,.xlsx,.xls" required>
+                    <input type="file" id="fileInput" name="file" accept=".csv,.xlsx,.xls,.sav" required>
                     <label for="fileInput" class="file-label">
                         <span id="fileName">Choose a file...</span>
                     </label>
@@ -44,6 +44,9 @@
                         {% if survey.file_type == 'crosstab' %}
                         <p><strong>Type:</strong> <span class="badge badge-crosstab">Crosstab</span></p>
                         <p><strong>Questions:</strong> {{ survey.row_count }}</p>
+                        {% elif survey.file_type == 'raw_survey' %}
+                        <p><strong>Type:</strong> <span class="badge badge-raw">Raw Survey (SAV)</span></p>
+                        <p><strong>Responses:</strong> {{ survey.row_count }}</p>
                         {% else %}
                         <p><strong>Type:</strong> <span class="badge badge-standard">Standard</span></p>
                         <p><strong>Rows:</strong> {{ survey.row_count }}</p>

@@ -7,6 +7,7 @@ from functools import wraps
 from flask import Flask, render_template, request, jsonify, redirect, url_for, session, flash
 from werkzeug.utils import secure_filename
 import pandas as pd
+import pyreadstat
 from dotenv import load_dotenv
 from crosstab_parser import CrosstabParser
 
@@ -18,7 +19,7 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-pro
 app.config['UPLOAD_FOLDER'] = os.getenv('UPLOAD_FOLDER', 'uploads')
 app.config['DATA_FOLDER'] = os.getenv('DATA_FOLDER', 'data')
 app.config['MAX_CONTENT_LENGTH'] = int(os.getenv('MAX_CONTENT_LENGTH', 16 * 1024 * 1024))
-app.config['ALLOWED_EXTENSIONS'] = {'csv', 'xlsx', 'xls'}
+app.config['ALLOWED_EXTENSIONS'] = {'csv', 'xlsx', 'xls', 'sav'}
 app.config['SITE_PASSWORD'] = os.getenv('SITE_PASSWORD', 'changeme')
 
 # Authentication decorator
@@ -86,11 +87,34 @@ def detect_file_type(filepath, file_extension):
         return 'standard'  # Default to standard if detection fails
 
 
+def process_sav_file(filepath):
+    """Process SPSS SAV file and return dataframe with metadata"""
+    try:
+        # Read SAV file with metadata
+        df, meta = pyreadstat.read_sav(filepath)
+
+        # Get variable labels (question text)
+        variable_labels = meta.column_names_to_labels
+
+        # Get value labels (response options)
+        value_labels = meta.variable_value_labels
+
+        # Clean column names
+        df.columns = df.columns.str.strip()
+
+        return df, variable_labels, value_labels
+    except Exception as e:
+        raise Exception(f"Error processing SAV file: {str(e)}")
+
+
 def process_file(filepath, file_extension):
     """Process CSV or Excel file and return dataframe"""
     try:
         if file_extension == 'csv':
             df = pd.read_csv(filepath)
+        elif file_extension == 'sav':
+            # For SAV files, only return the dataframe (no metadata for standard view)
+            df, _, _ = process_sav_file(filepath)
         else:  # xlsx or xls
             df = pd.read_excel(filepath)
 
@@ -163,7 +187,35 @@ def upload_file():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], f"{survey_id}_{filename}")
         file.save(filepath)
 
-        # Detect file type
+        # Handle SAV files specially for cross-question analysis
+        if file_extension == 'sav':
+            # Process SAV file with full metadata
+            df, variable_labels, value_labels = process_sav_file(filepath)
+
+            # Save raw survey data with metadata as JSON
+            data_path = os.path.join(app.config['DATA_FOLDER'], f"{survey_id}.json")
+            data = {
+                'columns': df.columns.tolist(),
+                'data': df.to_dict('records'),
+                'variable_labels': variable_labels,
+                'value_labels': value_labels,
+                'file_type': 'raw_survey'
+            }
+            with open(data_path, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
+
+            # Save metadata to database
+            conn = sqlite3.connect('data/surveys.db')
+            c = conn.cursor()
+            c.execute('INSERT INTO surveys VALUES (?, ?, ?, ?, ?, ?)',
+                      (survey_id, filename, datetime.now().isoformat(),
+                       json.dumps(df.columns.tolist()), len(df), 'raw_survey'))
+            conn.commit()
+            conn.close()
+
+            return jsonify({'success': True, 'survey_id': survey_id, 'file_type': 'raw_survey'})
+
+        # Detect file type for non-SAV files
         file_type = detect_file_type(filepath, file_extension)
 
         if file_type == 'crosstab':
@@ -230,6 +282,9 @@ def view_survey(survey_id):
     if file_type == 'crosstab':
         # Redirect to crosstab viewer
         return redirect(url_for('view_crosstab', survey_id=survey_id))
+    elif file_type == 'raw_survey':
+        # Redirect to cross-question analysis viewer
+        return redirect(url_for('view_cross_question', survey_id=survey_id))
 
     survey_info = {
         'id': survey_id,
@@ -370,6 +425,216 @@ def get_crosstab_question(survey_id, question_id):
         return jsonify({'error': 'Question not found'}), 404
 
     return jsonify(result)
+
+
+# Cross-question analysis routes
+@app.route('/cross-question/<survey_id>')
+@login_required
+def view_cross_question(survey_id):
+    """View cross-question analysis for raw survey data"""
+    conn = sqlite3.connect('data/surveys.db')
+    c = conn.cursor()
+    c.execute('SELECT filename, upload_date, row_count FROM surveys WHERE id = ?', (survey_id,))
+    result = c.fetchone()
+    conn.close()
+
+    if not result:
+        return "Survey not found", 404
+
+    survey_info = {
+        'id': survey_id,
+        'filename': result[0],
+        'upload_date': result[1],
+        'total_responses': result[2]
+    }
+
+    return render_template('cross_question.html', survey=survey_info)
+
+
+def clean_question_label(label, col_id):
+    """Clean up question labels for better readability"""
+    import re
+
+    if not label or label == col_id:
+        # If no label or label is same as ID, return the ID
+        return col_id
+
+    # Remove common prefixes
+    label = re.sub(r'^(Q\d+[._-]?\s*)', '', label, flags=re.IGNORECASE)
+    label = re.sub(r'^(Question\s*\d+[._-]?\s*)', '', label, flags=re.IGNORECASE)
+    label = re.sub(r'^(QN\d+[._-]?\s*)', '', label, flags=re.IGNORECASE)
+
+    # Remove trailing dots/dashes
+    label = re.sub(r'[._-]+$', '', label)
+
+    # Clean up multiple spaces
+    label = re.sub(r'\s+', ' ', label)
+
+    # Trim whitespace
+    label = label.strip()
+
+    # If label is too short after cleaning, use original
+    if len(label) < 3:
+        return col_id
+
+    return label
+
+
+@app.route('/api/cross-question/<survey_id>/metadata')
+@login_required
+def get_cross_question_metadata(survey_id):
+    """Get metadata for cross-question analysis (questions, labels, etc.)"""
+    data_path = os.path.join(app.config['DATA_FOLDER'], f"{survey_id}.json")
+
+    if not os.path.exists(data_path):
+        return jsonify({'error': 'Survey not found'}), 404
+
+    with open(data_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    # Common metadata column patterns to exclude
+    metadata_patterns = [
+        'id', 'respondent', 'response', 'timestamp', 'date', 'time',
+        'duration', 'completion', 'source', 'device', 'weight',
+        'status', 'ip', 'location', 'start', 'end', 'consent'
+    ]
+
+    # Build question list with labels and value options
+    # Only include columns that have value labels (actual questions)
+    questions = []
+    for col in data['columns']:
+        # Check if this column has value labels (indicating it's a question)
+        has_values = col in data['value_labels'] and data['value_labels'][col]
+
+        # Skip if it's likely a metadata column
+        col_lower = col.lower()
+        is_metadata = any(pattern in col_lower for pattern in metadata_patterns)
+
+        # Only include if it has value labels and isn't metadata
+        if has_values and not is_metadata:
+            label = data['variable_labels'].get(col, col)
+
+            question = {
+                'id': col,
+                'label': label,
+                'values': data['value_labels'].get(col, {}),
+                'value_count': len(data['value_labels'].get(col, {}))
+            }
+            questions.append(question)
+
+    return jsonify({
+        'questions': questions,
+        'total_responses': len(data['data'])
+    })
+
+
+@app.route('/api/cross-question/<survey_id>/analyze', methods=['POST'])
+@login_required
+def analyze_cross_question(survey_id):
+    """Perform cross-question analysis with filters"""
+    data_path = os.path.join(app.config['DATA_FOLDER'], f"{survey_id}.json")
+
+    if not os.path.exists(data_path):
+        return jsonify({'error': 'Survey not found'}), 404
+
+    with open(data_path, 'r', encoding='utf-8') as f:
+        survey_data = json.load(f)
+
+    # Get request parameters
+    params = request.get_json()
+    target_question = params.get('target_question')
+    filters = params.get('filters', [])  # List of {question_id, values}
+
+    # Convert to DataFrame for easier filtering
+    df = pd.DataFrame(survey_data['data'])
+
+    # Apply filters
+    filtered_df = df.copy()
+    for filter_item in filters:
+        question_id = filter_item['question_id']
+        values = filter_item['values']
+        if question_id in filtered_df.columns and values:
+            # Convert values to appropriate types for comparison
+            filtered_df = filtered_df[filtered_df[question_id].isin(values)]
+
+    # Get target question data
+    if target_question not in filtered_df.columns:
+        return jsonify({'error': 'Target question not found'}), 400
+
+    # Calculate value counts for filtered data
+    value_counts_filtered = filtered_df[target_question].value_counts().to_dict()
+
+    # Calculate value counts for unfiltered data (for comparison)
+    value_counts_unfiltered = df[target_question].value_counts().to_dict()
+
+    # Get value labels for display
+    value_labels_raw = survey_data['value_labels'].get(target_question, {})
+
+    # Convert value_labels keys to handle type mismatches (int/float/string)
+    value_labels = {}
+    for k, v in value_labels_raw.items():
+        # Store with multiple key types to handle any mismatch
+        try:
+            # Try as int
+            value_labels[int(float(k))] = v
+            # Try as float
+            value_labels[float(k)] = v
+            # Keep as string
+            value_labels[str(k)] = v
+            # Also store the original key
+            value_labels[k] = v
+        except (ValueError, TypeError):
+            value_labels[k] = v
+
+    # Build result with labels for filtered data
+    results = []
+    all_values = set(value_counts_filtered.keys()) | set(value_counts_unfiltered.keys())
+
+    for value in all_values:
+        filtered_count = value_counts_filtered.get(value, 0)
+        unfiltered_count = value_counts_unfiltered.get(value, 0)
+
+        # Try to find label with multiple type conversions
+        label = None
+        try_values = [value, str(value)]
+        if not isinstance(value, str):
+            try:
+                try_values.append(int(value))
+            except (ValueError, TypeError):
+                pass
+            try:
+                try_values.append(float(value))
+            except (ValueError, TypeError):
+                pass
+
+        for try_value in try_values:
+            if try_value in value_labels:
+                label = value_labels[try_value]
+                break
+
+        if not label:
+            label = str(value)
+
+        results.append({
+            'value': value,
+            'label': label,
+            'count': int(filtered_count),
+            'percentage': round((filtered_count / len(filtered_df)) * 100, 1) if len(filtered_df) > 0 else 0,
+            'unfiltered_count': int(unfiltered_count),
+            'unfiltered_percentage': round((unfiltered_count / len(df)) * 100, 1) if len(df) > 0 else 0
+        })
+
+    # Sort by value
+    results.sort(key=lambda x: x['value'])
+
+    return jsonify({
+        'target_question': target_question,
+        'target_label': survey_data['variable_labels'].get(target_question, target_question),
+        'total_filtered': len(filtered_df),
+        'total_original': len(df),
+        'filters_applied': filters,
+        'results': results
+    })
 
 
 if __name__ == '__main__':

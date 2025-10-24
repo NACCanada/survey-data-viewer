@@ -132,6 +132,56 @@ function applyFilters() {
     });
 
     table.draw();
+
+    // Update charts with filtered data
+    const filteredData = getFilteredData();
+    updateCharts(filteredData);
+}
+
+// Get currently filtered data based on active filters
+function getFilteredData() {
+    if (Object.keys(filterValues).length === 0) {
+        return surveyData;
+    }
+
+    return surveyData.filter(row => {
+        for (let column in filterValues) {
+            if (filterValues[column]) {
+                const filterVal = String(filterValues[column]);
+                const rowVal = String(row[column]);
+                if (rowVal !== filterVal) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    });
+}
+
+// Update charts with new data
+function updateCharts(data) {
+    const chartsContainer = document.getElementById('chartsContainer');
+    const filterStatus = document.getElementById('filterStatus');
+
+    // Destroy existing charts
+    charts.forEach(chart => chart.destroy());
+    charts = [];
+
+    // Clear container
+    chartsContainer.innerHTML = '';
+
+    // Update filter status indicator
+    const isFiltered = data.length < surveyData.length;
+    if (isFiltered) {
+        filterStatus.style.display = 'block';
+        document.getElementById('filteredCount').textContent = data.length;
+        document.getElementById('totalCount').textContent = surveyData.length;
+    } else {
+        filterStatus.style.display = 'none';
+    }
+
+    // Regenerate charts with filtered data
+    generateCharts(columns, data);
 }
 
 // Clear filters
@@ -143,6 +193,9 @@ document.getElementById('clearFilters').addEventListener('click', function() {
     document.getElementById('globalSearch').value = '';
     $.fn.dataTable.ext.search.pop();
     table.search('').draw();
+
+    // Reset charts to full dataset
+    updateCharts(surveyData);
 });
 
 // Global search
@@ -209,6 +262,11 @@ function generateCharts(columns, data) {
     const chartsContainer = document.getElementById('chartsContainer');
 
     columns.forEach(column => {
+        // Skip TOTAL columns - they should only be shown when explicitly selected
+        if (column.toUpperCase().includes('TOTAL')) {
+            return;
+        }
+
         // Get unique values and their counts
         const valueCounts = {};
         data.forEach(row => {

@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ survey.filename }} - Cross-Question Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        .cross-question-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .analysis-header {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .analysis-title {
+            font-size: 28px;
+            margin: 0 0 10px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .analysis-info {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .config-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 20px 0;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #444;
+            font-size: 14px;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .filter-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 2px solid #e0e0e0;
+            position: relative;
+        }
+
+        .question-info {
+            background: #fff;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            border-left: 3px solid #667eea;
+        }
+
+        .question-info strong {
+            color: #667eea;
+            font-size: 13px;
+        }
+
+        .question-info p {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .filter-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .filter-number {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 14px;
+        }
+
+        .remove-filter-btn {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .remove-filter-btn:hover {
+            background: #ff3838;
+            transform: translateY(-1px);
+        }
+
+        .filter-values {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .value-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px;
+            background: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .value-checkbox:hover {
+            background: #f0f7ff;
+        }
+
+        .value-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .value-label {
+            font-size: 13px;
+            flex: 1;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .results-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .results-section.active {
+            display: block;
+        }
+
+        .filter-path {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .filter-path-title {
+            font-size: 12px;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .filter-path-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .filter-path-item {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 500;
+            border: 1px solid #d0d9ff;
+        }
+
+        .filter-path-arrow {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .results-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .chart-container {
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .results-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .results-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+        }
+
+        .results-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .empty-state-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .empty-state-text {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .empty-state-subtext {
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        .no-filters-message {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cross-question-container">
+        <a href="/" class="back-link" style="display: inline-block; margin-bottom: 20px; color: #667eea; text-decoration: none; font-weight: 600; font-size: 16px;">
+            ← Back to Surveys
+        </a>
+        <div class="analysis-header">
+            <h1 class="analysis-title">Cross-Question Analysis</h1>
+            <div class="analysis-info">
+                <strong>{{ survey.filename }}</strong> |
+                {{ survey.total_responses }} responses |
+                Uploaded: {{ survey.upload_date }}
+            </div>
+        </div>
+
+        <div class="config-section">
+            <h2 class="section-title">Target Question</h2>
+            <div class="form-group">
+                <label class="form-label">Select the question you want to analyze:</label>
+                <select id="targetQuestion" class="form-select">
+                    <option value="">-- Select a question --</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="config-section">
+            <h2 class="section-title">Filters</h2>
+            <p style="color: #666; font-size: 14px; margin-bottom: 20px;">
+                Add filters to analyze the target question based on responses to other questions.
+            </p>
+
+            <div id="filtersContainer">
+                <!-- Filters will be added here -->
+            </div>
+
+            <div class="action-buttons">
+                <button id="addFilterBtn" class="btn btn-secondary">+ Add Filter</button>
+                <button id="analyzeBtn" class="btn btn-success">Analyze</button>
+                <button id="clearBtn" class="btn btn-secondary">Clear All</button>
+            </div>
+        </div>
+
+        <div id="resultsSection" class="results-section">
+            <h2 class="section-title">Results</h2>
+
+            <div id="filterPath" class="filter-path">
+                <div class="filter-path-title">Filter Path:</div>
+                <div id="filterPathItems" class="filter-path-items"></div>
+            </div>
+
+            <div id="resultsStats" class="results-stats"></div>
+
+            <div class="chart-container">
+                <canvas id="resultsChart"></canvas>
+            </div>
+
+            <div id="comparisonChartContainer" class="chart-container" style="display: none; margin-top: 20px;">
+                <h3 style="margin-bottom: 15px; color: #333;">Filtered vs Unfiltered Comparison</h3>
+                <canvas id="comparisonChart"></canvas>
+            </div>
+
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Response</th>
+                        <th>Count</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let surveyData = null;
+        let filters = [];
+        let resultsChart = null;
+
+        // Load metadata on page load
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadMetadata();
+            setupEventListeners();
+        });
+
+        async function loadMetadata() {
+            try {
+                const response = await fetch(`/api/cross-question/{{ survey.id }}/metadata`);
+                surveyData = await response.json();
+
+                // Populate target question dropdown
+                const targetSelect = document.getElementById('targetQuestion');
+
+                if (surveyData.questions.length === 0) {
+                    const option = document.createElement('option');
+                    option.value = '';
+                    option.textContent = 'No questions found in this survey';
+                    targetSelect.appendChild(option);
+                    targetSelect.disabled = true;
+                    return;
+                }
+
+                surveyData.questions.forEach(q => {
+                    const option = document.createElement('option');
+                    option.value = q.id;
+                    option.textContent = `${q.label} (${q.value_count} options)`;
+                    targetSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading metadata:', error);
+                alert('Error loading survey data');
+            }
+        }
+
+        function setupEventListeners() {
+            document.getElementById('addFilterBtn').addEventListener('click', addFilter);
+            document.getElementById('analyzeBtn').addEventListener('click', performAnalysis);
+            document.getElementById('clearBtn').addEventListener('click', clearAll);
+        }
+
+        function addFilter() {
+            const filterIndex = filters.length;
+            filters.push({
+                question_id: null,
+                values: []
+            });
+
+            const filterItem = document.createElement('div');
+            filterItem.className = 'filter-item';
+            filterItem.id = `filter-${filterIndex}`;
+            filterItem.innerHTML = `
+                <div class="filter-item-header">
+                    <span class="filter-number">Filter ${filterIndex + 1}</span>
+                    <button class="remove-filter-btn" onclick="removeFilter(${filterIndex})">Remove</button>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Filter Question:</label>
+                    <select id="filterQuestion-${filterIndex}" class="form-select" onchange="loadFilterValues(${filterIndex})">
+                        <option value="">-- Select a question --</option>
+                        ${surveyData.questions.map(q => `
+                            <option value="${q.id}">${q.label} (${q.value_count} options)</option>
+                        `).join('')}
+                    </select>
+                </div>
+                <div id="filterValues-${filterIndex}" class="filter-values" style="display: none;">
+                    <!-- Values will be loaded here -->
+                </div>
+            `;
+
+            document.getElementById('filtersContainer').appendChild(filterItem);
+        }
+
+        function removeFilter(index) {
+            const filterElement = document.getElementById(`filter-${index}`);
+            if (filterElement) {
+                filterElement.remove();
+                filters[index] = null; // Mark as removed
+            }
+        }
+
+        function loadFilterValues(filterIndex) {
+            const questionSelect = document.getElementById(`filterQuestion-${filterIndex}`);
+            const questionId = questionSelect.value;
+
+            if (!questionId) return;
+
+            const question = surveyData.questions.find(q => q.id === questionId);
+            if (!question || !question.values) return;
+
+            filters[filterIndex].question_id = questionId;
+            filters[filterIndex].values = [];
+
+            const valuesContainer = document.getElementById(`filterValues-${filterIndex}`);
+            valuesContainer.style.display = 'block';
+            valuesContainer.innerHTML = '';
+
+            // Add question info box
+            const questionInfo = document.createElement('div');
+            questionInfo.className = 'question-info';
+            questionInfo.innerHTML = `
+                <strong>${question.label}</strong>
+                <p>${Object.keys(question.values).length} available answers - Select which responses to filter by:</p>
+            `;
+            valuesContainer.appendChild(questionInfo);
+
+            // Create checkboxes container
+            const checkboxesContainer = document.createElement('div');
+            checkboxesContainer.style.display = 'grid';
+            checkboxesContainer.style.gridTemplateColumns = 'repeat(auto-fill, minmax(200px, 1fr))';
+            checkboxesContainer.style.gap = '10px';
+            checkboxesContainer.style.marginTop = '15px';
+
+            // Convert value labels object to array and sort
+            const valueEntries = Object.entries(question.values).sort((a, b) => {
+                // Try to sort numerically if both are numbers
+                const aNum = Number(a[0]);
+                const bNum = Number(b[0]);
+                if (!isNaN(aNum) && !isNaN(bNum)) {
+                    return aNum - bNum;
+                }
+                // Otherwise sort alphabetically
+                return String(a[1]).localeCompare(String(b[1]));
+            });
+
+            valueEntries.forEach(([value, label]) => {
+                const checkboxDiv = document.createElement('div');
+                checkboxDiv.className = 'value-checkbox';
+                checkboxDiv.innerHTML = `
+                    <input type="checkbox" id="filter-${filterIndex}-value-${value}"
+                           value="${value}" onchange="updateFilterValues(${filterIndex})">
+                    <label class="value-label" for="filter-${filterIndex}-value-${value}">${label}</label>
+                `;
+                checkboxesContainer.appendChild(checkboxDiv);
+            });
+
+            valuesContainer.appendChild(checkboxesContainer);
+        }
+
+        function updateFilterValues(filterIndex) {
+            const valuesContainer = document.getElementById(`filterValues-${filterIndex}`);
+            const checkboxes = valuesContainer.querySelectorAll('input[type="checkbox"]:checked');
+
+            filters[filterIndex].values = Array.from(checkboxes).map(cb => {
+                const value = cb.value;
+                // Try to convert to number if it's numeric
+                return isNaN(value) ? value : Number(value);
+            });
+        }
+
+        async function performAnalysis() {
+            const targetQuestion = document.getElementById('targetQuestion').value;
+
+            if (!targetQuestion) {
+                alert('Please select a target question');
+                return;
+            }
+
+            // Filter out null filters and those without values
+            const activeFilters = filters
+                .filter(f => f !== null && f.question_id && f.values.length > 0)
+                .map(f => ({
+                    question_id: f.question_id,
+                    values: f.values
+                }));
+
+            try {
+                const response = await fetch(`/api/cross-question/{{ survey.id }}/analyze`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        target_question: targetQuestion,
+                        filters: activeFilters
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const results = await response.json();
+                console.log('Analysis results:', results);
+
+                if (results.error) {
+                    throw new Error(results.error);
+                }
+
+                displayResults(results);
+            } catch (error) {
+                console.error('Error performing analysis:', error);
+                alert('Error performing analysis: ' + error.message);
+            }
+        }
+
+        function displayResults(results) {
+            try {
+                const resultsSection = document.getElementById('resultsSection');
+                resultsSection.classList.add('active');
+
+                // Display filter path
+                displayFilterPath(results);
+
+                // Display stats
+                displayStats(results);
+
+                // Display chart
+                displayChart(results);
+
+                // Display comparison chart if filters are applied
+                if (results.filters_applied.length > 0) {
+                    displayComparisonChart(results);
+                }
+
+                // Display table
+                displayTable(results);
+
+                // Scroll to results
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            } catch (error) {
+                console.error('Error displaying results:', error);
+                throw error;
+            }
+        }
+
+        function displayFilterPath(results) {
+            const pathItems = document.getElementById('filterPathItems');
+            pathItems.innerHTML = '';
+
+            if (results.filters_applied.length === 0) {
+                pathItems.innerHTML = '<span class="filter-path-item">No filters applied (showing all responses)</span>';
+                return;
+            }
+
+            results.filters_applied.forEach((filter, index) => {
+                const question = surveyData.questions.find(q => q.id === filter.question_id);
+
+                // Skip if question not found (might be filtered out)
+                if (!question) {
+                    console.warn('Question not found in metadata:', filter.question_id);
+                    return;
+                }
+
+                const valueLabels = filter.values.map(v => question.values[v] || v).join(', ');
+
+                const item = document.createElement('span');
+                item.className = 'filter-path-item';
+                item.textContent = `${question.label}: ${valueLabels}`;
+                pathItems.appendChild(item);
+
+                if (index < results.filters_applied.length - 1) {
+                    const arrow = document.createElement('span');
+                    arrow.className = 'filter-path-arrow';
+                    arrow.textContent = '→';
+                    pathItems.appendChild(arrow);
+                }
+            });
+        }
+
+        function displayStats(results) {
+            const statsContainer = document.getElementById('resultsStats');
+            statsContainer.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-value">${results.total_filtered}</div>
+                    <div class="stat-label">Filtered Responses</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${results.total_original}</div>
+                    <div class="stat-label">Total Responses</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${Math.round((results.total_filtered / results.total_original) * 100)}%</div>
+                    <div class="stat-label">Sample Size</div>
+                </div>
+            `;
+        }
+
+        function displayChart(results) {
+            const ctx = document.getElementById('resultsChart');
+
+            // Destroy existing chart
+            if (resultsChart && typeof resultsChart.destroy === 'function') {
+                resultsChart.destroy();
+            }
+
+            // Prepare data with proper labels
+            const labels = results.results.map(r => {
+                // Use the text label, not the numeric value
+                return r.label || `Response ${r.value}`;
+            });
+            const data = results.results.map(r => r.percentage);
+            const counts = results.results.map(r => r.count);
+
+            resultsChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: results.target_label,
+                        data: data,
+                        backgroundColor: 'rgba(102, 126, 234, 0.8)',
+                        borderColor: 'rgba(102, 126, 234, 1)',
+                        borderWidth: 2,
+                        rawData: counts
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    indexAxis: 'y',  // Horizontal bar chart for better label readability
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const percentage = context.raw.toFixed(1);
+                                    const count = context.dataset.rawData[context.dataIndex];
+                                    return `${context.dataset.label}: ${percentage}% (n=${count})`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Percentage (%)'
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                autoSkip: false,
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function displayComparisonChart(results) {
+            const container = document.getElementById('comparisonChartContainer');
+            container.style.display = 'block';
+
+            const ctx = document.getElementById('comparisonChart');
+
+            // Destroy existing chart
+            if (window.comparisonChart && typeof window.comparisonChart.destroy === 'function') {
+                window.comparisonChart.destroy();
+            }
+
+            // Prepare data with proper labels
+            const labels = results.results.map(r => {
+                // Use the text label, not the numeric value
+                return r.label || `Response ${r.value}`;
+            });
+            const filteredData = results.results.map(r => r.percentage);
+            const unfilteredData = results.results.map(r => r.unfiltered_percentage);
+            const filteredCounts = results.results.map(r => r.count);
+            const unfilteredCounts = results.results.map(r => r.unfiltered_count);
+
+            window.comparisonChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Filtered',
+                            data: filteredData,
+                            backgroundColor: 'rgba(102, 126, 234, 0.8)',
+                            borderColor: 'rgba(102, 126, 234, 1)',
+                            borderWidth: 2,
+                            rawData: filteredCounts
+                        },
+                        {
+                            label: 'Unfiltered (All Responses)',
+                            data: unfilteredData,
+                            backgroundColor: 'rgba(118, 75, 162, 0.4)',
+                            borderColor: 'rgba(118, 75, 162, 1)',
+                            borderWidth: 2,
+                            rawData: unfilteredCounts
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    indexAxis: 'y',  // Horizontal bar chart for better label readability
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const percentage = context.raw.toFixed(1);
+                                    const count = context.dataset.rawData[context.dataIndex];
+                                    return `${context.dataset.label}: ${percentage}% (n=${count})`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Percentage (%)'
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                autoSkip: false,
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function displayTable(results) {
+            const tbody = document.getElementById('resultsTableBody');
+            tbody.innerHTML = '';
+
+            // Show comparison if filters are applied
+            const hasFilters = results.filters_applied.length > 0;
+
+            // Update table headers if needed
+            const thead = document.querySelector('.results-table thead tr');
+            if (hasFilters && thead.children.length === 3) {
+                thead.innerHTML = `
+                    <th>Response</th>
+                    <th>Filtered Count</th>
+                    <th>Filtered %</th>
+                    <th>Unfiltered Count</th>
+                    <th>Unfiltered %</th>
+                    <th>Difference</th>
+                `;
+            } else if (!hasFilters && thead.children.length > 3) {
+                thead.innerHTML = `
+                    <th>Response</th>
+                    <th>Count</th>
+                    <th>Percentage</th>
+                `;
+            }
+
+            results.results.forEach(result => {
+                const row = document.createElement('tr');
+                if (hasFilters) {
+                    const diff = result.percentage - result.unfiltered_percentage;
+                    const diffColor = diff > 0 ? '#28a745' : (diff < 0 ? '#dc3545' : '#6c757d');
+                    const diffSign = diff > 0 ? '+' : '';
+                    row.innerHTML = `
+                        <td>${result.label}</td>
+                        <td>${result.count}</td>
+                        <td>${result.percentage}%</td>
+                        <td>${result.unfiltered_count}</td>
+                        <td>${result.unfiltered_percentage}%</td>
+                        <td style="color: ${diffColor}; font-weight: 600;">${diffSign}${diff.toFixed(1)}%</td>
+                    `;
+                } else {
+                    row.innerHTML = `
+                        <td>${result.label}</td>
+                        <td>${result.count}</td>
+                        <td>${result.percentage}%</td>
+                    `;
+                }
+                tbody.appendChild(row);
+            });
+        }
+
+        function clearAll() {
+            // Clear target question
+            document.getElementById('targetQuestion').value = '';
+
+            // Clear all filters
+            document.getElementById('filtersContainer').innerHTML = '';
+            filters = [];
+
+            // Hide results
+            document.getElementById('resultsSection').classList.remove('active');
+
+            // Hide comparison chart
+            document.getElementById('comparisonChartContainer').style.display = 'none';
+
+            // Destroy charts
+            if (resultsChart) {
+                resultsChart.destroy();
+                resultsChart = null;
+            }
+            if (window.comparisonChart) {
+                window.comparisonChart.destroy();
+                window.comparisonChart = null;
+            }
+        }
+    </script>
+</body>
+</html>

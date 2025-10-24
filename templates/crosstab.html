@@ -482,7 +482,7 @@
                 </button>
             `;
 
-            // Build demographics selector (4 dropdowns + chart type)
+            // Build demographics selector with cascading drill-down
             const demoSelectors = `
                 <div style="margin-bottom: 20px;">
                     <div style="margin-bottom: 15px;">
@@ -493,37 +493,12 @@
                             <option value="line">📈 Line Chart</option>
                         </select>
                     </div>
-                    <div class="demo-selector-group">
-                        <div class="demo-selector">
-                            <label>Demographic 1</label>
-                            <select id="demo1Select" onchange="updateComparison()">
-                                <option value="">Select demographic...</option>
-                                ${demographics.map((d, idx) => `
-                                    <option value="${idx}">${d.label} (${d.category})</option>
-                                `).join('')}
-                            </select>
-                        </div>
-                        <div class="demo-selector">
-                            <label>Demographic 2</label>
-                            <select id="demo2Select" onchange="updateComparison()">
-                                <option value="">Select demographic...</option>
-                                ${demographics.map((d, idx) => `
-                                    <option value="${idx}">${d.label} (${d.category})</option>
-                                `).join('')}
-                            </select>
-                        </div>
-                        <div class="demo-selector">
-                            <label>Demographic 3</label>
-                            <select id="demo3Select" onchange="updateComparison()">
-                                <option value="">Select demographic...</option>
-                                ${demographics.map((d, idx) => `
-                                    <option value="${idx}">${d.label} (${d.category})</option>
-                                `).join('')}
-                            </select>
-                        </div>
-                        <div class="demo-selector">
-                            <label>Demographic 4</label>
-                            <select id="demo4Select" onchange="updateComparison()">
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #667eea;">
+                            Select Demographics (drill down up to 4 levels)
+                        </label>
+                        <div id="demoSelectorsContainer" style="display: grid; gap: 8px;">
+                            <select id="demo1Select" onchange="handleDemoCascadingChange(1)" style="width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px;">
                                 <option value="">Select demographic...</option>
                                 ${demographics.map((d, idx) => `
                                     <option value="${idx}">${d.label} (${d.category})</option>
@@ -531,20 +506,179 @@
                             </select>
                         </div>
                     </div>
+                    <button onclick="clearBannerFilters()" style="padding: 8px 16px; background: #e74c3c; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500; font-size: 14px;">
+                        Clear Filters
+                    </button>
                 </div>
             `;
 
-            // Build response table with all demographics
+            // Response table - will be populated dynamically based on selections
             const responseTable = `
+                <div id="responseTableContainer">
+                    <p style="text-align: center; color: #999; padding: 40px;">
+                        Select demographics above to view data
+                    </p>
+                </div>
+            `;
+
+            document.getElementById('questionData').innerHTML = `
+                <div class="banner-tabs">${bannerTabs}</div>
+                <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #667eea;">
+                    <h3 style="margin-top: 0; color: #667eea;">🔍 Select Demographics to Compare</h3>
+                    ${demoSelectors}
+                </div>
+                <div class="demographic-comparison">
+                    <div class="chart-container" id="chartContainer" style="display: none;">
+                        <canvas id="comparisonChart" class="comparison-chart"></canvas>
+                    </div>
+                </div>
+                ${responseTable}
+            `;
+        }
+
+        function handleDemoCascadingChange(level) {
+            const selectEl = document.getElementById(`demo${level}Select`);
+            const container = document.getElementById('demoSelectorsContainer');
+            const banner = questionData.banners[currentBanner];
+            const demographics = banner.demographics;
+
+            // If a value was selected, show the next dropdown
+            if (selectEl.value !== '') {
+                // Remove any dropdowns after this level
+                for (let i = level + 2; i <= 4; i++) {
+                    const nextNextSelect = document.getElementById(`demo${i}Select`);
+                    if (nextNextSelect) {
+                        nextNextSelect.remove();
+                    }
+                }
+
+                // Get all selected indices up to current level
+                const selectedValues = [];
+                for (let i = 1; i <= level; i++) {
+                    const sel = document.getElementById(`demo${i}Select`);
+                    if (sel && sel.value !== '') {
+                        selectedValues.push(parseInt(sel.value));
+                    }
+                }
+
+                // Check if next dropdown already exists
+                let nextSelect = document.getElementById(`demo${level + 1}Select`);
+                if (!nextSelect && level < 4) {
+                    // Create next dropdown with available options (excluding already selected)
+                    nextSelect = document.createElement('select');
+                    nextSelect.id = `demo${level + 1}Select`;
+                    nextSelect.onchange = () => handleDemoCascadingChange(level + 1);
+                    nextSelect.style.cssText = 'width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px;';
+
+                    // Add default option
+                    const defaultOption = document.createElement('option');
+                    defaultOption.value = '';
+                    defaultOption.textContent = `Drill down further...`;
+                    nextSelect.appendChild(defaultOption);
+
+                    // Add available demographics (excluding already selected)
+                    demographics.forEach((d, idx) => {
+                        if (!selectedValues.includes(idx)) {
+                            const option = document.createElement('option');
+                            option.value = idx;
+                            option.textContent = `${d.label} (${d.category})`;
+                            nextSelect.appendChild(option);
+                        }
+                    });
+
+                    container.appendChild(nextSelect);
+                } else if (nextSelect) {
+                    // Update existing next dropdown to remove newly selected option
+                    nextSelect.innerHTML = '';
+
+                    // Re-add default option
+                    const defaultOption = document.createElement('option');
+                    defaultOption.value = '';
+                    defaultOption.textContent = `Drill down further...`;
+                    nextSelect.appendChild(defaultOption);
+
+                    // Re-add available options (excluding selected)
+                    demographics.forEach((d, idx) => {
+                        if (!selectedValues.includes(idx)) {
+                            const option = document.createElement('option');
+                            option.value = idx;
+                            option.textContent = `${d.label} (${d.category})`;
+                            nextSelect.appendChild(option);
+                        }
+                    });
+                }
+            } else {
+                // If deselected, remove all subsequent dropdowns
+                for (let i = level + 1; i <= 4; i++) {
+                    const nextSelect = document.getElementById(`demo${i}Select`);
+                    if (nextSelect) {
+                        nextSelect.remove();
+                    }
+                }
+            }
+
+            // Update the comparison
+            updateComparison();
+        }
+
+        function clearBannerFilters() {
+            const container = document.getElementById('demoSelectorsContainer');
+            const firstSelect = document.getElementById('demo1Select');
+
+            if (firstSelect) {
+                firstSelect.value = '';
+            }
+
+            // Remove all other dropdowns
+            for (let i = 2; i <= 4; i++) {
+                const select = document.getElementById(`demo${i}Select`);
+                if (select) {
+                    select.remove();
+                }
+            }
+
+            // Update the comparison
+            updateComparison();
+        }
+
+        function updateResponseTable(displaySelections, question, allSelections) {
+            // Build drill-down path if we have multiple selections
+            let drilldownPath = '';
+            if (allSelections && allSelections.length > 1) {
+                drilldownPath = `
+                    <div style="background: #f0f7ff; padding: 12px; border-radius: 6px; margin-bottom: 15px; border-left: 4px solid #667eea;">
+                        <div style="font-size: 12px; color: #666; margin-bottom: 6px; font-weight: 600;">Drill-Down Path:</div>
+                        <div style="display: flex; align-items: center; flex-wrap: wrap;">
+                            ${allSelections.map((s, idx) => {
+                                const isLast = idx === allSelections.length - 1;
+                                const arrow = !isLast ? '<span style="margin: 0 8px; color: #667eea; font-weight: bold;">→</span>' : '';
+                                const style = isLast ?
+                                    'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: 600;' :
+                                    'background: #e8eef7; color: #667eea;';
+                                return `
+                                    <span style="display: inline-block; padding: 6px 12px; border-radius: 6px; font-size: 13px; ${style}">
+                                        ${s.demographic.label}
+                                    </span>${arrow}`;
+                            }).join('')}
+                        </div>
+                        <div style="font-size: 11px; color: #888; margin-top: 8px;">
+                            Showing data for: <strong>${allSelections[allSelections.length - 1].demographic.label}</strong>
+                        </div>
+                    </div>
+                `;
+            }
+
+            const tableHTML = `
+                ${drilldownPath}
                 <div class="table-container">
                     <table class="response-table">
                         <thead>
                             <tr>
                                 <th>Response</th>
-                                ${demographics.map(d => `
+                                ${displaySelections.map(sel => `
                                     <th>
-                                        <div style="font-weight: 600;">${d.label}</div>
-                                        <div style="font-size: 11px; font-weight: normal; color: #888; margin-top: 3px;">${d.category}</div>
+                                        <div style="font-weight: 600;">${sel.demographic.label}</div>
+                                        <div style="font-size: 11px; font-weight: normal; color: #888; margin-top: 3px;">${sel.demographic.category}</div>
                                     </th>
                                 `).join('')}
                             </tr>
@@ -553,9 +687,10 @@
                             ${question.responses.map(r => `
                                 <tr>
                                     <td><strong>${r.response}</strong></td>
-                                    ${r.values.map(v => `
-                                        <td class="numeric-value">${v !== null ? v : '-'}</td>
-                                    `).join('')}
+                                    ${displaySelections.map(sel => {
+                                        const val = r.values[sel.index];
+                                        return `<td class="numeric-value">${val !== null && val !== undefined ? val : '-'}</td>`;
+                                    }).join('')}
                                 </tr>
                             `).join('')}
                         </tbody>
@@ -563,26 +698,7 @@
                 </div>
             `;
 
-            document.getElementById('questionData').innerHTML = `
-                <div class="banner-tabs">${bannerTabs}</div>
-                ${responseTable}
-                <div class="demographic-comparison">
-                    <h3>Demographic Comparison</h3>
-                    ${demoSelectors}
-                    <div class="chart-container" id="chartContainer" style="display: none;">
-                        <canvas id="comparisonChart" class="comparison-chart"></canvas>
-                    </div>
-                </div>
-            `;
-
-            // Auto-select first two non-TOTAL demographics for initial chart
-            if (demographics.length >= 3) {
-                setTimeout(() => {
-                    document.getElementById('demo1Select').value = '1';
-                    document.getElementById('demo2Select').value = '2';
-                    updateComparison();
-                }, 100);
-            }
+            document.getElementById('responseTableContainer').innerHTML = tableHTML;
         }
 
         function switchBanner(bannerName) {
@@ -653,8 +769,17 @@
 
             if (selections.length < 1) {
                 document.getElementById('chartContainer').style.display = 'none';
+                document.getElementById('responseTableContainer').innerHTML = `
+                    <p style="text-align: center; color: #999; padding: 40px;">
+                        Select demographics above to view data
+                    </p>
+                `;
                 return;
             }
+
+            // Update table with only the last (most specific) selection for drill-down effect
+            const lastSelection = selections[selections.length - 1];
+            updateResponseTable([lastSelection], question, selections);
 
             // Prepare chart data
             const labels = question.responses.map(r => r.response);
@@ -663,14 +788,19 @@
             let chartOptions;
 
             if (chartType === 'pie') {
-                // For pie chart, use only the first selected demographic
-                const firstSelection = selections[0];
+                // For pie chart, use only the last (most specific) selected demographic
+                const firstSelection = selections[selections.length - 1];
+                const rawData = question.responses.map(r => {
+                    const val = r.values[firstSelection.index];
+                    return (val !== null && val !== undefined) ? parseFloat(val) : 0;
+                });
+                const total = rawData.reduce((sum, val) => sum + val, 0);
+
                 datasets = [{
                     label: firstSelection.demographic.label,
-                    data: question.responses.map(r => {
-                        const val = r.values[firstSelection.index];
-                        return (val !== null && val !== undefined) ? parseFloat(val) : 0;
-                    }),
+                    data: rawData,
+                    rawData: rawData, // Store raw data for tooltip
+                    total: total,
                     backgroundColor: [
                         'rgba(102, 126, 234, 0.7)',
                         'rgba(118, 75, 162, 0.7)',
@@ -711,23 +841,42 @@
                                 size: 18,
                                 weight: 'bold'
                             }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const count = context.raw;
+                                    const total = context.dataset.total;
+                                    const percentage = total > 0 ? ((count / total) * 100).toFixed(1) : 0;
+                                    return `${context.label}: ${percentage}% (n=${count})`;
+                                }
+                            }
                         }
                     }
                 };
             } else {
-                // For bar and line charts, show all selected demographics
-                datasets = selections.map(sel => ({
-                    label: sel.demographic.label,
-                    data: question.responses.map(r => {
+                // For bar and line charts, show only the last (most specific) selected demographic
+                const lastSelection = selections[selections.length - 1];
+                datasets = [lastSelection].map(sel => {
+                    const rawData = question.responses.map(r => {
                         const val = r.values[sel.index];
                         return (val !== null && val !== undefined) ? parseFloat(val) : 0;
-                    }),
-                    backgroundColor: chartType === 'line' ? 'transparent' : sel.color,
-                    borderColor: sel.borderColor,
-                    borderWidth: 2,
-                    fill: chartType === 'line' ? false : true,
-                    tension: chartType === 'line' ? 0.4 : 0
-                }));
+                    });
+                    const total = rawData.reduce((sum, val) => sum + val, 0);
+                    const percentageData = rawData.map(val => total > 0 ? (val / total) * 100 : 0);
+
+                    return {
+                        label: sel.demographic.label,
+                        data: percentageData,
+                        rawData: rawData, // Store raw counts
+                        total: total,
+                        backgroundColor: chartType === 'line' ? 'transparent' : sel.color,
+                        borderColor: sel.borderColor,
+                        borderWidth: 2,
+                        fill: chartType === 'line' ? false : true,
+                        tension: chartType === 'line' ? 0.4 : 0
+                    };
+                });
 
                 chartOptions = {
                     responsive: true,
@@ -741,17 +890,38 @@
                         },
                         title: {
                             display: true,
-                            text: `Demographic Comparison`,
+                            text: selections.length > 1 ?
+                                `Drill-Down: ${lastSelection.demographic.label} (%)` :
+                                `${lastSelection.demographic.label} (%)`,
                             font: {
                                 size: 18,
                                 weight: 'bold'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const percentage = context.raw.toFixed(1);
+                                    const count = context.dataset.rawData[context.dataIndex];
+                                    return `${context.dataset.label}: ${percentage}% (n=${count})`;
+                                }
                             }
                         }
                     },
                     scales: {
                         y: {
                             beginAtZero: true,
-                            ticks: { font: { size: 12 } }
+                            ticks: {
+                                font: { size: 12 },
+                                callback: function(value) {
+                                    return value.toFixed(1) + '%';
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Percentage (%)',
+                                font: { size: 14, weight: 'bold' }
+                            }
                         },
                         x: {
                             ticks: { font: { size: 12 } }
@@ -811,11 +981,11 @@
                 </button>
             `;
 
-            // Build cross-banner selector UI
+            // Build cross-banner selector UI with cascading filters
             const crossBannerUI = `
                 <div style="background: linear-gradient(135deg, #f093fb22 0%, #f5576c22 100%); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
-                    <h3 style="margin-top: 0;">Cross-Banner Demographic Selection</h3>
-                    <p style="color: #666; font-size: 14px;">Select demographics from different banners to see their combined breakdown for this question.</p>
+                    <h3 style="margin-top: 0;">🔍 Cross-Banner Demographic Selection (Cascading)</h3>
+                    <p style="color: #666; font-size: 14px;">Select demographics to drill down. Each selection reveals the next level and filters available options.</p>
 
                     <div style="margin-bottom: 15px;">
                         <label style="display: block; font-weight: 600; margin-bottom: 8px;">Chart Type</label>
@@ -833,29 +1003,11 @@
                             return `
                                 <div style="background: white; padding: 15px; border-radius: 6px;">
                                     <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #667eea;">
-                                        ${displayName} <span style="font-weight: normal; font-size: 12px; color: #999;">(select up to 4)</span>
+                                        ${displayName} <span style="font-weight: normal; font-size: 12px; color: #999;">(drill down up to 4 levels)</span>
                                     </label>
-                                    <div style="display: grid; gap: 8px;">
-                                        <select id="cross_${bannerName}_1" onchange="updateCrossBannerComparison()" style="width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px;">
-                                            <option value="">Select 1st demographic...</option>
-                                            ${banner.demographics.map((d, idx) => `
-                                                <option value="${idx}">${d.label} (${d.category})</option>
-                                            `).join('')}
-                                        </select>
-                                        <select id="cross_${bannerName}_2" onchange="updateCrossBannerComparison()" style="width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px;">
-                                            <option value="">Select 2nd demographic...</option>
-                                            ${banner.demographics.map((d, idx) => `
-                                                <option value="${idx}">${d.label} (${d.category})</option>
-                                            `).join('')}
-                                        </select>
-                                        <select id="cross_${bannerName}_3" onchange="updateCrossBannerComparison()" style="width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px;">
-                                            <option value="">Select 3rd demographic...</option>
-                                            ${banner.demographics.map((d, idx) => `
-                                                <option value="${idx}">${d.label} (${d.category})</option>
-                                            `).join('')}
-                                        </select>
-                                        <select id="cross_${bannerName}_4" onchange="updateCrossBannerComparison()" style="width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px;">
-                                            <option value="">Select 4th demographic...</option>
+                                    <div id="cross_${bannerName}_container" style="display: grid; gap: 8px;">
+                                        <select id="cross_${bannerName}_1" onchange="handleCascadingChange('${bannerName}', 1)" style="width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px;">
+                                            <option value="">Select demographic...</option>
                                             ${banner.demographics.map((d, idx) => `
                                                 <option value="${idx}">${d.label} (${d.category})</option>
                                             `).join('')}
@@ -865,6 +1017,10 @@
                             `;
                         }).join('')}
                     </div>
+
+                    <button onclick="clearAllCrossBannerFilters()" style="margin-top: 15px; padding: 10px 20px; background: #e74c3c; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 500;">
+                        Clear All Filters
+                    </button>
                 </div>
 
                 <div id="crossBannerResults" style="margin-top: 20px;">
@@ -876,12 +1032,121 @@
 
             document.getElementById('questionData').innerHTML = `
                 <div class="banner-tabs">${bannerTabs}</div>
-                ${crossBannerUI}
+                <div style="margin-bottom: 20px;">
+                    ${crossBannerUI}
+                </div>
             `;
         }
 
+        function handleCascadingChange(bannerName, level) {
+            const selectEl = document.getElementById(`cross_${bannerName}_${level}`);
+            const container = document.getElementById(`cross_${bannerName}_container`);
+            const banner = questionData.banners[bannerName];
+
+            // If a value was selected, show the next dropdown
+            if (selectEl.value !== '') {
+                // Remove any dropdowns after this level
+                for (let i = level + 2; i <= 4; i++) {
+                    const nextNextSelect = document.getElementById(`cross_${bannerName}_${i}`);
+                    if (nextNextSelect) {
+                        nextNextSelect.remove();
+                    }
+                }
+
+                // Get all selected values up to current level
+                const selectedValues = [];
+                for (let i = 1; i <= level; i++) {
+                    const sel = document.getElementById(`cross_${bannerName}_${i}`);
+                    if (sel && sel.value !== '') {
+                        selectedValues.push(parseInt(sel.value));
+                    }
+                }
+
+                // Check if next dropdown already exists
+                let nextSelect = document.getElementById(`cross_${bannerName}_${level + 1}`);
+                if (!nextSelect && level < 4) {
+                    // Create next dropdown with available options (excluding already selected)
+                    nextSelect = document.createElement('select');
+                    nextSelect.id = `cross_${bannerName}_${level + 1}`;
+                    nextSelect.onchange = () => handleCascadingChange(bannerName, level + 1);
+                    nextSelect.style.cssText = 'width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px;';
+
+                    // Add default option
+                    const defaultOption = document.createElement('option');
+                    defaultOption.value = '';
+                    defaultOption.textContent = `Drill down further...`;
+                    nextSelect.appendChild(defaultOption);
+
+                    // Add available demographics (excluding already selected)
+                    banner.demographics.forEach((d, idx) => {
+                        if (!selectedValues.includes(idx)) {
+                            const option = document.createElement('option');
+                            option.value = idx;
+                            option.textContent = `${d.label} (${d.category})`;
+                            nextSelect.appendChild(option);
+                        }
+                    });
+
+                    container.appendChild(nextSelect);
+                } else if (nextSelect) {
+                    // Update existing next dropdown to remove newly selected option
+                    nextSelect.innerHTML = '';
+
+                    // Re-add default option
+                    const defaultOption = document.createElement('option');
+                    defaultOption.value = '';
+                    defaultOption.textContent = `Drill down further...`;
+                    nextSelect.appendChild(defaultOption);
+
+                    // Re-add available options (excluding selected)
+                    banner.demographics.forEach((d, idx) => {
+                        if (!selectedValues.includes(idx)) {
+                            const option = document.createElement('option');
+                            option.value = idx;
+                            option.textContent = `${d.label} (${d.category})`;
+                            nextSelect.appendChild(option);
+                        }
+                    });
+                }
+            } else {
+                // If deselected, remove all subsequent dropdowns
+                for (let i = level + 1; i <= 4; i++) {
+                    const nextSelect = document.getElementById(`cross_${bannerName}_${i}`);
+                    if (nextSelect) {
+                        nextSelect.remove();
+                    }
+                }
+            }
+
+            // Update the comparison
+            updateCrossBannerComparison();
+        }
+
+        function clearAllCrossBannerFilters() {
+            Object.keys(questionData.banners).forEach(bannerName => {
+                // Reset to just the first dropdown
+                const container = document.getElementById(`cross_${bannerName}_container`);
+                const firstSelect = document.getElementById(`cross_${bannerName}_1`);
+
+                if (firstSelect) {
+                    firstSelect.value = '';
+                }
+
+                // Remove all other dropdowns
+                for (let i = 2; i <= 4; i++) {
+                    const select = document.getElementById(`cross_${bannerName}_${i}`);
+                    if (select) {
+                        select.remove();
+                    }
+                }
+            });
+
+            // Clear results
+            updateCrossBannerComparison();
+        }
+
         function updateCrossBannerComparison() {
-            // Collect selected demographics from each banner (up to 3 per banner)
+            // Collect selected demographics from each banner (up to 4 per banner)
             const selections = [];
             Object.keys(questionData.banners).forEach(bannerName => {
                 const banner = questionData.banners[bannerName];
@@ -912,12 +1177,27 @@
                 return;
             }
 
+            // Build drill-down path visualization
+            const drilldownPath = selections.map((s, idx) => {
+                const arrow = idx < selections.length - 1 ? ' → ' : '';
+                return `<span style="display: inline-block; padding: 6px 12px; margin: 4px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 6px; font-size: 13px; font-weight: 500;">
+                    ${s.demographic.label} <span style="opacity: 0.7; font-size: 11px;">(${s.bannerDisplayName})</span>
+                </span>${arrow}`;
+            }).join('');
+
             // Build combined table
             const resultsHTML = `
-                <h3>Combined Analysis</h3>
-                <p style="color: #666; margin-bottom: 20px;">
-                    Showing data for: ${selections.map(s => `<strong>${s.demographic.label}</strong> (${s.bannerDisplayName})`).join(', ')}
-                </p>
+                <h3>📊 Drill-Down Analysis</h3>
+                <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #667eea;">
+                    <div style="font-size: 13px; color: #666; margin-bottom: 10px; font-weight: 600;">Filter Path:</div>
+                    <div>${drilldownPath}</div>
+                </div>
+
+                ${selections.length >= 1 ? `
+                    <div class="chart-container" style="height: 600px; margin-bottom: 30px;">
+                        <canvas id="crossBannerChart" style="height: 500px;"></canvas>
+                    </div>
+                ` : ''}
 
                 <div class="table-container">
                     <table class="response-table">
@@ -949,12 +1229,6 @@
                         </tbody>
                     </table>
                 </div>
-
-                ${selections.length >= 2 ? `
-                    <div class="chart-container" style="height: 600px;">
-                        <canvas id="crossBannerChart" style="height: 500px;"></canvas>
-                    </div>
-                ` : ''}
             `;
 
             document.getElementById('crossBannerResults').innerHTML = resultsHTML;
@@ -1004,10 +1278,13 @@
                         const val = r.values[firstSelection.demoIndex];
                         return (val !== null && val !== undefined) ? parseFloat(val) : 0;
                     });
+                    const total = values.reduce((sum, val) => sum + val, 0);
 
                     datasets = [{
                         label: `${firstSelection.demographic.label} (${firstSelection.demographic.category})`,
                         data: values,
+                        rawData: values,
+                        total: total,
                         backgroundColor: colors,
                         borderColor: borderColors,
                         borderWidth: 2
@@ -1025,20 +1302,34 @@
                                 display: true,
                                 text: `${firstSelection.demographic.label} Distribution`,
                                 font: { size: 18, weight: 'bold' }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        const count = context.raw;
+                                        const total = context.dataset.total;
+                                        const percentage = total > 0 ? ((count / total) * 100).toFixed(1) : 0;
+                                        return `${context.label}: ${percentage}% (n=${count})`;
+                                    }
+                                }
                             }
                         }
                     };
                 } else {
                     // For bar and line charts, show all selected demographics
                     datasets = selections.map((s, idx) => {
-                        const values = s.question.responses.map(r => {
+                        const rawValues = s.question.responses.map(r => {
                             const val = r.values[s.demoIndex];
                             return (val !== null && val !== undefined) ? parseFloat(val) : 0;
                         });
+                        const total = rawValues.reduce((sum, val) => sum + val, 0);
+                        const percentageData = rawValues.map(val => total > 0 ? (val / total) * 100 : 0);
 
                         return {
                             label: `${s.demographic.label} (${s.demographic.category})`,
-                            data: values,
+                            data: percentageData,
+                            rawData: rawValues,
+                            total: total,
                             backgroundColor: chartType === 'line' ? 'transparent' : colors[idx % colors.length],
                             borderColor: borderColors[idx % borderColors.length],
                             borderWidth: 2,
@@ -1057,14 +1348,33 @@
                             },
                             title: {
                                 display: true,
-                                text: 'Cross-Banner Comparison',
+                                text: 'Cross-Banner Comparison (%)',
                                 font: { size: 18, weight: 'bold' }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        const percentage = context.raw.toFixed(1);
+                                        const count = context.dataset.rawData[context.dataIndex];
+                                        return `${context.dataset.label}: ${percentage}% (n=${count})`;
+                                    }
+                                }
                             }
                         },
                         scales: {
                             y: {
                                 beginAtZero: true,
-                                ticks: { font: { size: 12 } }
+                                ticks: {
+                                    font: { size: 12 },
+                                    callback: function(value) {
+                                        return value.toFixed(1) + '%';
+                                    }
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Percentage (%)',
+                                    font: { size: 14, weight: 'bold' }
+                                }
                             },
                             x: {
                                 ticks: { font: { size: 12 } }
