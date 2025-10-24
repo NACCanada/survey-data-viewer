@@ -22,9 +22,13 @@ APP_DIR="/opt/survey-viewer"
 echo "Setting up application in $APP_DIR..."
 mkdir -p $APP_DIR
 
-# Copy files (assumes you're running from project directory)
-echo "Copying application files..."
-cp -r . $APP_DIR/
+# Copy files only if not already in target directory
+CURRENT_DIR=$(pwd)
+if [ "$CURRENT_DIR" != "$APP_DIR" ]; then
+    echo "Copying application files..."
+    cp -r . $APP_DIR/
+fi
+
 cd $APP_DIR
 
 # Create virtual environment
