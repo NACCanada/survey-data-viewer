@@ -63,7 +63,7 @@ Description=Survey Data Viewer
 After=network.target
 
 [Service]
-Type=notify
+Type=simple
 User=www-data
 Group=www-data
 WorkingDirectory=$APP_DIR

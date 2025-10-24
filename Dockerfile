@@ -13,7 +13,7 @@ COPY . .
 RUN mkdir -p uploads data static/css static/js templates
 
 # Expose port
-EXPOSE 5000
+EXPOSE 8080
 
 # Run the application with gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "4", "--timeout", "120", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "4", "--timeout", "120", "app:app"]
