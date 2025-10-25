@@ -2,6 +2,23 @@
 
 This project was built with assistance from Claude (Anthropic's AI assistant) to create a production-ready survey data visualization tool.
 
+---
+
+## 🚀 FOR CLAUDE: START HERE
+
+**⚠️ IMPORTANT: To save tokens and avoid re-analyzing files, read `CODEBASE_SUMMARY.md` first!**
+
+That file contains:
+- Complete file structure and API documentation
+- Key features and implementation details
+- Common modification locations with line numbers
+- Data flow diagrams
+- Quick reference for common tasks
+
+Only read specific files when you need to modify them. The summary should answer most questions about the codebase structure.
+
+---
+
 ## Project Overview
 
 **Survey Data Viewer** is a lightweight web application for uploading, visualizing, filtering, and comparing CSV/Excel survey data. Built with Flask, DataTables, and Chart.js.
