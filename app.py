@@ -526,6 +526,20 @@ def get_cross_question_metadata(survey_id):
             }
             questions.append(question)
 
+    # Sort questions - prioritize key demographic fields at the top
+    priority_fields = ['AGE_GROUP', 'AGE', 'REGION', 'GENDER', 'EDUCATION', 'IDENTITY']
+
+    def sort_key(question):
+        col_upper = question['id'].upper()
+        # Check if it's a priority field (exact match or contains the keyword)
+        for i, priority in enumerate(priority_fields):
+            if priority in col_upper or col_upper in priority:
+                return (0, i)  # Priority fields first, ordered by priority_fields list
+        # Non-priority fields come after, sorted alphabetically
+        return (1, question['id'])
+
+    questions.sort(key=sort_key)
+
     return jsonify({
         'questions': questions,
         'total_responses': len(data['data'])
