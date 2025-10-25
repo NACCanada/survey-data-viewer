@@ -429,28 +429,63 @@
         </div>
 
         <div class="config-section">
-            <h2 class="section-title">2️⃣ Add Filters (Optional)</h2>
-            <p style="color: #666; font-size: 14px; margin-bottom: 20px;">
-                Add filters to analyze specific subgroups. Each filter narrows down the data to people who selected specific responses.
-                <strong>You can add multiple filters!</strong>
+            <h2 class="section-title">2️⃣ Create Comparison Scenarios</h2>
+            <p style="color: #666; font-size: 14px; margin-bottom: 15px;">
+                Create multiple filter scenarios to compare different groups side-by-side on the same chart.
+                <strong>Example:</strong> Compare "Age 25-34" vs "Age 35-44" vs "Age 45-54"
             </p>
 
-            <div id="filtersContainer">
-                <!-- Filters will be added here -->
+            <div style="background: #f0f7ff; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 3px solid #667eea;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <div>
+                        <strong style="color: #667eea;">💡 Multi-Scenario Comparison</strong>
+                        <p style="margin: 5px 0 0 0; font-size: 13px; color: #666;">
+                            Add multiple scenarios below, then click "Compare All Scenarios" to see them all on one chart
+                        </p>
+                    </div>
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px;">
+                        <input type="checkbox" id="comparisonModeToggle" onchange="toggleComparisonMode()" style="width: 18px; height: 18px;">
+                        <span>Enable Multi-Scenario Mode</span>
+                    </label>
+                </div>
             </div>
 
-            <div id="noFiltersMessage" class="no-filters-message" style="display: none;">
-                ℹ️ No filters added. Analysis will show all {{ survey.total_responses }} responses without filtering.
+            <!-- Single Scenario Mode (Default) -->
+            <div id="singleScenarioMode">
+                <div id="filtersContainer">
+                    <!-- Filters will be added here -->
+                </div>
+
+                <div id="noFiltersMessage" class="no-filters-message" style="display: none;">
+                    ℹ️ No filters added. Analysis will show all {{ survey.total_responses }} responses without filtering.
+                </div>
+
+                <div class="action-buttons">
+                    <button id="addFilterBtn" class="btn btn-secondary">
+                        <span style="font-size: 16px;">+</span> Add Filter Condition
+                    </button>
+                    <button id="analyzeBtn" class="btn btn-success" style="font-size: 16px; padding: 12px 32px;">
+                        🔍 Analyze
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary">Clear All Filters</button>
+                </div>
             </div>
 
-            <div class="action-buttons">
-                <button id="addFilterBtn" class="btn btn-secondary">
-                    <span style="font-size: 16px;">+</span> Add Filter Condition
-                </button>
-                <button id="analyzeBtn" class="btn btn-success" style="font-size: 16px; padding: 12px 32px;">
-                    🔍 Analyze with Filters
-                </button>
-                <button id="clearBtn" class="btn btn-secondary">Clear All Filters</button>
+            <!-- Multi-Scenario Mode -->
+            <div id="multiScenarioMode" style="display: none;">
+                <div id="scenariosContainer">
+                    <!-- Scenarios will be added here -->
+                </div>
+
+                <div class="action-buttons" style="margin-top: 20px;">
+                    <button id="addScenarioBtn" class="btn btn-secondary" onclick="addScenario()">
+                        <span style="font-size: 16px;">+</span> Add Scenario
+                    </button>
+                    <button id="compareBtn" class="btn btn-success" onclick="compareAllScenarios()" style="font-size: 16px; padding: 12px 32px;">
+                        📊 Compare All Scenarios
+                    </button>
+                    <button id="clearScenariosBtn" class="btn btn-secondary" onclick="clearAllScenarios()">Clear All Scenarios</button>
+                </div>
             </div>
         </div>
 
@@ -501,6 +536,11 @@
         let surveyData = null;
         let filters = [];
         let resultsChart = null;
+
+        // Multi-scenario comparison variables
+        let comparisonMode = false;
+        let scenarios = [];
+        let scenarioResults = [];
 
         // Load metadata on page load
         document.addEventListener('DOMContentLoaded', async () => {
@@ -992,6 +1032,437 @@
                 window.comparisonChart.destroy();
                 window.comparisonChart = null;
             }
+        }
+
+        // ===== MULTI-SCENARIO COMPARISON FUNCTIONS =====
+
+        function toggleComparisonMode() {
+            comparisonMode = document.getElementById('comparisonModeToggle').checked;
+
+            document.getElementById('singleScenarioMode').style.display = comparisonMode ? 'none' : 'block';
+            document.getElementById('multiScenarioMode').style.display = comparisonMode ? 'block' : 'none';
+
+            if (comparisonMode && scenarios.length === 0) {
+                // Add first scenario automatically
+                addScenario();
+            }
+        }
+
+        function addScenario() {
+            const scenarioIndex = scenarios.length;
+            scenarios.push({
+                name: `Scenario ${scenarioIndex + 1}`,
+                filters: []
+            });
+
+            const colors = ['#667eea', '#f093fb', '#28a745', '#ffc107', '#dc3545', '#17a2b8'];
+            const color = colors[scenarioIndex % colors.length];
+
+            const scenarioCard = document.createElement('div');
+            scenarioCard.className = 'filter-item';
+            scenarioCard.id = `scenario-${scenarioIndex}`;
+            scenarioCard.style.borderLeft = `4px solid ${color}`;
+            scenarioCard.innerHTML = `
+                <div class="filter-item-header">
+                    <input type="text" value="Scenario ${scenarioIndex + 1}"
+                           onchange="updateScenarioName(${scenarioIndex}, this.value)"
+                           style="border: none; background: transparent; font-weight: 600; color: #667eea; font-size: 14px; width: 200px;">
+                    <button class="remove-filter-btn" onclick="removeScenario(${scenarioIndex})">✕ Remove</button>
+                </div>
+
+                <div id="scenarioFilters-${scenarioIndex}" style="margin-top: 15px;">
+                    <!-- Filters for this scenario -->
+                </div>
+
+                <button onclick="addFilterToScenario(${scenarioIndex})"
+                        style="margin-top: 10px; padding: 6px 12px; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 13px;">
+                    + Add Filter to This Scenario
+                </button>
+            `;
+
+            document.getElementById('scenariosContainer').appendChild(scenarioCard);
+        }
+
+        function updateScenarioName(index, name) {
+            if (scenarios[index]) {
+                scenarios[index].name = name;
+            }
+        }
+
+        function removeScenario(index) {
+            const scenarioCard = document.getElementById(`scenario-${index}`);
+            if (scenarioCard) {
+                scenarioCard.remove();
+                scenarios[index] = null; // Mark as removed
+            }
+        }
+
+        function addFilterToScenario(scenarioIndex) {
+            const filterIndex = scenarios[scenarioIndex].filters.length;
+            scenarios[scenarioIndex].filters.push({
+                question_id: null,
+                values: []
+            });
+
+            const filterDiv = document.createElement('div');
+            filterDiv.id = `scenario-${scenarioIndex}-filter-${filterIndex}`;
+            filterDiv.style.cssText = 'background: #f9f9f9; padding: 15px; border-radius: 6px; margin-bottom: 10px;';
+            filterDiv.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span style="font-weight: 600; font-size: 13px; color: #667eea;">Filter ${filterIndex + 1}</span>
+                    <button onclick="removeScenarioFilter(${scenarioIndex}, ${filterIndex})"
+                            style="padding: 4px 8px; background: #ff4757; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 11px;">
+                        Remove
+                    </button>
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: 500; font-size: 13px;">Question:</label>
+                    <select id="scenario-${scenarioIndex}-filterQuestion-${filterIndex}"
+                            class="form-select"
+                            onchange="loadScenarioFilterValues(${scenarioIndex}, ${filterIndex})"
+                            style="padding: 8px; font-size: 13px;">
+                        <option value="">-- Select a question --</option>
+                        ${surveyData.questions.map(q => `
+                            <option value="${q.id}">${q.label} (${q.value_count} options)</option>
+                        `).join('')}
+                    </select>
+                </div>
+
+                <div id="scenario-${scenarioIndex}-filterValues-${filterIndex}" style="display: none;">
+                    <!-- Values will be loaded here -->
+                </div>
+            `;
+
+            document.getElementById(`scenarioFilters-${scenarioIndex}`).appendChild(filterDiv);
+        }
+
+        function removeScenarioFilter(scenarioIndex, filterIndex) {
+            const filterDiv = document.getElementById(`scenario-${scenarioIndex}-filter-${filterIndex}`);
+            if (filterDiv) {
+                filterDiv.remove();
+                if (scenarios[scenarioIndex]) {
+                    scenarios[scenarioIndex].filters[filterIndex] = null;
+                }
+            }
+        }
+
+        function loadScenarioFilterValues(scenarioIndex, filterIndex) {
+            const questionSelect = document.getElementById(`scenario-${scenarioIndex}-filterQuestion-${filterIndex}`);
+            const questionId = questionSelect.value;
+
+            if (!questionId) return;
+
+            const question = surveyData.questions.find(q => q.id === questionId);
+            if (!question || !question.values) return;
+
+            scenarios[scenarioIndex].filters[filterIndex].question_id = questionId;
+
+            const valuesContainer = document.getElementById(`scenario-${scenarioIndex}-filterValues-${filterIndex}`);
+            valuesContainer.style.display = 'block';
+            valuesContainer.innerHTML = '';
+
+            // Add question info
+            const questionInfo = document.createElement('div');
+            questionInfo.className = 'question-info';
+            questionInfo.innerHTML = `
+                <strong>${question.label}</strong>
+                <p>${Object.keys(question.values).length} available answers - Select which responses to filter by:</p>
+            `;
+            valuesContainer.appendChild(questionInfo);
+
+            // Create checkboxes
+            const checkboxesContainer = document.createElement('div');
+            checkboxesContainer.style.cssText = 'display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-top: 15px;';
+
+            const valueEntries = Object.entries(question.values).sort((a, b) => {
+                const aNum = Number(a[0]);
+                const bNum = Number(b[0]);
+                if (!isNaN(aNum) && !isNaN(bNum)) {
+                    return aNum - bNum;
+                }
+                return String(a[1]).localeCompare(String(b[1]));
+            });
+
+            valueEntries.forEach(([value, label]) => {
+                const checkboxDiv = document.createElement('div');
+                checkboxDiv.className = 'value-checkbox';
+                checkboxDiv.innerHTML = `
+                    <input type="checkbox" id="scenario-${scenarioIndex}-filter-${filterIndex}-value-${value}"
+                           value="${value}" onchange="updateScenarioFilterValues(${scenarioIndex}, ${filterIndex})">
+                    <label class="value-label" for="scenario-${scenarioIndex}-filter-${filterIndex}-value-${value}">${label}</label>
+                `;
+                checkboxesContainer.appendChild(checkboxDiv);
+            });
+
+            valuesContainer.appendChild(checkboxesContainer);
+        }
+
+        function updateScenarioFilterValues(scenarioIndex, filterIndex) {
+            const valuesContainer = document.getElementById(`scenario-${scenarioIndex}-filterValues-${filterIndex}`);
+            const checkboxes = valuesContainer.querySelectorAll('input[type="checkbox"]:checked');
+
+            scenarios[scenarioIndex].filters[filterIndex].values = Array.from(checkboxes).map(cb => {
+                const value = cb.value;
+                return isNaN(value) ? value : Number(value);
+            });
+        }
+
+        async function compareAllScenarios() {
+            const targetQuestion = document.getElementById('targetQuestion').value;
+
+            if (!targetQuestion) {
+                alert('Please select a target question');
+                return;
+            }
+
+            // Filter out null scenarios and those without filters
+            const activeScenarios = scenarios
+                .map((s, idx) => ({ ...s, index: idx }))
+                .filter(s => s !== null && s.filters && s.filters.some(f => f !== null && f.question_id && f.values.length > 0));
+
+            if (activeScenarios.length === 0) {
+                alert('Please add at least one scenario with filters');
+                return;
+            }
+
+            scenarioResults = [];
+
+            // Run analysis for each scenario
+            for (const scenario of activeScenarios) {
+                const activeFilters = scenario.filters
+                    .filter(f => f !== null && f.question_id && f.values.length > 0)
+                    .map(f => ({
+                        question_id: f.question_id,
+                        values: f.values
+                    }));
+
+                try {
+                    const response = await fetch(`/api/cross-question/{{ survey.id }}/analyze`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            target_question: targetQuestion,
+                            filters: activeFilters
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const result = await response.json();
+
+                    if (result.error) {
+                        throw new Error(result.error);
+                    }
+
+                    scenarioResults.push({
+                        name: scenario.name,
+                        index: scenario.index,
+                        result: result
+                    });
+                } catch (error) {
+                    console.error(`Error analyzing scenario "${scenario.name}":`, error);
+                    alert(`Error analyzing scenario "${scenario.name}": ${error.message}`);
+                    return;
+                }
+            }
+
+            displayScenarioComparison();
+        }
+
+        function displayScenarioComparison() {
+            if (scenarioResults.length === 0) return;
+
+            const resultsSection = document.getElementById('resultsSection');
+            resultsSection.classList.add('active');
+
+            // Display summary stats
+            displayScenarioStats();
+
+            // Display comparison chart
+            displayScenarioChart();
+
+            // Display comparison table
+            displayScenarioTable();
+
+            // Scroll to results
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function displayScenarioStats() {
+            const statsContainer = document.getElementById('resultsStats');
+            const firstResult = scenarioResults[0].result;
+
+            statsContainer.innerHTML = `
+                <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; text-align: center;">
+                    <div class="stat-value" style="font-size: 36px; font-weight: bold; margin-bottom: 5px;">${scenarioResults.length}</div>
+                    <div class="stat-label" style="font-size: 14px; opacity: 0.9;">Scenarios Compared</div>
+                </div>
+                <div class="stat-card" style="background: #f0f7ff; padding: 20px; border-radius: 8px; text-align: center; border: 2px solid #667eea;">
+                    <div class="stat-value" style="font-size: 36px; font-weight: bold; margin-bottom: 5px; color: #667eea;">${firstResult.total_original.toLocaleString()}</div>
+                    <div class="stat-label" style="font-size: 14px; color: #666;">Total Responses</div>
+                </div>
+                <div class="stat-card" style="background: #28a745; color: white; padding: 20px; border-radius: 8px; text-align: center;">
+                    <div class="stat-value" style="font-size: 36px; font-weight: bold; margin-bottom: 5px;">${firstResult.target_label}</div>
+                    <div class="stat-label" style="font-size: 14px; opacity: 0.9;">Target Question</div>
+                </div>
+            `;
+        }
+
+        function displayScenarioChart() {
+            const ctx = document.getElementById('resultsChart');
+
+            // Destroy existing chart
+            if (resultsChart && typeof resultsChart.destroy === 'function') {
+                resultsChart.destroy();
+            }
+
+            // Get all unique labels across all scenarios
+            const allLabels = new Set();
+            scenarioResults.forEach(sr => {
+                sr.result.results.forEach(r => allLabels.add(r.label));
+            });
+            const labels = Array.from(allLabels);
+
+            // Create datasets for each scenario
+            const colors = ['rgba(102, 126, 234, 0.7)', 'rgba(240, 147, 251, 0.7)', 'rgba(40, 167, 69, 0.7)',
+                           'rgba(255, 193, 7, 0.7)', 'rgba(220, 53, 69, 0.7)', 'rgba(23, 162, 184, 0.7)'];
+            const borderColors = ['rgba(102, 126, 234, 1)', 'rgba(240, 147, 251, 1)', 'rgba(40, 167, 69, 1)',
+                                 'rgba(255, 193, 7, 1)', 'rgba(220, 53, 69, 1)', 'rgba(23, 162, 184, 1)'];
+
+            const datasets = scenarioResults.map((sr, idx) => {
+                const data = labels.map(label => {
+                    const result = sr.result.results.find(r => r.label === label);
+                    return result ? result.count : 0;
+                });
+
+                return {
+                    label: sr.name,
+                    data: data,
+                    backgroundColor: colors[idx % colors.length],
+                    borderColor: borderColors[idx % borderColors.length],
+                    borderWidth: 2
+                };
+            });
+
+            resultsChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                font: { size: 14 }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Multi-Scenario Comparison',
+                            font: { size: 18, weight: 'bold' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const count = context.raw;
+                                    const scenarioResult = scenarioResults[context.datasetIndex];
+                                    const total = scenarioResult.result.total_filtered;
+                                    const percentage = total > 0 ? ((count / total) * 100).toFixed(1) : 0;
+                                    return `${context.dataset.label}: ${count} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Count'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Hide comparison chart container
+            document.getElementById('comparisonChartContainer').style.display = 'none';
+        }
+
+        function displayScenarioTable() {
+            const tbody = document.getElementById('resultsTableBody');
+            tbody.innerHTML = '';
+
+            // Get all unique labels
+            const allLabels = new Set();
+            scenarioResults.forEach(sr => {
+                sr.result.results.forEach(r => allLabels.add(r.label));
+            });
+            const labels = Array.from(allLabels);
+
+            // Update table header
+            const thead = document.querySelector('.results-table thead tr');
+            thead.innerHTML = `
+                <th>Response</th>
+                ${scenarioResults.map(sr => `
+                    <th colspan="2" style="text-align: center; background: linear-gradient(135deg, #667eea22 0%, #764ba222 100%);">
+                        ${sr.name}
+                        <div style="font-size: 11px; font-weight: normal; margin-top: 3px;">
+                            (n=${sr.result.total_filtered})
+                        </div>
+                    </th>
+                `).join('')}
+            `;
+
+            // Add sub-header row for Count/Percentage
+            const subHeaderRow = document.createElement('tr');
+            subHeaderRow.innerHTML = `
+                <th style="background: #f0f0f0;"></th>
+                ${scenarioResults.map(() => `
+                    <th style="background: #f9f9f9; font-size: 12px;">Count</th>
+                    <th style="background: #f9f9f9; font-size: 12px;">%</th>
+                `).join('')}
+            `;
+            thead.appendChild(subHeaderRow);
+
+            // Create rows for each label
+            labels.forEach(label => {
+                const row = document.createElement('tr');
+                let cells = `<td style="font-weight: 600;">${label}</td>`;
+
+                scenarioResults.forEach(sr => {
+                    const result = sr.result.results.find(r => r.label === label);
+                    if (result) {
+                        cells += `
+                            <td>${result.count.toLocaleString()}</td>
+                            <td>${result.percentage}%</td>
+                        `;
+                    } else {
+                        cells += `<td>-</td><td>-</td>`;
+                    }
+                });
+
+                row.innerHTML = cells;
+                tbody.appendChild(row);
+            });
+        }
+
+        function clearAllScenarios() {
+            document.getElementById('scenariosContainer').innerHTML = '';
+            scenarios = [];
+            scenarioResults = [];
+            document.getElementById('resultsSection').classList.remove('active');
         }
     </script>
 </body>
