@@ -529,14 +529,25 @@ def get_cross_question_metadata(survey_id):
     # Sort questions - prioritize key demographic fields at the top
     priority_fields = ['AGE_GROUP', 'AGE', 'REGION', 'GENDER', 'EDUCATION', 'IDENTITY']
 
+    def natural_sort_key(text):
+        """
+        Convert a string to a list of mixed integers and strings for natural sorting.
+        Example: 'Q7' -> ['Q', 7], 'Q70' -> ['Q', 70]
+        This ensures Q1, Q2, ..., Q9, Q10, Q11, ... Q70, Q71...
+        """
+        import re
+        def atoi(text):
+            return int(text) if text.isdigit() else text
+        return [atoi(c) for c in re.split(r'(\d+)', text)]
+
     def sort_key(question):
         col_upper = question['id'].upper()
         # Check if it's a priority field (exact match or contains the keyword)
         for i, priority in enumerate(priority_fields):
             if priority in col_upper or col_upper in priority:
-                return (0, i)  # Priority fields first, ordered by priority_fields list
-        # Non-priority fields come after, sorted alphabetically
-        return (1, question['id'])
+                return (0, i, [])  # Priority fields first, ordered by priority_fields list
+        # Non-priority fields come after, sorted naturally (Q1, Q2... Q10, Q11... Q70)
+        return (1, 0, natural_sort_key(question['id']))
 
     questions.sort(key=sort_key)
 
