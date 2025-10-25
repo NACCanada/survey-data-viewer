@@ -307,7 +307,41 @@
             </div>
         </div>
 
-        <div class="crosstab-container">
+        <!-- Mode Toggle -->
+        <div style="background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h3 style="margin: 0 0 5px 0; font-size: 16px;">View Mode</h3>
+                <p style="margin: 0; font-size: 13px; color: #666;">Switch between single question view and cross-question comparison</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button id="singleModeBtn" class="mode-btn active" onclick="switchViewMode('single')"
+                    style="padding: 10px 20px; border: 2px solid #667eea; border-radius: 6px; font-weight: 500; cursor: pointer; transition: all 0.2s;">
+                    📋 Single Question
+                </button>
+                <button id="comparisonModeBtn" class="mode-btn" onclick="switchViewMode('comparison')"
+                    style="padding: 10px 20px; border: 2px solid #667eea; border-radius: 6px; font-weight: 500; cursor: pointer; transition: all 0.2s;">
+                    🔀 Cross-Question Comparison
+                </button>
+            </div>
+        </div>
+
+        <style>
+            .mode-btn {
+                background: white;
+                color: #667eea;
+            }
+            .mode-btn.active {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                border-color: #667eea !important;
+            }
+            .mode-btn:hover:not(.active) {
+                background: #f5f5f5;
+            }
+        </style>
+
+        <!-- Single Question View -->
+        <div class="crosstab-container" id="singleQuestionView">
             <!-- Question Navigation Sidebar -->
             <div class="question-nav">
                 <input type="text" class="question-search" id="questionSearch" placeholder="Search questions...">
@@ -327,6 +361,33 @@
                 </div>
             </div>
         </div>
+
+        <!-- Cross-Question Comparison View -->
+        <div id="crossQuestionView" style="display: none;">
+            <div style="display: grid; grid-template-columns: 300px 1fr; gap: 20px;">
+                <!-- Question Selector Sidebar -->
+                <div class="question-nav">
+                    <h3 style="margin-top: 0; font-size: 16px;">Select Questions to Compare</h3>
+                    <p style="font-size: 12px; color: #666; margin-bottom: 15px;">Click to select/deselect questions (max 4)</p>
+                    <input type="text" class="question-search" id="comparisonQuestionSearch" placeholder="Search questions...">
+                    <div style="margin-bottom: 10px;">
+                        <button onclick="clearSelectedQuestions()" style="width: 100%; padding: 8px; background: #e74c3c; color: white; border: none; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer;">
+                            Clear All
+                        </button>
+                    </div>
+                    <ul class="question-list" id="comparisonQuestionList">
+                        <li class="loading">Loading questions...</li>
+                    </ul>
+                </div>
+
+                <!-- Comparison Results -->
+                <div class="question-content">
+                    <div id="comparisonResults" class="empty-state">
+                        <p>👈 Select 2-4 questions from the list to compare them side-by-side</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -341,6 +402,12 @@
         // Custom banner names (stored in localStorage)
         const STORAGE_KEY = `banner_names_${surveyId}`;
         let customBannerNames = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
+        // Cross-question comparison mode variables
+        let viewMode = 'single'; // 'single' or 'comparison'
+        let selectedQuestions = []; // Array of selected question IDs for comparison
+        let selectedQuestionsData = {}; // Cache of loaded question data
+        let questionFilters = {}; // Store banner and demographic selection per question: {questionId: {banner, demoIndex}}
 
         // Load questions on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -1463,6 +1530,526 @@
                 </div>
             `;
         }
+
+        // ===== CROSS-QUESTION COMPARISON FUNCTIONS =====
+
+        function switchViewMode(mode) {
+            viewMode = mode;
+
+            // Update button states
+            document.getElementById('singleModeBtn').classList.toggle('active', mode === 'single');
+            document.getElementById('comparisonModeBtn').classList.toggle('active', mode === 'comparison');
+
+            // Toggle view containers
+            document.getElementById('singleQuestionView').style.display = mode === 'single' ? 'grid' : 'none';
+            document.getElementById('crossQuestionView').style.display = mode === 'comparison' ? 'block' : 'none';
+
+            if (mode === 'comparison') {
+                renderComparisonQuestionList();
+            }
+        }
+
+        function renderComparisonQuestionList() {
+            const listEl = document.getElementById('comparisonQuestionList');
+            if (!allQuestions || allQuestions.length === 0) {
+                listEl.innerHTML = '<li class="empty-state">No questions found</li>';
+                return;
+            }
+
+            listEl.innerHTML = allQuestions.map((q, idx) => {
+                const isSelected = selectedQuestions.includes(q.id);
+                const selectStyle = isSelected ?
+                    'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-color: #667eea;' :
+                    '';
+
+                // Special styling for INDICES
+                if (q.id === 'INDICES') {
+                    return `
+                        <li class="question-item" data-question-id="${q.id}" onclick="toggleQuestionSelection('${q.id}')"
+                            style="${selectStyle || 'background: linear-gradient(135deg, #667eea22 0%, #764ba222 100%);'}">
+                            <span class="question-id">📊 ${q.id}</span>
+                            <span class="question-text">Composite Metrics</span>
+                            ${isSelected ? '<span style="float: right;">✓</span>' : ''}
+                        </li>
+                    `;
+                }
+
+                return `
+                    <li class="question-item" data-question-id="${q.id}" onclick="toggleQuestionSelection('${q.id}')"
+                        style="${selectStyle}">
+                        <span class="question-id">${q.id}</span>
+                        <span class="question-text">${q.text}</span>
+                        ${isSelected ? '<span style="float: right;">✓</span>' : ''}
+                    </li>
+                `;
+            }).join('');
+        }
+
+        async function toggleQuestionSelection(questionId) {
+            const index = selectedQuestions.indexOf(questionId);
+
+            if (index > -1) {
+                // Deselect
+                selectedQuestions.splice(index, 1);
+            } else {
+                // Select (max 4 questions)
+                if (selectedQuestions.length >= 4) {
+                    alert('You can only compare up to 4 questions at a time');
+                    return;
+                }
+                selectedQuestions.push(questionId);
+
+                // Load question data if not already loaded
+                if (!selectedQuestionsData[questionId]) {
+                    try {
+                        const response = await fetch(`/api/crosstab/${surveyId}/question/${questionId}`);
+                        selectedQuestionsData[questionId] = await response.json();
+                    } catch (error) {
+                        console.error('Error loading question data:', error);
+                        selectedQuestions.splice(selectedQuestions.indexOf(questionId), 1);
+                        alert('Error loading question data');
+                        return;
+                    }
+                }
+            }
+
+            renderComparisonQuestionList();
+            updateCrossQuestionComparison();
+        }
+
+        function clearSelectedQuestions() {
+            selectedQuestions = [];
+            questionFilters = {};
+            renderComparisonQuestionList();
+            updateCrossQuestionComparison();
+        }
+
+        function updateCrossQuestionComparison() {
+            const resultsEl = document.getElementById('comparisonResults');
+
+            if (selectedQuestions.length < 2) {
+                resultsEl.innerHTML = `
+                    <div class="empty-state">
+                        <p>👈 Select at least 2 questions from the list to compare them side-by-side</p>
+                        <p style="font-size: 13px; color: #999; margin-top: 10px;">
+                            Selected: ${selectedQuestions.length}/4
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Build configuration cards for each selected question
+            const questionCardsHTML = selectedQuestions.map((qId, idx) => {
+                const qData = selectedQuestionsData[qId];
+                const bannerNames = Object.keys(qData.banners);
+                const question = qData.banners[bannerNames[0]].question;
+
+                // Get current filter settings or set defaults
+                if (!questionFilters[qId]) {
+                    questionFilters[qId] = {
+                        banner: bannerNames[0],
+                        demoIndex: null
+                    };
+                }
+
+                const currentBanner = questionFilters[qId].banner;
+                const currentDemoIndex = questionFilters[qId].demoIndex;
+                const banner = qData.banners[currentBanner];
+
+                const colors = ['#667eea', '#764ba2', '#f093fb', '#f5576c'];
+                const color = colors[idx % colors.length];
+
+                return `
+                    <div style="background: white; border-left: 4px solid ${color}; border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px;">
+                            <div style="flex: 1;">
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                    <span style="display: inline-block; padding: 4px 12px; background: ${color}; color: white; border-radius: 4px; font-weight: 600; font-size: 14px;">
+                                        ${qId}
+                                    </span>
+                                    <span style="color: #999; font-size: 12px;">Question ${idx + 1} of ${selectedQuestions.length}</span>
+                                </div>
+                                <p style="margin: 0; font-size: 14px; color: #555; line-height: 1.4;">
+                                    ${question.text}
+                                </p>
+                            </div>
+                            <button onclick="removeQuestionFromComparison('${qId}')"
+                                style="padding: 6px 12px; background: #e74c3c; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 12px; white-space: nowrap; margin-left: 15px;">
+                                Remove
+                            </button>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+                            <div>
+                                <label style="display: block; margin-bottom: 5px; font-weight: 500; color: #555; font-size: 13px;">Banner</label>
+                                <select id="banner_${qId}" onchange="updateQuestionFilter('${qId}', 'banner', this.value)"
+                                    style="width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 13px;">
+                                    ${bannerNames.map(name => {
+                                        const displayName = getBannerDisplayName(name);
+                                        return `<option value="${name}" ${name === currentBanner ? 'selected' : ''}>${displayName}</option>`;
+                                    }).join('')}
+                                </select>
+                            </div>
+
+                            <div>
+                                <label style="display: block; margin-bottom: 5px; font-weight: 500; color: #555; font-size: 13px;">Demographic</label>
+                                <select id="demo_${qId}" onchange="updateQuestionFilter('${qId}', 'demo', this.value)"
+                                    style="width: 100%; padding: 8px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 13px;">
+                                    <option value="">Select demographic...</option>
+                                    ${banner.demographics.map((d, dIdx) => `
+                                        <option value="${dIdx}" ${dIdx === currentDemoIndex ? 'selected' : ''}>
+                                            ${d.label} (${d.category})
+                                        </option>
+                                    `).join('')}
+                                </select>
+                            </div>
+                        </div>
+
+                        ${currentDemoIndex !== null ? `
+                            <div style="margin-top: 12px; padding: 10px; background: #f0f7ff; border-radius: 6px; font-size: 12px; color: #555;">
+                                <strong>📊 Analyzing:</strong> ${banner.demographics[currentDemoIndex].label}
+                                <span style="opacity: 0.7;">(from ${getBannerDisplayName(currentBanner)})</span>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            }).join('');
+
+            // Chart type selector
+            const chartTypeHTML = `
+                <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <label style="display: block; margin-bottom: 5px; font-weight: 500; color: #555; font-size: 13px;">Chart Type</label>
+                        <select id="compChartTypeSelect" onchange="updateCrossQuestionDisplay()"
+                            style="padding: 8px 12px; border: 2px solid #e0e0e0; border-radius: 6px; font-size: 13px; min-width: 200px;">
+                            <option value="bar">📊 Grouped Bar Chart</option>
+                            <option value="line">📈 Line Chart</option>
+                        </select>
+                    </div>
+                    <button onclick="updateCrossQuestionDisplay()"
+                        style="padding: 10px 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 14px;">
+                        Generate Comparison
+                    </button>
+                </div>
+            `;
+
+            resultsEl.innerHTML = `
+                <div style="background: linear-gradient(135deg, #667eea22 0%, #764ba222 100%); padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                    <h3 style="margin-top: 0; color: #667eea;">🔀 Cross-Question Cross-Banner Configuration</h3>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 20px;">
+                        Configure each question independently by selecting different banners and demographics.
+                        This allows you to compare responses across different demographic breakdowns.
+                    </p>
+                    ${questionCardsHTML}
+                </div>
+                ${chartTypeHTML}
+                <div id="comparisonDisplayArea">
+                    <p style="text-align: center; color: #999; padding: 40px;">
+                        Configure demographics above and click "Generate Comparison" to view results
+                    </p>
+                </div>
+            `;
+        }
+
+        function updateQuestionFilter(questionId, filterType, value) {
+            if (!questionFilters[questionId]) {
+                questionFilters[questionId] = { banner: null, demoIndex: null };
+            }
+
+            if (filterType === 'banner') {
+                questionFilters[questionId].banner = value;
+                // Reset demographic when banner changes
+                questionFilters[questionId].demoIndex = null;
+                // Refresh the UI to update demographic dropdown
+                updateCrossQuestionComparison();
+            } else if (filterType === 'demo') {
+                questionFilters[questionId].demoIndex = value ? parseInt(value) : null;
+            }
+        }
+
+        function removeQuestionFromComparison(questionId) {
+            const index = selectedQuestions.indexOf(questionId);
+            if (index > -1) {
+                selectedQuestions.splice(index, 1);
+                delete questionFilters[questionId];
+            }
+            renderComparisonQuestionList();
+            updateCrossQuestionComparison();
+        }
+
+        function updateCrossQuestionDisplay() {
+            const chartTypeSelect = document.getElementById('compChartTypeSelect');
+            const displayArea = document.getElementById('comparisonDisplayArea');
+
+            // Check if all questions have demographics selected
+            const allConfigured = selectedQuestions.every(qId =>
+                questionFilters[qId] && questionFilters[qId].demoIndex !== null
+            );
+
+            if (!allConfigured) {
+                displayArea.innerHTML = `
+                    <p style="text-align: center; color: #999; padding: 40px;">
+                        Please select a demographic for each question above
+                    </p>
+                `;
+                return;
+            }
+
+            const chartType = chartTypeSelect.value;
+
+            // Collect data for all selected questions with their individual filters
+            const questionsData = selectedQuestions.map(qId => {
+                const qData = selectedQuestionsData[qId];
+                const filter = questionFilters[qId];
+                const banner = qData.banners[filter.banner];
+                const demographic = banner.demographics[filter.demoIndex];
+                const question = banner.question;
+
+                return {
+                    id: qId,
+                    text: question.text,
+                    banner: filter.banner,
+                    bannerDisplay: getBannerDisplayName(filter.banner),
+                    demographic: demographic,
+                    responses: question.responses,
+                    demoIndex: filter.demoIndex
+                };
+            });
+
+            // Build comparison table
+            const tableHTML = buildCrossQuestionTable(questionsData);
+
+            // Build comparison chart
+            const chartHTML = `
+                <div class="chart-container" style="height: 600px; margin-bottom: 30px;">
+                    <canvas id="crossQuestionChart" style="height: 500px;"></canvas>
+                </div>
+            `;
+
+            displayArea.innerHTML = chartHTML + tableHTML;
+
+            // Render chart
+            renderCrossQuestionChart(questionsData, chartType);
+        }
+
+        function buildCrossQuestionTable(questionsData) {
+            // Get all unique responses across all questions
+            const allResponses = new Set();
+            questionsData.forEach(q => {
+                q.responses.forEach(r => allResponses.add(r.response));
+            });
+            const responseList = Array.from(allResponses);
+
+            return `
+                <div style="margin-bottom: 20px;">
+                    <h3>📊 Cross-Question Cross-Banner Comparison</h3>
+                    <p style="font-size: 13px; color: #666; margin-bottom: 15px;">
+                        Comparing ${questionsData.length} questions across different demographic breakdowns
+                    </p>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        ${questionsData.map((q, idx) => {
+                            const colors = ['#667eea', '#764ba2', '#f093fb', '#f5576c'];
+                            const color = colors[idx % colors.length];
+                            return `
+                                <div style="display: inline-block; padding: 8px 14px; background: ${color}15; border-left: 3px solid ${color}; border-radius: 6px; font-size: 12px;">
+                                    <strong style="color: ${color};">${q.id}:</strong>
+                                    ${q.demographic.label}
+                                    <span style="opacity: 0.7;">(${q.bannerDisplay})</span>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="response-table">
+                        <thead>
+                            <tr>
+                                <th>Response</th>
+                                ${questionsData.map((q, idx) => {
+                                    const colors = ['#667eea', '#764ba2', '#f093fb', '#f5576c'];
+                                    const color = colors[idx % colors.length];
+                                    return `
+                                        <th style="border-top: 3px solid ${color};">
+                                            <div style="font-weight: 600;">${q.id}</div>
+                                            <div style="font-size: 11px; font-weight: normal; color: #888; margin-top: 3px; line-height: 1.3;">
+                                                ${q.text.substring(0, 50)}${q.text.length > 50 ? '...' : ''}
+                                            </div>
+                                            <div style="font-size: 10px; font-weight: normal; color: #999; margin-top: 5px; padding-top: 5px; border-top: 1px solid #eee;">
+                                                ${q.demographic.label}
+                                            </div>
+                                        </th>
+                                    `;
+                                }).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${responseList.map(responseName => `
+                                <tr>
+                                    <td><strong>${responseName}</strong></td>
+                                    ${questionsData.map(q => {
+                                        const resp = q.responses.find(r => r.response === responseName);
+                                        const value = resp ? resp.values[q.demoIndex] : null;
+                                        return `<td class="numeric-value">${value !== null && value !== undefined ? value : '-'}</td>`;
+                                    }).join('')}
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        function renderCrossQuestionChart(questionsData, chartType) {
+            // Get all unique responses
+            const allResponses = new Set();
+            questionsData.forEach(q => {
+                q.responses.forEach(r => allResponses.add(r.response));
+            });
+            const labels = Array.from(allResponses);
+
+            const colors = [
+                'rgba(102, 126, 234, 0.7)',
+                'rgba(118, 75, 162, 0.7)',
+                'rgba(240, 147, 251, 0.7)',
+                'rgba(245, 87, 108, 0.7)'
+            ];
+            const borderColors = [
+                'rgba(102, 126, 234, 1)',
+                'rgba(118, 75, 162, 1)',
+                'rgba(240, 147, 251, 1)',
+                'rgba(245, 87, 108, 1)'
+            ];
+
+            // Create dataset for each question with its demographic info
+            const datasets = questionsData.map((q, idx) => {
+                const data = labels.map(label => {
+                    const resp = q.responses.find(r => r.response === label);
+                    const val = resp ? resp.values[q.demoIndex] : null;
+                    return (val !== null && val !== undefined) ? parseFloat(val) : 0;
+                });
+
+                return {
+                    label: `${q.id}: ${q.demographic.label}`,
+                    questionId: q.id,
+                    demographic: q.demographic.label,
+                    banner: q.bannerDisplay,
+                    data: data,
+                    backgroundColor: chartType === 'line' ? 'transparent' : colors[idx],
+                    borderColor: borderColors[idx],
+                    borderWidth: 2,
+                    fill: chartType === 'line' ? false : true,
+                    tension: chartType === 'line' ? 0.4 : 0
+                };
+            });
+
+            const ctx = document.getElementById('crossQuestionChart').getContext('2d');
+            if (window.crossQuestionChartInstance) {
+                window.crossQuestionChartInstance.destroy();
+            }
+
+            window.crossQuestionChartInstance = new Chart(ctx, {
+                type: chartType,
+                data: { labels, datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: { size: 12 },
+                                padding: 15,
+                                generateLabels: function(chart) {
+                                    const original = Chart.defaults.plugins.legend.labels.generateLabels;
+                                    const labels = original.call(this, chart);
+
+                                    // Add demographic info to legend labels
+                                    labels.forEach((label, idx) => {
+                                        const dataset = chart.data.datasets[idx];
+                                        label.text = `${dataset.questionId}: ${dataset.demographic} (${dataset.banner})`;
+                                    });
+
+                                    return labels;
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Cross-Question Cross-Banner Comparison',
+                            font: { size: 18, weight: 'bold' }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(context) {
+                                    return context[0].label;
+                                },
+                                label: function(context) {
+                                    const dataset = context.dataset;
+                                    return [
+                                        `${dataset.questionId}: ${context.raw}`,
+                                        `Demographic: ${dataset.demographic}`,
+                                        `Banner: ${dataset.banner}`
+                                    ];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { font: { size: 12 } },
+                            title: {
+                                display: true,
+                                text: 'Value',
+                                font: { size: 13, weight: 'bold' }
+                            }
+                        },
+                        x: {
+                            ticks: { font: { size: 12 } }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Add search functionality for comparison mode
+        document.getElementById('comparisonQuestionSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const filtered = allQuestions.filter(q =>
+                q.id.toLowerCase().includes(searchTerm) ||
+                q.text.toLowerCase().includes(searchTerm)
+            );
+
+            const listEl = document.getElementById('comparisonQuestionList');
+            listEl.innerHTML = filtered.map(q => {
+                const isSelected = selectedQuestions.includes(q.id);
+                const selectStyle = isSelected ?
+                    'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-color: #667eea;' :
+                    '';
+
+                if (q.id === 'INDICES') {
+                    return `
+                        <li class="question-item" data-question-id="${q.id}" onclick="toggleQuestionSelection('${q.id}')"
+                            style="${selectStyle || 'background: linear-gradient(135deg, #667eea22 0%, #764ba222 100%);'}">
+                            <span class="question-id">📊 ${q.id}</span>
+                            <span class="question-text">Composite Metrics</span>
+                            ${isSelected ? '<span style="float: right;">✓</span>' : ''}
+                        </li>
+                    `;
+                }
+
+                return `
+                    <li class="question-item" data-question-id="${q.id}" onclick="toggleQuestionSelection('${q.id}')"
+                        style="${selectStyle}">
+                        <span class="question-id">${q.id}</span>
+                        <span class="question-text">${q.text}</span>
+                        ${isSelected ? '<span style="float: right;">✓</span>' : ''}
+                    </li>
+                `;
+            }).join('');
+        });
     </script>
 </body>
 </html>

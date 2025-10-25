@@ -373,7 +373,7 @@
             ← Back to Surveys
         </a>
         <div class="analysis-header">
-            <h1 class="analysis-title">Cross-Question Analysis</h1>
+            <h1 class="analysis-title">Cross-Question Filtering & Analysis</h1>
             <div class="analysis-info">
                 <strong>{{ survey.filename }}</strong> |
                 {{ survey.total_responses }} responses |
@@ -381,62 +381,119 @@
             </div>
         </div>
 
-        <div class="config-section">
-            <h2 class="section-title">Target Question</h2>
-            <div class="form-group">
-                <label class="form-label">Select the question you want to analyze:</label>
-                <select id="targetQuestion" class="form-select">
-                    <option value="">-- Select a question --</option>
-                </select>
+        <!-- How It Works Section -->
+        <div class="config-section" style="background: white; border-left: 4px solid #667eea;">
+            <h2 class="section-title" style="color: #667eea;">📘 How Cross-Question Filtering Works</h2>
+            <div style="font-size: 14px; line-height: 1.6; color: #555;">
+                <p style="margin-bottom: 15px;">
+                    This tool lets you <strong>filter survey responses from one question to analyze another question</strong>.
+                    Perfect for discovering insights like "How many ministers are in a specific age group?" or "What's the job satisfaction among people who attend weekly?"
+                </p>
+
+                <div style="background: linear-gradient(135deg, #667eea08 0%, #764ba208 100%); padding: 20px; border-radius: 8px; margin-top: 15px; border: 1px solid #667eea22;">
+                    <div style="font-weight: 600; color: #667eea; margin-bottom: 10px;">📊 Example Workflow:</div>
+                    <ol style="margin: 0; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;">
+                            <strong>Select Target Question:</strong> "What is your role in the church?" (this is what you want to analyze)
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <strong>Add Filter #1:</strong> Age = "25-34" (filter to only this age group)
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <strong>Add Filter #2:</strong> Attendance = "Weekly" (further filter to weekly attendees)
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <strong>Click Analyze:</strong> See how many ministers, deacons, etc. are in the 25-34 age group who attend weekly
+                        </li>
+                    </ol>
+
+                    <div style="margin-top: 15px; padding: 12px; background: #f0f7ff; border-radius: 6px; font-size: 13px; color: #555;">
+                        <strong>💡 Tip:</strong> You can add multiple filters from different questions to drill down into very specific segments of your survey data!
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="config-section">
-            <h2 class="section-title">Filters</h2>
+            <h2 class="section-title">1️⃣ Select Target Question</h2>
+            <p style="color: #666; font-size: 14px; margin-bottom: 15px;">
+                Choose the question you want to analyze after applying filters.
+            </p>
+            <div class="form-group">
+                <label class="form-label">Target Question:</label>
+                <select id="targetQuestion" class="form-select">
+                    <option value="">-- Select a question --</option>
+                </select>
+                <div id="targetQuestionInfo" class="question-info" style="display: none;"></div>
+            </div>
+        </div>
+
+        <div class="config-section">
+            <h2 class="section-title">2️⃣ Add Filters (Optional)</h2>
             <p style="color: #666; font-size: 14px; margin-bottom: 20px;">
-                Add filters to analyze the target question based on responses to other questions.
+                Add filters to analyze specific subgroups. Each filter narrows down the data to people who selected specific responses.
+                <strong>You can add multiple filters!</strong>
             </p>
 
             <div id="filtersContainer">
                 <!-- Filters will be added here -->
             </div>
 
+            <div id="noFiltersMessage" class="no-filters-message" style="display: none;">
+                ℹ️ No filters added. Analysis will show all {{ survey.total_responses }} responses without filtering.
+            </div>
+
             <div class="action-buttons">
-                <button id="addFilterBtn" class="btn btn-secondary">+ Add Filter</button>
-                <button id="analyzeBtn" class="btn btn-success">Analyze</button>
-                <button id="clearBtn" class="btn btn-secondary">Clear All</button>
+                <button id="addFilterBtn" class="btn btn-secondary">
+                    <span style="font-size: 16px;">+</span> Add Filter Condition
+                </button>
+                <button id="analyzeBtn" class="btn btn-success" style="font-size: 16px; padding: 12px 32px;">
+                    🔍 Analyze with Filters
+                </button>
+                <button id="clearBtn" class="btn btn-secondary">Clear All Filters</button>
             </div>
         </div>
 
         <div id="resultsSection" class="results-section">
-            <h2 class="section-title">Results</h2>
+            <h2 class="section-title">📊 Analysis Results</h2>
 
             <div id="filterPath" class="filter-path">
-                <div class="filter-path-title">Filter Path:</div>
+                <div class="filter-path-title" style="font-weight: 600; color: #667eea; margin-bottom: 10px; font-size: 14px;">
+                    🔽 Filter Pipeline Applied:
+                </div>
                 <div id="filterPathItems" class="filter-path-items"></div>
             </div>
 
-            <div id="resultsStats" class="results-stats"></div>
+            <div id="resultsStats" class="results-stats" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;"></div>
 
-            <div class="chart-container">
-                <canvas id="resultsChart"></canvas>
+            <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <h3 style="margin: 0 0 15px 0; color: #333; font-size: 18px;">Filtered Results</h3>
+                <div class="chart-container">
+                    <canvas id="resultsChart"></canvas>
+                </div>
             </div>
 
-            <div id="comparisonChartContainer" class="chart-container" style="display: none; margin-top: 20px;">
-                <h3 style="margin-bottom: 15px; color: #333;">Filtered vs Unfiltered Comparison</h3>
+            <div id="comparisonChartContainer" class="chart-container" style="display: none; margin-top: 20px; background: #f0f7ff; padding: 20px; border-radius: 8px;">
+                <h3 style="margin: 0 0 15px 0; color: #333; font-size: 18px;">📈 Before vs After Filtering</h3>
+                <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Compare how the distribution changes when filters are applied</p>
                 <canvas id="comparisonChart"></canvas>
             </div>
 
-            <table class="results-table">
-                <thead>
-                    <tr>
-                        <th>Response</th>
-                        <th>Count</th>
-                        <th>Percentage</th>
-                    </tr>
-                </thead>
-                <tbody id="resultsTableBody"></tbody>
-            </table>
+            <div style="margin-top: 25px;">
+                <h3 style="margin: 0 0 15px 0; color: #333; font-size: 18px;">📋 Detailed Breakdown</h3>
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Response</th>
+                            <th>Count (Filtered)</th>
+                            <th>Percentage (Filtered)</th>
+                            <th style="background: #f0f7ff;">Count (All Data)</th>
+                            <th style="background: #f0f7ff;">Percentage (All Data)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultsTableBody"></tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -498,11 +555,11 @@
             filterItem.id = `filter-${filterIndex}`;
             filterItem.innerHTML = `
                 <div class="filter-item-header">
-                    <span class="filter-number">Filter ${filterIndex + 1}</span>
-                    <button class="remove-filter-btn" onclick="removeFilter(${filterIndex})">Remove</button>
+                    <span class="filter-number">🔽 Filter ${filterIndex + 1}</span>
+                    <button class="remove-filter-btn" onclick="removeFilter(${filterIndex})">✕ Remove</button>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Filter Question:</label>
+                    <label class="form-label">Select Question to Filter By:</label>
                     <select id="filterQuestion-${filterIndex}" class="form-select" onchange="loadFilterValues(${filterIndex})">
                         <option value="">-- Select a question --</option>
                         ${surveyData.questions.map(q => `
@@ -516,6 +573,7 @@
             `;
 
             document.getElementById('filtersContainer').appendChild(filterItem);
+            updateFilterMessage();
         }
 
         function removeFilter(index) {
@@ -523,6 +581,17 @@
             if (filterElement) {
                 filterElement.remove();
                 filters[index] = null; // Mark as removed
+            }
+            updateFilterMessage();
+        }
+
+        function updateFilterMessage() {
+            const activeFilters = filters.filter(f => f !== null);
+            const message = document.getElementById('noFiltersMessage');
+            if (activeFilters.length === 0) {
+                message.style.display = 'block';
+            } else {
+                message.style.display = 'none';
             }
         }
 
@@ -707,19 +776,24 @@
 
         function displayStats(results) {
             const statsContainer = document.getElementById('resultsStats');
+            const hasFilters = results.filters_applied.length > 0;
+            const percentage = Math.round((results.total_filtered / results.total_original) * 100);
+
             statsContainer.innerHTML = `
-                <div class="stat-card">
-                    <div class="stat-value">${results.total_filtered}</div>
-                    <div class="stat-label">Filtered Responses</div>
+                <div class="stat-card" style="background: ${hasFilters ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : '#6c757d'}; color: white; padding: 20px; border-radius: 8px; text-align: center;">
+                    <div class="stat-value" style="font-size: 36px; font-weight: bold; margin-bottom: 5px;">${results.total_filtered.toLocaleString()}</div>
+                    <div class="stat-label" style="font-size: 14px; opacity: 0.9;">${hasFilters ? 'Responses After Filtering' : 'Total Responses'}</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-value">${results.total_original}</div>
-                    <div class="stat-label">Total Responses</div>
+                ${hasFilters ? `
+                <div class="stat-card" style="background: #f0f7ff; padding: 20px; border-radius: 8px; text-align: center; border: 2px solid #667eea;">
+                    <div class="stat-value" style="font-size: 36px; font-weight: bold; margin-bottom: 5px; color: #667eea;">${results.total_original.toLocaleString()}</div>
+                    <div class="stat-label" style="font-size: 14px; color: #666;">Original Total</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-value">${Math.round((results.total_filtered / results.total_original) * 100)}%</div>
-                    <div class="stat-label">Sample Size</div>
+                <div class="stat-card" style="background: ${percentage > 50 ? '#28a745' : percentage > 20 ? '#ffc107' : '#dc3545'}; color: white; padding: 20px; border-radius: 8px; text-align: center;">
+                    <div class="stat-value" style="font-size: 36px; font-weight: bold; margin-bottom: 5px;">${percentage}%</div>
+                    <div class="stat-label" style="font-size: 14px; opacity: 0.9;">Sample Retained</div>
                 </div>
+                ` : ''}
             `;
         }
 
@@ -880,49 +954,17 @@
             const tbody = document.getElementById('resultsTableBody');
             tbody.innerHTML = '';
 
-            // Show comparison if filters are applied
-            const hasFilters = results.filters_applied.length > 0;
-
-            // Update table headers if needed
-            const thead = document.querySelector('.results-table thead tr');
-            if (hasFilters && thead.children.length === 3) {
-                thead.innerHTML = `
-                    <th>Response</th>
-                    <th>Filtered Count</th>
-                    <th>Filtered %</th>
-                    <th>Unfiltered Count</th>
-                    <th>Unfiltered %</th>
-                    <th>Difference</th>
-                `;
-            } else if (!hasFilters && thead.children.length > 3) {
-                thead.innerHTML = `
-                    <th>Response</th>
-                    <th>Count</th>
-                    <th>Percentage</th>
-                `;
-            }
-
+            // Always show comparison data
             results.results.forEach(result => {
                 const row = document.createElement('tr');
-                if (hasFilters) {
-                    const diff = result.percentage - result.unfiltered_percentage;
-                    const diffColor = diff > 0 ? '#28a745' : (diff < 0 ? '#dc3545' : '#6c757d');
-                    const diffSign = diff > 0 ? '+' : '';
-                    row.innerHTML = `
-                        <td>${result.label}</td>
-                        <td>${result.count}</td>
-                        <td>${result.percentage}%</td>
-                        <td>${result.unfiltered_count}</td>
-                        <td>${result.unfiltered_percentage}%</td>
-                        <td style="color: ${diffColor}; font-weight: 600;">${diffSign}${diff.toFixed(1)}%</td>
-                    `;
-                } else {
-                    row.innerHTML = `
-                        <td>${result.label}</td>
-                        <td>${result.count}</td>
-                        <td>${result.percentage}%</td>
-                    `;
-                }
+                const diff = result.percentage - result.unfiltered_percentage;
+                row.innerHTML = `
+                    <td style="font-weight: 600;">${result.label}</td>
+                    <td>${result.count.toLocaleString()}</td>
+                    <td>${result.percentage}%</td>
+                    <td style="background: #f0f7ff66;">${result.unfiltered_count.toLocaleString()}</td>
+                    <td style="background: #f0f7ff66;">${result.unfiltered_percentage}%</td>
+                `;
                 tbody.appendChild(row);
             });
         }

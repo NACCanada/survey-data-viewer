@@ -492,12 +492,15 @@ def get_cross_question_metadata(survey_id):
     with open(data_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
-    # Common metadata column patterns to exclude
-    metadata_patterns = [
-        'id', 'respondent', 'response', 'timestamp', 'date', 'time',
-        'duration', 'completion', 'source', 'device', 'weight',
-        'status', 'ip', 'location', 'start', 'end', 'consent'
-    ]
+    # Common metadata column patterns to exclude (exact matches or starts/ends with)
+    metadata_exact = ['id', 'hid', 'respondent_id', 'response_id', 'timestamp',
+                      'start_time', 'end_time', 'duration', 'completion_status',
+                      'source', 'device', 'weight', 'status', 'ip_address',
+                      'location', 'consent']
+
+    metadata_startswith = ['respondent', 'response_', 'timestamp_', 'date_', 'time_',
+                           'duration_', 'completion_', 'weight_', 'status_',
+                           'ip_', 'location_', 'start_', 'end_', 'consent_']
 
     # Build question list with labels and value options
     # Only include columns that have value labels (actual questions)
@@ -506,9 +509,10 @@ def get_cross_question_metadata(survey_id):
         # Check if this column has value labels (indicating it's a question)
         has_values = col in data['value_labels'] and data['value_labels'][col]
 
-        # Skip if it's likely a metadata column
+        # Skip if it's likely a metadata column (exact match or starts with pattern)
         col_lower = col.lower()
-        is_metadata = any(pattern in col_lower for pattern in metadata_patterns)
+        is_metadata = (col_lower in metadata_exact or
+                      any(col_lower.startswith(pattern) for pattern in metadata_startswith))
 
         # Only include if it has value labels and isn't metadata
         if has_values and not is_metadata:
