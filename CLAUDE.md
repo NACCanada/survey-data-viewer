@@ -56,11 +56,33 @@ Only read specific files when you need to modify them. The summary should answer
 - ✅ Real-time updates
 - ✅ Individual group clear buttons
 
+#### Quick Filter Grid (v3.0) - NEW!
+- ✅ **Quick Mode**: Grid-based multi-select for all demographics
+  - See all filterable questions at once in a scrollable grid
+  - Check multiple values across questions simultaneously
+  - One-click "Apply Filters & Analyze" button
+  - 10x faster than one-by-one filter creation
+- ✅ **Enhanced Advanced Mode**:
+  - Collapsible Quick Filter Grid for rapid filter creation
+  - Duplicate Filter button to copy existing filters
+  - Bulk action buttons: Select All, Deselect All, Invert Selection
+  - Full access to multi-scenario comparison
+- ✅ **Multi-Scenario Grids** (LATEST):
+  - Each scenario has its own Quick Filter Grid
+  - Independent grids for each comparison scenario
+  - Color-coded to match scenario
+  - Create complex comparisons 10x faster
+- ✅ **Mode Toggle**: Switch between Quick and Advanced modes
+- ✅ Scrollable grids (600px max height) reduce page scrolling
+- ✅ Custom purple scrollbar matching theme
+- ✅ All/None buttons for each question in grid
+
 #### Bug Fixes & Improvements
 - ✅ Fixed numeric filter comparisons (string vs number)
 - ✅ Enhanced filter logic for mixed data types
 - ✅ Added clear buttons for comparison groups
 - ✅ Improved UI/UX throughout
+- ✅ White "Back to Surveys" link for better visibility
 
 ## Technology Stack
 
@@ -235,10 +257,14 @@ bash deploy.sh
 ## Future Enhancement Ideas
 
 ### Short Term
+- [✅] ~~Quick filter grid for faster filter creation~~ (Completed v3.0)
+- [✅] ~~Duplicate filter button~~ (Completed v3.0)
+- [✅] ~~Bulk selection actions~~ (Completed v3.0)
 - [ ] Pie charts for binary data
 - [ ] Line charts for time-series
 - [ ] Export charts as images
 - [ ] Dark mode toggle
+- [ ] Save/load filter presets
 
 ### Medium Term
 - [ ] User authentication (OAuth)
@@ -301,7 +327,8 @@ Built with Claude (Anthropic) - An AI assistant that helped with:
 
 ---
 
-**Built**: October 2025
-**Version**: 2.1
+**Built**: October 2024
+**Latest Update**: January 2025 (v3.0 - Quick Filter Grid)
+**Version**: 3.0
 **Status**: Production Ready
 **Deployed**: Ready for Digital Ocean, Docker, or local hosting

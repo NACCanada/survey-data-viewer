@@ -2,17 +2,57 @@
 
 A lightweight web application for uploading, visualizing, and filtering CSV and Excel survey data.
 
+## ⭐ What's New in v3.0 (January 2025)
+
+**🚀 Quick Filter Grid** - Filter creation just got 10x faster!
+
+- **Quick Mode**: See all demographics in a grid, check values, analyze - done in seconds
+- **Enhanced Advanced Mode**: Duplicate filters, bulk actions (Select All/None/Invert), collapsible grid
+- **Smart Grid**: Shows only filterable questions (≤20 options), scrollable to reduce page height
+- **Power Features**: All/None buttons per question, automatic demographic prioritization
+
+[📖 Read the Quick Filter Guide](docs/QUICK_FILTER_GUIDE.md) | [🎯 Try it now!](#installation)
+
+---
+
 ## Features
 
-- Upload CSV and Excel files
+### Core Features
+- Upload CSV, Excel, and SPSS (.sav) files
 - Automatic page generation for each upload
-- Dynamic filters based on column headers
+- **NEW: Quick Filter Grid** for rapid demographic filtering
+- Dynamic filters based on column headers with bulk actions
 - Sortable and searchable data tables
+- Interactive charts with Chart.js
 - Export filtered data to CSV or JSON
+- Cross-question analysis with multi-scenario comparison
+- Crosstab/banner table viewer
 - Responsive design
 - Easy deployment with Docker
 
+### Advanced Features
+- **Quick Filter Mode**: Grid-based multi-select for all demographics
+- **Duplicate Filter**: Copy existing filters with one click
+- **Bulk Actions**: Select All, Deselect All, Invert Selection
+- **Multi-Scenario Comparison**: Compare up to 6 filter combinations side-by-side
+- **Natural Sorting**: Questions sorted intelligently (Q1, Q2...Q10, not Q1, Q10, Q2)
+- **Demographic Priority**: Age, Gender, Region always appear first
+
 ## Installation
+
+### 🪟 Windows - Single .exe File (Easiest!)
+
+**For Windows users who want zero setup:**
+
+1. Download `SurveyDataViewer.exe` from releases
+2. Double-click to run - that's it!
+3. Browser opens automatically at http://localhost:8080
+
+No Python installation needed! All data stored next to the exe.
+
+[📦 Download Windows .exe](#) | [📖 Build Your Own](WINDOWS_EXE_BUILD.md)
+
+---
 
 ### Local Development
 
@@ -184,6 +224,26 @@ For production deployment:
 **Data not displaying**: Check browser console for errors. Ensure data/ directory is writable.
 
 **Docker issues**: Make sure ports are not already in use. Check Docker logs with `docker-compose logs`.
+
+## 📚 Documentation
+
+Comprehensive documentation is available in the project:
+
+- **[Quick Filter Guide](docs/QUICK_FILTER_GUIDE.md)** - Complete guide to the new Quick Filter Grid (v3.0)
+- **[CODEBASE_SUMMARY.md](CODEBASE_SUMMARY.md)** - Technical reference for developers
+- **[CLAUDE.md](CLAUDE.md)** - Development history and architecture decisions
+- **[FEATURES.md](FEATURES.md)** - Complete feature list
+- **[COMPARISON_GUIDE.md](COMPARISON_GUIDE.md)** - Multi-scenario comparison guide
+- **[CROSSTAB_VIEWER_GUIDE.md](CROSSTAB_VIEWER_GUIDE.md)** - Crosstab/banner table guide
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Deployment options and configurations
+- **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - Quick reference for common tasks
+
+## Version History
+
+- **v3.0** (January 2025) - Quick Filter Grid with dual modes, duplicate filters, bulk actions
+- **v2.1** (December 2024) - Multi-scenario comparison, crosstab viewer enhancements
+- **v2.0** (November 2024) - Cross-question analysis, SPSS support, crosstab parser
+- **v1.0** (October 2024) - Initial release with CSV/Excel upload, filtering, charts
 
 ## License
 

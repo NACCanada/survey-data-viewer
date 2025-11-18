@@ -1,9 +1,11 @@
 import os
+import sys
 import json
 import uuid
 import sqlite3
 from datetime import datetime
 from functools import wraps
+from pathlib import Path
 from flask import Flask, render_template, request, jsonify, redirect, url_for, session, flash
 from werkzeug.utils import secure_filename
 import pandas as pd
@@ -14,10 +16,34 @@ from crosstab_parser import CrosstabParser
 # Load environment variables
 load_dotenv()
 
+# Handle bundled executable paths
+def get_app_data_path():
+    """Get the base path for data storage (works for both dev and exe)"""
+    # Check if running as bundled exe
+    app_data = os.environ.get('APP_DATA_PATH')
+    if app_data:
+        return Path(app_data)
+
+    # Check if running as frozen exe
+    if getattr(sys, 'frozen', False):
+        return Path(sys.executable).parent
+
+    # Running as script
+    return Path(__file__).parent
+
+# Set base paths
+BASE_PATH = get_app_data_path()
+UPLOAD_FOLDER = BASE_PATH / 'uploads'
+DATA_FOLDER = BASE_PATH / 'data'
+
+# Ensure directories exist
+UPLOAD_FOLDER.mkdir(exist_ok=True)
+DATA_FOLDER.mkdir(exist_ok=True)
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
-app.config['UPLOAD_FOLDER'] = os.getenv('UPLOAD_FOLDER', 'uploads')
-app.config['DATA_FOLDER'] = os.getenv('DATA_FOLDER', 'data')
+app.config['UPLOAD_FOLDER'] = str(UPLOAD_FOLDER)
+app.config['DATA_FOLDER'] = str(DATA_FOLDER)
 app.config['MAX_CONTENT_LENGTH'] = int(os.getenv('MAX_CONTENT_LENGTH', 16 * 1024 * 1024))
 app.config['ALLOWED_EXTENSIONS'] = {'csv', 'xlsx', 'xls', 'sav'}
 app.config['SITE_PASSWORD'] = os.getenv('SITE_PASSWORD', 'changeme')
@@ -33,7 +59,8 @@ def login_required(f):
 
 # Initialize database
 def init_db():
-    conn = sqlite3.connect('data/surveys.db')
+    db_path = DATA_FOLDER / 'surveys.db'
+    conn = sqlite3.connect(str(db_path))
     c = conn.cursor()
     c.execute('''CREATE TABLE IF NOT EXISTS surveys
                  (id TEXT PRIMARY KEY,
@@ -152,7 +179,8 @@ def logout():
 @login_required
 def index():
     """Home page with upload form and list of surveys"""
-    conn = sqlite3.connect('data/surveys.db')
+    db_path = DATA_FOLDER / 'surveys.db'
+    conn = sqlite3.connect(str(db_path))
     c = conn.cursor()
     c.execute('SELECT id, filename, upload_date, row_count, file_type FROM surveys ORDER BY upload_date DESC')
     surveys = [{'id': row[0], 'filename': row[1], 'upload_date': row[2], 'row_count': row[3],
@@ -205,7 +233,8 @@ def upload_file():
                 json.dump(data, f, indent=2, ensure_ascii=False)
 
             # Save metadata to database
-            conn = sqlite3.connect('data/surveys.db')
+            db_path = DATA_FOLDER / 'surveys.db'
+            conn = sqlite3.connect(str(db_path))
             c = conn.cursor()
             c.execute('INSERT INTO surveys VALUES (?, ?, ?, ?, ?, ?)',
                       (survey_id, filename, datetime.now().isoformat(),
@@ -229,7 +258,8 @@ def upload_file():
                 json.dump(data, f, indent=2, ensure_ascii=False)
 
             # Save metadata
-            conn = sqlite3.connect('data/surveys.db')
+            db_path = DATA_FOLDER / 'surveys.db'
+            conn = sqlite3.connect(str(db_path))
             c = conn.cursor()
             c.execute('INSERT INTO surveys VALUES (?, ?, ?, ?, ?, ?)',
                       (survey_id, filename, datetime.now().isoformat(),
@@ -251,7 +281,8 @@ def upload_file():
                 json.dump(data, f)
 
             # Save metadata to database
-            conn = sqlite3.connect('data/surveys.db')
+            db_path = DATA_FOLDER / 'surveys.db'
+            conn = sqlite3.connect(str(db_path))
             c = conn.cursor()
             c.execute('INSERT INTO surveys VALUES (?, ?, ?, ?, ?, ?)',
                       (survey_id, filename, datetime.now().isoformat(),
@@ -268,7 +299,8 @@ def upload_file():
 @login_required
 def view_survey(survey_id):
     """View survey data with filters"""
-    conn = sqlite3.connect('data/surveys.db')
+    db_path = DATA_FOLDER / 'surveys.db'
+    conn = sqlite3.connect(str(db_path))
     c = conn.cursor()
     c.execute('SELECT filename, upload_date, columns, row_count, file_type FROM surveys WHERE id = ?', (survey_id,))
     result = c.fetchone()
@@ -316,7 +348,8 @@ def delete_survey(survey_id):
     """Delete a survey"""
     try:
         # Delete from database
-        conn = sqlite3.connect('data/surveys.db')
+        db_path = DATA_FOLDER / 'surveys.db'
+        conn = sqlite3.connect(str(db_path))
         c = conn.cursor()
         c.execute('DELETE FROM surveys WHERE id = ?', (survey_id,))
         conn.commit()
@@ -342,7 +375,8 @@ def delete_survey(survey_id):
 @login_required
 def view_crosstab(survey_id):
     """View crosstab data"""
-    conn = sqlite3.connect('data/surveys.db')
+    db_path = DATA_FOLDER / 'surveys.db'
+    conn = sqlite3.connect(str(db_path))
     c = conn.cursor()
     c.execute('SELECT filename, upload_date, row_count FROM surveys WHERE id = ?', (survey_id,))
     result = c.fetchone()
@@ -432,7 +466,8 @@ def get_crosstab_question(survey_id, question_id):
 @login_required
 def view_cross_question(survey_id):
     """View cross-question analysis for raw survey data"""
-    conn = sqlite3.connect('data/surveys.db')
+    db_path = DATA_FOLDER / 'surveys.db'
+    conn = sqlite3.connect(str(db_path))
     c = conn.cursor()
     c.execute('SELECT filename, upload_date, row_count FROM surveys WHERE id = ?', (survey_id,))
     result = c.fetchone()
